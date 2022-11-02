@@ -6,11 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <PackageProjectUrl>https://github.com/devinno-kr/LadderEditor</PackageProjectUrl>
+    <PackageProjectUrl></PackageProjectUrl>
     <Authors>Devinno</Authors>
     <Company>Devinno</Company>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <RepositoryUrl />
+    <RepositoryUrl>https://github.com/devinno-kr/LadderEditor</RepositoryUrl>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>

@@ -10,6 +10,7 @@
     <Authors>Devinno</Authors>
     <Company>Devinno</Company>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryUrl />
   </PropertyGroup>
 
   <ItemGroup>

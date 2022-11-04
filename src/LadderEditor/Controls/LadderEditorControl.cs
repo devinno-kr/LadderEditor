@@ -1964,11 +1964,7 @@ namespace LadderEditor.Controls
                 var addr = doc.GetSymbolAddress(itm.Code.Substring(2));
                 if (doc.ValidAddress(addr))
                 {
-                    if (addr.StartsWith("R"))
-                    {
-                        str = itm.WatchF.ToString();
-                    }
-                    else if (addr.StartsWith("P") || addr.StartsWith("M"))
+                    if (addr.StartsWith("P") || addr.StartsWith("M"))
                     {
                         str = itm.Monitor ? "ON" : "OFF";
                     }

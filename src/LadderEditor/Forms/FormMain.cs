@@ -215,7 +215,6 @@ namespace LadderEditor.Forms
                     CurrentDocument.T_Count = ret.T_Count;
                     CurrentDocument.C_Count = ret.C_Count;
                     CurrentDocument.D_Count = ret.D_Count;
-                    CurrentDocument.R_Count = ret.R_Count;
                     CurrentDocument.Symbols.Clear();
                     CurrentDocument.Symbols.AddRange(ret.Symbols);
 

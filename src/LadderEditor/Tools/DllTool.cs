@@ -69,7 +69,7 @@ namespace LadderEditor.Tools
                 {
                     foreach (var tp in asm.GetTypes())
                     {
-                        var lib = tp.GetInterface("Devinno.PLC.Library.ILadderLibrary");
+                        var lib = tp.GetInterface("Devinno.PLC.Interface.ILadderLibrary");
                         if (lib != null && !tp.IsAbstract && tp.IsClass)
                         {
                             var v = asm.CreateInstance(tp.FullName) as ILadderLibrary;

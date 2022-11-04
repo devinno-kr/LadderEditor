@@ -37,7 +37,6 @@ namespace LadderEditor.Forms
             this.lblT = new Devinno.Forms.Controls.DvValueLabelInt();
             this.lblC = new Devinno.Forms.Controls.DvValueLabelInt();
             this.lblD = new Devinno.Forms.Controls.DvValueLabelInt();
-            this.lblR = new Devinno.Forms.Controls.DvValueLabelInt();
             this.lblTitleSymbol = new Devinno.Forms.Controls.DvLabel();
             this.dg = new Devinno.Forms.Controls.DvDataGrid();
             this.dvContainer1 = new Devinno.Forms.Containers.DvContainer();
@@ -84,7 +83,6 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel2.Controls.Add(this.lblT, 0, 3);
             this.dvTableLayoutPanel2.Controls.Add(this.lblC, 0, 4);
             this.dvTableLayoutPanel2.Controls.Add(this.lblD, 0, 5);
-            this.dvTableLayoutPanel2.Controls.Add(this.lblR, 0, 6);
             this.dvTableLayoutPanel2.Controls.Add(this.lblTitleSymbol, 2, 0);
             this.dvTableLayoutPanel2.Controls.Add(this.dg, 2, 1);
             this.dvTableLayoutPanel2.Controls.Add(this.dvContainer1, 2, 8);
@@ -299,40 +297,6 @@ namespace LadderEditor.Forms
             this.lblD.UnitWidth = null;
             this.lblD.Value = 0;
             this.lblD.ValueColor = null;
-            // 
-            // lblR
-            // 
-            this.lblR.Button = null;
-            this.lblR.ButtonColor = null;
-            this.lblR.ButtonIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.lblR.ButtonIconGap = 0;
-            this.lblR.ButtonIconImage = null;
-            this.lblR.ButtonIconSize = 12F;
-            this.lblR.ButtonIconString = "fa-pen-to-square";
-            this.lblR.ButtonTextPadding = new System.Windows.Forms.Padding(0);
-            this.lblR.ButtonWidth = 40;
-            this.lblR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblR.FormatString = null;
-            this.lblR.Location = new System.Drawing.Point(3, 219);
-            this.lblR.Name = "lblR";
-            this.lblR.Round = null;
-            this.lblR.ShadowGap = 1;
-            this.lblR.Size = new System.Drawing.Size(214, 30);
-            this.lblR.TabIndex = 7;
-            this.lblR.Text = "R";
-            this.lblR.Title = "R";
-            this.lblR.TitleColor = null;
-            this.lblR.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.lblR.TitleIconGap = 0;
-            this.lblR.TitleIconImage = null;
-            this.lblR.TitleIconSize = 12F;
-            this.lblR.TitleIconString = "";
-            this.lblR.TitleTextPadding = new System.Windows.Forms.Padding(0);
-            this.lblR.TitleWidth = 60;
-            this.lblR.Unit = "";
-            this.lblR.UnitWidth = null;
-            this.lblR.Value = 0;
-            this.lblR.ValueColor = null;
             // 
             // lblTitleSymbol
             // 
@@ -633,7 +597,6 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvValueLabelInt lblT;
         private Devinno.Forms.Controls.DvValueLabelInt lblC;
         private Devinno.Forms.Controls.DvValueLabelInt lblD;
-        private Devinno.Forms.Controls.DvValueLabelInt lblR;
         private Devinno.Forms.Controls.DvControl dvControl1;
         private Devinno.Forms.Controls.DvLabel lblTitleSymbol;
         private Devinno.Forms.Controls.DvDataGrid dg;

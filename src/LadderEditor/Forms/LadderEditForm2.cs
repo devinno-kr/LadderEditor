@@ -296,7 +296,7 @@ namespace LadderEditor.Forms
                 }
                 if (!bCode)
                 {
-                    var fn = txt.Text.Split(' ').FirstOrDefault()?.ToUpper();
+                    var fn = txt.Text.Split('(').FirstOrDefault()?.ToUpper()?.Trim();
 
                     if (fn != null && Dic != null && Dic.ContainsKey(fn))
                         lblDesc.Text = Dic[fn];

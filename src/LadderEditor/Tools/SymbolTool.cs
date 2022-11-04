@@ -32,7 +32,7 @@ namespace LadderEditor.Tools
                             var code = addr.Substring(0, 1).ToUpper();
                             var ns = addr.Substring(1);
                             var cnt = GetCount(Data, code);
-                            if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D" || code == "R"))
+                            if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D"))
                             {
                                 if (int.TryParse(ns, out n) && n >= 0 && n < cnt)
                                 {
@@ -92,7 +92,7 @@ namespace LadderEditor.Tools
                     var code = addr.Substring(0, 1).ToUpper();
                     var ns = addr.Substring(1);
                     var cnt = GetCount(Data, code);
-                    if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D" || code == "R"))
+                    if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D"))
                     {
                         if (int.TryParse(ns, out n) && n >= 0 && n < cnt)
                         {
@@ -136,7 +136,6 @@ namespace LadderEditor.Tools
                 case "T": ret = Data.T_Count; break;
                 case "C": ret = Data.C_Count; break;
                 case "D": ret = Data.D_Count; break;
-                case "R": ret = Data.R_Count; break;
             }
             return ret;
         }
@@ -151,13 +150,13 @@ namespace LadderEditor.Tools
                 case "T": ret = Doc.T_Count; break;
                 case "C": ret = Doc.C_Count; break;
                 case "D": ret = Doc.D_Count; break;
-                case "R": ret = Doc.R_Count; break;
             }
             return ret;
         }
         #endregion
     }
 
+    #region SymbolInputLineCheck
     public class SymbolInputLineCheck
     {
         public string SymbolName { get; set; }
@@ -166,10 +165,12 @@ namespace LadderEditor.Tools
         public bool Success { get; set; }
         public string Message { get; set; }
     }
-
+    #endregion
+    #region SymbolAddressCheck
     public class SymbolAddressCheck
     {
         public bool Success { get; set; }
         public string Message { get; set; }
     }
+    #endregion
 }

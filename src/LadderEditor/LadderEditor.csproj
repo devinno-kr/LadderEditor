@@ -16,12 +16,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="release\**" />
+    <EmbeddedResource Remove="release\**" />
+    <None Remove="release\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controls\LadderEditorControl.Old.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Devinno.Forms" Version="1.1.0" />
     <PackageReference Include="GuiLabs.Undo" Version="1.0.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.3.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,12 +64,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Devinno.PLC">
-      <HintPath>..\..\..\Devinno.PLC\Devinno.PLC\bin\Debug\net5.0\Devinno.PLC.dll</HintPath>
-    </Reference>
-    <Reference Include="Devinno.PLC.Interface">
-      <HintPath>..\..\..\Devinno.PLC\Devinno.PLC\bin\Debug\net5.0\Devinno.PLC.Interface.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\..\Devinno.PLC\Devinno.PLC.Interface\Devinno.PLC.Interface.csproj" />
+    <ProjectReference Include="..\..\..\Devinno.PLC\Devinno.PLC\Devinno.PLC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,9 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,6 +45,11 @@ namespace LadderEditor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            var r = "^(?<FunctionName>\\w+)\\((?>(?(param),)(?<param>(?>(?>[^\\(\\),\"]|(?<p>\\()|(?<-p>\\))|(?(p)[^\\(\\)]|(?!))|(?(g)(?:\"\"|[^\"]|(?<-g>\"))|(?!))|(?<g>\")))*))+\\)$";
+            var s1 = "(someFunc(a,b,func1(a,b+c),func2(a*b,func3(a+b,c)),func4(e)+func5(f),func6(func7(g,h)+func8(i,(a)=>a+2)),g+2))";
+            var s2 = "f1(123,\"df\"\"j\"\" , dhf\",abc12,func2(),func(123,a>2))";
+            Parse(s1);
+
             #region Fonts 
             Fonts = new PrivateFontCollection();
             var ba = Properties.Resources.NanumGothic;
@@ -73,6 +80,36 @@ namespace LadderEditor
 
             Application.Run(MainForm);
         }
+
+        static void Parse(string s)
+        {
+            var regFunc = @"\b[^()]+\((.*)\)$";
+            var regArgs = @"(?:[^,()]+((?:\((?>[^()]+|\((?<open>)|\)(?<-open>))*\)))*)+";
+
+            var match = Regex.Match(s, regFunc);
+            if (match.Success && match.Groups.Count >= 2)
+            {
+                var sFunc = match.Groups[0].Value;
+                var sArgs = match.Groups[1].Value;
+                var matches = Regex.Matches(sArgs, regArgs);
+
+                var bsucs = matches.Where(x => x.Success).Count() == matches.Count;
+                if (bsucs)
+                {
+                    var name = sFunc.Substring(0, sFunc.IndexOf('('));
+                    var args = matches.Select(x => x.Value).ToArray();
+                }
+            }
+        }
+
+        class BI
+        {
+            public int StartIndex { get; set; }
+            public int EndIndex { get; set; }
+        }
+
+
+
 
         #region Static Method
         public static Font CreateFont(float size) => new Font(Fonts.Families[0], size);

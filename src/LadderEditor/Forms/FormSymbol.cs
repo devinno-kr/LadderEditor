@@ -30,7 +30,6 @@ namespace LadderEditor.Forms
             public int T_Count { get; set; } = LadderBase.MAX_T_COUNT;
             public int C_Count { get; set; } = LadderBase.MAX_C_COUNT;
             public int D_Count { get; set; } = LadderBase.MAX_D_COUNT;
-            public int R_Count { get; set; } = LadderBase.MAX_R_COUNT;
 
             public List<SymbolInfo> Symbols { get; set; } = new List<SymbolInfo>();
         }
@@ -69,7 +68,6 @@ namespace LadderEditor.Forms
             lblT.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("T 영역 크기", Data.T_Count, 128, LadderBase.MAX_T_COUNT); if (r.HasValue) Data.T_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
             lblC.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("C 영역 크기", Data.C_Count, 128, LadderBase.MAX_C_COUNT); if (r.HasValue) Data.C_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
             lblD.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("D 영역 크기", Data.D_Count, 64, LadderBase.MAX_D_COUNT); if (r.HasValue) Data.D_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            lblR.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("R 영역 크기", Data.R_Count, 64, LadderBase.MAX_R_COUNT); if (r.HasValue) Data.R_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
             #endregion
             #region btn[OK/Cancel].ButtonClick
             btnOK.ButtonClick += (o, s) => { if (ValidCheck()) DialogResult = DialogResult.OK; };
@@ -197,7 +195,6 @@ namespace LadderEditor.Forms
                 lblT.Value = Data.T_Count;
                 lblC.Value = Data.C_Count;
                 lblD.Value = Data.D_Count;
-                lblR.Value = Data.R_Count;
 
                 dg.SetDataSource<SymbolInfo>(Data.Symbols);
                 dg.Invalidate();
@@ -266,7 +263,6 @@ namespace LadderEditor.Forms
                 case "T": ret = Data.T_Count; break;
                 case "C": ret = Data.C_Count; break;
                 case "D": ret = Data.D_Count; break;
-                case "R": ret = Data.R_Count; break;
             }
             return ret;
         }
@@ -287,7 +283,6 @@ namespace LadderEditor.Forms
                 Data.T_Count = doc.T_Count;
                 Data.C_Count = doc.C_Count;
                 Data.D_Count = doc.D_Count;
-                Data.R_Count = doc.R_Count;
                 Data.Symbols = doc.Symbols.Select(x => new SymbolInfo() { SymbolName = x.SymbolName, Address = x.Address }).ToList();
             }
             Set();

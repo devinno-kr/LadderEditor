@@ -21,7 +21,7 @@ using ThreadStart = System.Threading.ThreadStart;
 
 namespace LadderEditor.Forms
 {
-    public partial class LadderEditForm2 : DvForm
+    public partial class LadderEditForm : DvForm
     {
         #region Const
         #endregion
@@ -40,7 +40,7 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Constructor
-        public LadderEditForm2()
+        public LadderEditForm()
         {
             InitializeComponent();
 
@@ -226,7 +226,8 @@ namespace LadderEditor.Forms
                 {
                     #region Expand Code
                     var s = txt.Text;
-                    var wds = LadderTool.GetWordsForCode(txt.Text);
+                    //var wds = LadderTool.GetWordsForCode(txt.Text);
+                    var wds = LadderTool.GetWords(txt.Text);
                     if (Program.MainForm.CurrentDocument != null)
                     {
                         foreach (var v in wds)

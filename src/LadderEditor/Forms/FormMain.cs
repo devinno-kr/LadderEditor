@@ -286,6 +286,12 @@ namespace LadderEditor.Forms
                 }
             };
             #endregion
+
+            #region tsmi[DEC/HEX/BIN].Click
+            tsmiDEC.Click += (o, s) => { ladder.LadderDisplayType = LadderDisplayKinds.DEC; ladder.Invalidate(); };
+            tsmiHEX.Click += (o, s) => { ladder.LadderDisplayType = LadderDisplayKinds.HEX; ladder.Invalidate(); };
+            tsmiBIN.Click += (o, s) => { ladder.LadderDisplayType = LadderDisplayKinds.BIN; ladder.Invalidate(); };
+            #endregion
             #endregion
 
             #region ToolTip
@@ -309,6 +315,7 @@ namespace LadderEditor.Forms
 
             //SetExComposited();
             #endregion
+
         }
         #endregion
 

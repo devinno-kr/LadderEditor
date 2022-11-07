@@ -1,7 +1,7 @@
 ﻿
 namespace LadderEditor.Forms
 {
-    partial class LadderEditForm2
+    partial class LadderEditForm
     {
         /// <summary>
         /// Required designer variable.

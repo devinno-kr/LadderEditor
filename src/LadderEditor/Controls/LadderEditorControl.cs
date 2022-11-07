@@ -282,7 +282,7 @@ namespace LadderEditor.Controls
         Point selprev;
         #endregion
         #region Form
-        LadderEditForm2 frmEdit = new LadderEditForm2();
+        LadderEditForm frmEdit = new LadderEditForm();
         #endregion
         #region Timer
         Timer tmr = new Timer();
@@ -1198,10 +1198,59 @@ namespace LadderEditor.Controls
             s += (v & 8) == 8 ? "1" : "0";
             s += (v & 4) == 4 ? "1" : "0";
             s += (v & 2) == 2 ? "1" : "0";
-            s += (v & 2) == 1 ? "1" : "0";
+            s += (v & 1) == 1 ? "1" : "0";
 
             bool b = false;
             for (int i = 0; i < 16; i++)
+            {
+                if (s[i] == '1') { b = true; r += s[i]; }
+                else if (s[i] == '0' && b) { r += s[i]; }
+            }
+            return r == "" ? "0" : r;
+        }
+
+        string GetBin(long n)
+        {
+            string r = "", s = "";
+            var v = n & 0xFFFF;
+
+            s += (v & 2147483648) == 2147483648 ? "1" : "0";
+            s += (v & 1073741824) == 1073741824 ? "1" : "0";
+            s += (v & 536870912) == 536870912 ? "1" : "0";
+            s += (v & 268435456) == 268435456 ? "1" : "0";
+            s += (v & 134217728) == 134217728 ? "1" : "0";
+            s += (v & 67108864) == 67108864 ? "1" : "0";
+            s += (v & 33554432) == 33554432 ? "1" : "0";
+            s += (v & 16777216) == 16777216 ? "1" : "0";
+            s += (v & 8388608) == 8388608 ? "1" : "0";
+            s += (v & 4194304) == 4194304 ? "1" : "0";
+            s += (v & 2097152) == 2097152 ? "1" : "0";
+            s += (v & 1048576) == 1048576 ? "1" : "0";
+            s += (v & 524288) == 524288 ? "1" : "0";
+            s += (v & 262144) == 262144 ? "1" : "0";
+            s += (v & 131072) == 131072 ? "1" : "0";
+            s += (v & 65536) == 65536 ? "1" : "0";
+
+            s += (v & 32768) == 32768 ? "1" : "0";
+            s += (v & 16384) == 16384 ? "1" : "0";
+            s += (v & 8192) == 8192 ? "1" : "0";
+            s += (v & 4096) == 4096 ? "1" : "0";
+            s += (v & 2048) == 2048 ? "1" : "0";
+            s += (v & 1024) == 1024 ? "1" : "0";
+            s += (v & 512) == 512 ? "1" : "0";
+            s += (v & 256) == 256 ? "1" : "0";
+            s += (v & 128) == 128 ? "1" : "0";
+            s += (v & 64) == 64 ? "1" : "0";
+            s += (v & 32) == 32 ? "1" : "0";
+            s += (v & 16) == 16 ? "1" : "0";
+            s += (v & 8) == 8 ? "1" : "0";
+            s += (v & 4) == 4 ? "1" : "0";
+            s += (v & 2) == 2 ? "1" : "0";
+            s += (v & 1) == 1 ? "1" : "0";
+
+
+            bool b = false;
+            for (int i = 0; i < 32; i++)
             {
                 if (s[i] == '1') { b = true; r += s[i]; }
                 else if (s[i] == '0' && b) { r += s[i]; }
@@ -1964,17 +2013,41 @@ namespace LadderEditor.Controls
                 var addr = doc.GetSymbolAddress(itm.Code.Substring(2));
                 if (doc.ValidAddress(addr))
                 {
-                    if (addr.StartsWith("P") || addr.StartsWith("M"))
+                    AddressInfo r;
+                    if (AddressInfo.TryParse(addr, out r))
                     {
-                        str = itm.Monitor ? "ON" : "OFF";
-                    }
-                    else
-                    {
-                        switch (LadderDisplayType)
+                        if (r.Type == AddressType.BIT_WORD || r.Type == AddressType.BIT)
                         {
-                            case LadderDisplayKinds.HEX: str = "0x" + itm.Watch.ToString("X4"); break;
-                            case LadderDisplayKinds.DEC: str = itm.Watch.ToString(); break;
-                            case LadderDisplayKinds.BIN: str = GetBin(itm.Watch); break;
+                            str = itm.Monitor ? "ON" : "OFF";
+                        }
+                        else
+                        {
+                            if (r.Type == AddressType.WORD)
+                            {
+                                switch (LadderDisplayType)
+                                {
+                                    case LadderDisplayKinds.HEX: str = "0x" + itm.Watch.ToString("X4"); break;
+                                    case LadderDisplayKinds.DEC: str = itm.Watch.ToString(); break;
+                                    case LadderDisplayKinds.BIN: str = GetBin(itm.Watch); break;
+                                }
+                            }
+                            else if (r.Type == AddressType.DWORD)
+                            {
+                                switch (LadderDisplayType)
+                                {
+                                    case LadderDisplayKinds.HEX: str = "0x" + itm.WatchL.ToString("X8"); break;
+                                    case LadderDisplayKinds.DEC: str = itm.WatchL.ToString(); break;
+                                    case LadderDisplayKinds.BIN: str = GetBin(itm.WatchL); break;
+                                }
+                            }
+                            else if (r.Type == AddressType.FLOAT)
+                            {
+                                str = itm.WatchF.ToString();
+                            }
+                            else if(r.Type == AddressType.TEXT)
+                            {
+                                str = itm.WatchT;
+                            }
                         }
                     }
                 }
@@ -2795,6 +2868,10 @@ namespace LadderEditor.Controls
                                 MonitorValues.Add(v.Row + "," + v.Col, new MonitorValue(v) { ValueType = MonitorValueKinds.WORD });
                             else if (addr.Type == AddressType.FLOAT)
                                 MonitorValues.Add(v.Row + "," + v.Col, new MonitorValue(v) { ValueType = MonitorValueKinds.FLOAT });
+                            else if (addr.Type == AddressType.DWORD)
+                                MonitorValues.Add(v.Row + "," + v.Col, new MonitorValue(v) { ValueType = MonitorValueKinds.DWORD });
+                            else if (addr.Type == AddressType.TEXT)
+                                MonitorValues.Add(v.Row + "," + v.Col, new MonitorValue(v) { ValueType = MonitorValueKinds.TEXT });
                             else if (addr.Type == AddressType.BIT || addr.Type == AddressType.BIT_WORD)
                                 MonitorValues.Add(v.Row + "," + v.Col, new MonitorValue(v) { ValueType = MonitorValueKinds.CONTACT });
                         }
@@ -2852,6 +2929,22 @@ namespace LadderEditor.Controls
 
                         var itm = GetLadder(v.Row, v.Column);
                         if (itm != null) { itm.WatchF = mon.Float; }
+                    }
+
+                    if (v.Type == DebugInfoType.DWord && mon.ValueType == MonitorValueKinds.DWORD)
+                    {
+                        mon.DWord = v.DWord;
+
+                        var itm = GetLadder(v.Row, v.Column);
+                        if (itm != null) { itm.WatchL = mon.DWord; }
+                    }
+
+                    if (v.Type == DebugInfoType.Text && mon.ValueType == MonitorValueKinds.TEXT)
+                    {
+                        mon.Text = v.Text;
+
+                        var itm = GetLadder(v.Row, v.Column);
+                        if (itm != null) { itm.WatchT = mon.Text; }
                     }
                 }
             }
@@ -3034,6 +3127,8 @@ namespace LadderEditor.Controls
         public float Float { get; set; }
         public int Timer { get; set; }
         public bool Contact { get; set; }
+        public long DWord { get; set; }
+        public string Text { get; set; }
         public int Row { get { return (Item != null ? Item.Row : -1); } }
         public int Col { get { return (Item != null ? Item.Col : -1); } }
         public LadderItem Item { get; private set; }
@@ -3112,7 +3207,7 @@ namespace LadderEditor.Controls
     #endregion
     #region enums
     #region enum : MonitorValueKinds
-    public enum MonitorValueKinds { WORD, CONTACT, TIMER, FLOAT }
+    public enum MonitorValueKinds { WORD, CONTACT, TIMER, FLOAT, DWORD, TEXT }
     #endregion
     #region enum : LadderDisplayKinds
     public enum LadderDisplayKinds { DEC, HEX, BIN }

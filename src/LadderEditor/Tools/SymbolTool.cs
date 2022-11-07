@@ -20,55 +20,64 @@ namespace LadderEditor.Tools
             {
                 var vlsName = Data.Symbols.Select(x => x.SymbolName);
                 var vlsAddress = Data.Symbols.Select(x => x.Address);
-                var addr = ls[0].ToUpper();
+                var saddr = ls[0].ToUpper();
                 var name = ls[1];
-                if (!vlsName.Contains(name))
+
+                AddressInfo addr;
+                if (AddressInfo.TryParse(saddr, out addr))
                 {
-                    if (!vlsAddress.Contains(addr))
+                    if (!vlsName.Contains(name))
                     {
-                        if (addr.Length >= 2)
+                        if (!vlsAddress.Contains(saddr))
                         {
-                            int n;
-                            var code = addr.Substring(0, 1).ToUpper();
-                            var ns = addr.Substring(1);
-                            var cnt = GetCount(Data, code);
-                            if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D"))
+                            if (saddr.Length >= 2)
                             {
-                                if (int.TryParse(ns, out n) && n >= 0 && n < cnt)
+                                int n;
+                                var code = addr.Code;
+                                var cnt = GetCount(Data, code);
+                                if ((code == "P" || code == "M" || code == "T" || code == "C" || code == "D"))
                                 {
-                                    ret.SymbolName = name;
-                                    ret.Address = addr;
-                                    ret.Success = true;
-                                    ret.Message = "";
+                                    if (addr.Index >= 0 && addr.Index < cnt)
+                                    {
+                                        ret.SymbolName = name;
+                                        ret.Address = saddr;
+                                        ret.Success = true;
+                                        ret.Message = "";
+                                    }
+                                    else
+                                    {
+                                        ret.Success = false;
+                                        ret.Message = code + "영역은 0 ~ " + (cnt - 1) + " 까지 사용 가능합니다.";
+                                    }
                                 }
                                 else
                                 {
                                     ret.Success = false;
-                                    ret.Message = code + "영역은 0 ~ " + (cnt - 1) + " 까지 사용 가능합니다.";
+                                    ret.Message = "유효한 영역 코드가 아닙니다.";
                                 }
                             }
                             else
                             {
                                 ret.Success = false;
-                                ret.Message = "유효한 영역 코드가 아닙니다.";
+                                ret.Message = "잘못된 주소입니다.";
                             }
                         }
                         else
                         {
                             ret.Success = false;
-                            ret.Message = "잘못된 주소입니다.";
+                            ret.Message = "이미 존재하는 주소입니다.";
                         }
                     }
                     else
                     {
                         ret.Success = false;
-                        ret.Message = "이미 존재하는 주소입니다.";
+                        ret.Message = "이미 존재하는 이름입니다.";
                     }
                 }
                 else
                 {
                     ret.Success = false;
-                    ret.Message = "이미 존재하는 이름입니다.";
+                    ret.Message = "잘못된 주소입니다.";
                 }
             }
             else

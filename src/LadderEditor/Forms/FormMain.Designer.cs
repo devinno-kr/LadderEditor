@@ -66,6 +66,10 @@ namespace LadderEditor.Forms
             this.pnlToolBar = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.lblConnection = new Devinno.Forms.Controls.DvValueLabelText();
             this.btnReference = new Devinno.Forms.Controls.DvButton();
+            this.cmsDis = new Devinno.Forms.Menus.DvContextMenuStrip();
+            this.tsmiDEC = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiHEX = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBIN = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlStatus.SuspendLayout();
             this.splitter.SuspendLayout();
             this.pnlMessage.SuspendLayout();
@@ -73,6 +77,7 @@ namespace LadderEditor.Forms
             this.pnlTop.SuspendLayout();
             this.pnlLD.SuspendLayout();
             this.pnlToolBar.SuspendLayout();
+            this.cmsDis.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlStatus
@@ -518,6 +523,7 @@ namespace LadderEditor.Forms
             this.ladder.AllowDrop = true;
             this.ladder.BoxColor = null;
             this.ladder.ColumnCount = 15;
+            this.ladder.ContextMenuStrip = this.cmsDis;
             this.ladder.CurX = 0;
             this.ladder.CurY = 0;
             this.ladder.Debug = false;
@@ -910,6 +916,35 @@ namespace LadderEditor.Forms
             this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnReference.UseKey = false;
             // 
+            // cmsDis
+            // 
+            this.cmsDis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cmsDis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.cmsDis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDEC,
+            this.tsmiHEX,
+            this.tsmiBIN});
+            this.cmsDis.Name = "cmsDis";
+            this.cmsDis.Size = new System.Drawing.Size(126, 70);
+            // 
+            // tsmiDEC
+            // 
+            this.tsmiDEC.Name = "tsmiDEC";
+            this.tsmiDEC.Size = new System.Drawing.Size(125, 22);
+            this.tsmiDEC.Text = "DEC 표시";
+            // 
+            // tsmiHEX
+            // 
+            this.tsmiHEX.Name = "tsmiHEX";
+            this.tsmiHEX.Size = new System.Drawing.Size(125, 22);
+            this.tsmiHEX.Text = "HEX 표시";
+            // 
+            // tsmiBIN
+            // 
+            this.tsmiBIN.Name = "tsmiBIN";
+            this.tsmiBIN.Size = new System.Drawing.Size(125, 22);
+            this.tsmiBIN.Text = "BIN 표시";
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -933,6 +968,7 @@ namespace LadderEditor.Forms
             this.pnlTop.ResumeLayout(false);
             this.pnlLD.ResumeLayout(false);
             this.pnlToolBar.ResumeLayout(false);
+            this.cmsDis.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -974,5 +1010,9 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvButton btnUpload;
         private Devinno.Forms.Controls.DvButton btnMonitoring;
         private Devinno.Forms.Controls.DvButton btnReference;
+        private Devinno.Forms.Menus.DvContextMenuStrip cmsDis;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDEC;
+        private System.Windows.Forms.ToolStripMenuItem tsmiHEX;
+        private System.Windows.Forms.ToolStripMenuItem tsmiBIN;
     }
 }

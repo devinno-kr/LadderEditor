@@ -26,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Devinno.Forms" Version="1.1.0" />
+    <PackageReference Include="Devinno.Forms" Version="1.1.0.2" />
+    <PackageReference Include="Devinno.PLC" Version="1.0.0" />
+    <PackageReference Include="Devinno.PLC.Interface" Version="1.0.0" />
     <PackageReference Include="GuiLabs.Undo" Version="1.0.2" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.3.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
@@ -61,11 +63,6 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="..\..\README.md" Link="README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Devinno.PLC\Devinno.PLC.Interface\Devinno.PLC.Interface.csproj" />
-    <ProjectReference Include="..\..\..\Devinno.PLC\Devinno.PLC\Devinno.PLC.csproj" />
   </ItemGroup>
 
 </Project>

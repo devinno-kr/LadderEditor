@@ -1,9 +1,13 @@
 using Devinno.Forms.Dialogs;
+using Devinno.Forms.Extensions;
+using Devinno.Forms.Icons;
+using Devinno.Forms.Tools;
 using LadderEditor.Forms;
 using LadderEditor.Managers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;

@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/devinno-kr/LadderEditor</RepositoryUrl>
     <PackageIcon></PackageIcon>
     <PackageIconUrl />
+    <ApplicationIcon>Resources\vlogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

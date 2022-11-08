@@ -1,5 +1,6 @@
 ﻿using Devinno.Forms.Dialogs;
 using Devinno.Forms.Icons;
+using Devinno.Forms.Tools;
 using Devinno.PLC.Ladder;
 using LadderEditor.Tools;
 using System;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,9 +48,11 @@ namespace LadderEditor.Forms
             #region Icon
             Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             #endregion
+
+            DwmTool.SetTheme(txt.Handle, true);
         }
         #endregion
-
+ 
         #region Method
         #region ValidCheck
         bool ValidCheck()
@@ -83,14 +87,14 @@ namespace LadderEditor.Forms
                         else
                         {
                             ret &= r.Success;
-                            txt.OriginalTextBox.Select();
-                            txt.OriginalTextBox.SelectionStart = offset;
-                            txt.OriginalTextBox.SelectionLength = v.Length;
+                            txt.Select();
+                            txt.SelectionStart = offset;
+                            txt.SelectionLength = v.Length;
                             lblMessage.Text = r.Message;
                             break;
                         }
                     }
-                    offset += v.Length + (!sr.EndOfStream ? 1 : 0);
+                    offset += v.Length + (!sr.EndOfStream ? 2 : 0);
                 }
             }
 
@@ -101,7 +105,7 @@ namespace LadderEditor.Forms
         public Result ShowSymbolImport(FormSymbol.Result Data)
         {
             this.Data = Data;
-            txt.Text = "";
+            txt.Text = string.Concat(Data.Symbols.Select(x => x.Address + " " + x.SymbolName + "\r\n"));
             Result ret = null;
             if (this.ShowDialog() == DialogResult.OK)
             {

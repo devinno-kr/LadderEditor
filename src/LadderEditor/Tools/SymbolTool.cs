@@ -26,9 +26,10 @@ namespace LadderEditor.Tools
                 AddressInfo addr;
                 if (AddressInfo.TryParse(saddr, out addr))
                 {
-                    if (!vlsName.Contains(name))
+                    var vc = vlsName.Where(x => x == name).Count();
+                    if (vlsName.Where(x=>x == name).Count() <= 1)
                     {
-                        if (!vlsAddress.Contains(saddr))
+                        if (vlsAddress.Where(x => x == saddr).Count() <= 1)
                         {
                             if (saddr.Length >= 2)
                             {

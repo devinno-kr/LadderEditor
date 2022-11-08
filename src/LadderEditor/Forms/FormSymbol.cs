@@ -48,8 +48,8 @@ namespace LadderEditor.Forms
             InitializeComponent();
 
             #region DataGrid
-            dg.Columns.Add(new DvDataGridEditTextColumn(dg) { Name = "Address", HeaderText = "주소", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
-            dg.Columns.Add(new DvDataGridEditTextColumn(dg) { Name = "SymbolName", HeaderText = "명칭", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
+            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Address", HeaderText = "주소", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
+            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "SymbolName", HeaderText = "명칭", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
             dg.ColumnColor = Color.FromArgb(30, 30, 30);
             dg.SelectionMode = DvDataGridSelectionMode.Selector;
             #endregion
@@ -87,6 +87,7 @@ namespace LadderEditor.Forms
                 var ret = frmSymbolImport.ShowSymbolImport(Data);
                 if (ret != null)
                 {
+                    Data.Symbols.Clear();
                     Data.Symbols.AddRange(ret.List);
                     Set();
                 }
@@ -100,68 +101,6 @@ namespace LadderEditor.Forms
                 {
                     Add();
                 }
-            };
-            #endregion
-            #region dg.ValueChanged
-            dg.ValueChanged += (o, s) => {
-
-                var vls = Data.Symbols.Select(x => x.SymbolName);
-
-                var src = s.Cell.Row.Source as SymbolInfo;
-                if (s.Cell.Column.Name == "SymbolName")
-                {
-                    if (vls.Contains(s.NewValue))
-                    {
-                        s.Cell.Value = s.OldValue;
-                        src.SymbolName = (string)s.OldValue;
-
-                        var th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                Block = true;
-                                Program.MessageBox.ShowMessageBoxOk("입력", "동일한 명칭의 이름이 존재합니다.");
-                                Block = false;
-                            }));
-                        }))
-                        { IsBackground = true };
-                        th.Start();
-                    }
-                    else
-                    {
-                        s.Cell.Value = s.NewValue;
-                        src.SymbolName = (string)s.NewValue;
-                    }
-                }
-                else if (s.Cell.Column.Name == "Address")
-                {
-                    var v = ((string)s.NewValue).ToUpper();
-
-                    var ret = SymbolTool.AddressCheck(Data, v);
-                    if (ret.Success)
-                    {
-                        s.Cell.Value = v;
-                        src.Address = v;
-                    }
-                    else
-                    {
-                        s.Cell.Value = s.OldValue;
-                        src.SymbolName = (string)s.OldValue;
-                        var th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                Block = true;
-                                Program.MessageBox.ShowMessageBoxOk("입력", ret.Message);
-                                Block = false;
-                            }));
-                        }))
-                        { IsBackground = true };
-                        th.Start();
-
-                    }
-                }
-
             };
             #endregion
 
@@ -297,8 +236,6 @@ namespace LadderEditor.Forms
             return ret;
         }
         #endregion
-
         #endregion
     }
-
 }

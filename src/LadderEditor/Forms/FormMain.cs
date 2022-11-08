@@ -6,6 +6,7 @@ using Devinno.Forms.Dialogs;
 using Devinno.Forms.Extensions;
 using Devinno.Forms.Icons;
 using Devinno.Forms.Themes;
+using Devinno.Forms.Tools;
 using Devinno.PLC.Ladder;
 using Devinno.Tools;
 using LadderEditor.Controls;
@@ -314,6 +315,7 @@ namespace LadderEditor.Forms
             Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
 
             //SetExComposited();
+
             #endregion
 
         }

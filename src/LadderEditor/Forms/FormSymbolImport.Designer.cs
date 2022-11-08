@@ -30,7 +30,7 @@ namespace LadderEditor.Forms
         private void InitializeComponent()
         {
             this.dvContainer1 = new Devinno.Forms.Containers.DvContainer();
-            this.txt = new Devinno.Forms.Controls.DvTextBox();
+            this.txt = new System.Windows.Forms.TextBox();
             this.dvLabel3 = new Devinno.Forms.Controls.DvLabel();
             this.dvControl2 = new Devinno.Forms.Controls.DvControl();
             this.lblMessage = new Devinno.Forms.Controls.DvLabel();
@@ -39,13 +39,15 @@ namespace LadderEditor.Forms
             this.btnCancel = new Devinno.Forms.Controls.DvButton();
             this.btnOK = new Devinno.Forms.Controls.DvButton();
             this.dvLabel1 = new Devinno.Forms.Controls.DvLabel();
+            this.dvBoxPanel1 = new Devinno.Forms.Containers.DvBoxPanel();
             this.dvContainer1.SuspendLayout();
             this.dvTableLayoutPanel1.SuspendLayout();
+            this.dvBoxPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dvContainer1
             // 
-            this.dvContainer1.Controls.Add(this.txt);
+            this.dvContainer1.Controls.Add(this.dvBoxPanel1);
             this.dvContainer1.Controls.Add(this.dvLabel3);
             this.dvContainer1.Controls.Add(this.dvControl2);
             this.dvContainer1.Controls.Add(this.lblMessage);
@@ -63,25 +65,16 @@ namespace LadderEditor.Forms
             // 
             // txt
             // 
-            this.txt.BorderColor = null;
-            this.txt.ContentAlignment = Devinno.Forms.DvContentAlignment.TopLeft;
+            this.txt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt.InputType = Devinno.Forms.DvTextBoxType.Text;
-            this.txt.Location = new System.Drawing.Point(7, 40);
-            this.txt.MaxLength = 32767;
-            this.txt.MinusInput = false;
-            this.txt.MultiLine = true;
+            this.txt.ForeColor = System.Drawing.Color.White;
+            this.txt.Location = new System.Drawing.Point(10, 10);
+            this.txt.Multiline = true;
             this.txt.Name = "txt";
-            this.txt.Round = null;
-            this.txt.ShadowGap = 1;
-            this.txt.Size = new System.Drawing.Size(480, 418);
-            this.txt.Style = Devinno.Forms.Embossing.FlatConcave;
+            this.txt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt.Size = new System.Drawing.Size(460, 398);
             this.txt.TabIndex = 8;
-            this.txt.TabStop = false;
-            this.txt.TextBoxColor = null;
-            this.txt.TextPadding = new System.Windows.Forms.Padding(7);
-            this.txt.Unit = "";
-            this.txt.UnitWidth = null;
             // 
             // dvLabel3
             // 
@@ -246,6 +239,30 @@ namespace LadderEditor.Forms
             this.dvLabel1.Unit = "";
             this.dvLabel1.UnitWidth = null;
             // 
+            // dvBoxPanel1
+            // 
+            this.dvBoxPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dvBoxPanel1.Border = true;
+            this.dvBoxPanel1.Controls.Add(this.txt);
+            this.dvBoxPanel1.Corner = null;
+            this.dvBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvBoxPanel1.DrawTitle = false;
+            this.dvBoxPanel1.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.dvBoxPanel1.IconGap = 0;
+            this.dvBoxPanel1.IconImage = null;
+            this.dvBoxPanel1.IconSize = 12F;
+            this.dvBoxPanel1.IconString = null;
+            this.dvBoxPanel1.Location = new System.Drawing.Point(7, 40);
+            this.dvBoxPanel1.Name = "dvBoxPanel1";
+            this.dvBoxPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.dvBoxPanel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dvBoxPanel1.Round = null;
+            this.dvBoxPanel1.ShadowGap = 1;
+            this.dvBoxPanel1.Size = new System.Drawing.Size(480, 418);
+            this.dvBoxPanel1.TabIndex = 9;
+            this.dvBoxPanel1.TabStop = false;
+            this.dvBoxPanel1.TextPadding = new System.Windows.Forms.Padding(0);
+            // 
             // FormSymbolImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -261,6 +278,8 @@ namespace LadderEditor.Forms
             this.TitleIconString = "fa-right-to-bracket";
             this.dvContainer1.ResumeLayout(false);
             this.dvTableLayoutPanel1.ResumeLayout(false);
+            this.dvBoxPanel1.ResumeLayout(false);
+            this.dvBoxPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -272,10 +291,11 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvButton btnCancel;
         private Devinno.Forms.Controls.DvButton btnOK;
         private Devinno.Forms.Controls.DvLabel dvLabel1;
-        private Devinno.Forms.Controls.DvTextBox txt;
         private Devinno.Forms.Controls.DvLabel dvLabel3;
         private Devinno.Forms.Controls.DvControl dvControl2;
         private Devinno.Forms.Controls.DvLabel lblMessage;
         private Devinno.Forms.Controls.DvControl dvControl1;
+        private System.Windows.Forms.TextBox txt;
+        private Devinno.Forms.Containers.DvBoxPanel dvBoxPanel1;
     }
 }

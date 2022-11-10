@@ -1506,8 +1506,9 @@ namespace LadderEditor.Controls
                         p.Width = 1;
                         g.DrawLine(p, rt.X, HalfY, rt.X + (gp / 2), HalfY);
 
+                        var v = FuncInfo.Parse(itm.Code);
 
-                        if (itm.Code != null && itm.Code.Split(' ').FirstOrDefault() == "MCS")
+                        if (v != null && v.Name == "MCS")
                         {
                             p.Width = 2;
                             RectangleF rtmd = new RectangleF(rt.X + isx, sty, isz, nh);
@@ -1515,7 +1516,7 @@ namespace LadderEditor.Controls
                             g.DrawLine(p, rtmd.Left, rtmd.Top, rtmd.Left, rtmd.Bottom);
                             g.DrawLine(p, rtmd.Right, rtmd.Top, rtmd.Right, rtmd.Bottom);
                         }
-                        else if (itm.Code != null && itm.Code.Split(' ').FirstOrDefault() == "MCSCLR")
+                        else if (v != null && v.Name == "MCSCLR")
                         {
                             p.Width = 2;
                             RectangleF rtmd = new RectangleF(rt.X + isx, sty, isz, nh);
@@ -1802,25 +1803,33 @@ namespace LadderEditor.Controls
                         p.Color = (itm.PrevMonitorV) ? Color.Red : Color.White;
                         g.DrawLine(p, rt.X, HalfY, rt.X + (gp / 2), HalfY);
 
+                        var v = FuncInfo.Parse(itm.Code);
 
-                        if (itm.Code != null && itm.Code.Split(' ').FirstOrDefault() == "MCS")
+                        if (v != null && v.Name == "MCS")
                         {
+                            #region MCS
                             p.Width = 2;
                             var rtmd = new RectangleF(rt.X + isx, sty, isz, nh);
                             g.DrawLine(p, rtmd.Left, rtmd.Top + 1, rtmd.Right, rtmd.Top + 1);
                             g.DrawLine(p, rtmd.Left, rtmd.Top, rtmd.Left, rtmd.Bottom);
                             g.DrawLine(p, rtmd.Right, rtmd.Top, rtmd.Right, rtmd.Bottom);
+                            #endregion
                         }
-                        else if (itm.Code != null && itm.Code.Split(' ').FirstOrDefault() == "MCSCLR")
+                        else if (v != null && v.Name == "MCSCLR")
                         {
+                            #region MCSCLR
                             p.Width = 2;
+                            p.Color = (itm.Monitor) ? Color.Red : Color.White;
+
                             var rtmd = new RectangleF(rt.X + isx, sty, isz, nh);
                             g.DrawLine(p, rtmd.Left, rtmd.Bottom - 1, rtmd.Right, rtmd.Bottom - 1);
                             g.DrawLine(p, rtmd.Left, rtmd.Top, rtmd.Left, rtmd.Bottom);
                             g.DrawLine(p, rtmd.Right, rtmd.Top, rtmd.Right, rtmd.Bottom);
+                            #endregion
                         }
                         else
                         {
+                            #region Other
                             var rtmd = new RectangleF(rt.X + isx, sty, isz, nh);
 
                             if (itm.Monitor)
@@ -1828,7 +1837,7 @@ namespace LadderEditor.Controls
                                 var old = g.SmoothingMode;
                                 g.SmoothingMode = SmoothingMode.HighSpeed;
 
-                                var rtmd2txt = new RectangleF(rtmd.X + 10, rtmd.Y + 1, rtmd.Width - 21, rtmd.Height + 2);
+                                var rtmd2txt = new RectangleF(rtmd.X + 10, rtmd.Y - 1, rtmd.Width - 21, rtmd.Height + 2);
                                 var rtmd2 = new RectangleF(rtmd.X + 10, rtmd.Y - 2, rtmd.Width - 21, rtmd.Height + 2);
                                 br.Color = Color.FromArgb(50, Color.Lime);
                                 g.FillRectangle(br, rtmd2);
@@ -1864,7 +1873,9 @@ namespace LadderEditor.Controls
                             g.DrawLine(p, rtmd.Right, rtmd.Top + 1, rtmd.Right - 5, rtmd.Top + 1);
                             g.DrawLine(p, rtmd.Left, rtmd.Bottom - 1, rtmd.Left + 5, rtmd.Bottom - 1);
                             g.DrawLine(p, rtmd.Right, rtmd.Bottom - 1, rtmd.Right - 5, rtmd.Bottom - 1);
+                            #endregion
                         }
+
                     }
                     #endregion
                     break;
@@ -2893,6 +2904,10 @@ namespace LadderEditor.Controls
 
             foreach (var vk in dic.Keys)
             {
+                if(vk == "4,8")
+                {
+
+                }
                 if (MonitorValues.ContainsKey(vk))
                 {
                     var mon = MonitorValues[vk];

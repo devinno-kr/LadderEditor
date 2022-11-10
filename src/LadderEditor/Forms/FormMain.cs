@@ -436,7 +436,11 @@ namespace LadderEditor.Forms
                         CurrentDocument = Serialize.JsonDeserializeWithTypeFromFile<EditorLadderDocument>(ofd.FileName);
                         CurrentDocument.FileName = ofd.FileName;
                         ladder.Ladders = CurrentDocument.Ladders;
-                        ladder.RowCount = Convert.ToInt32(Math.Ceiling(CurrentDocument.Ladders.Max(x => x.Row) / 10.0)) * 10;
+                        try
+                        {
+                            ladder.RowCount = Convert.ToInt32(Math.Ceiling(CurrentDocument.Ladders.Max(x => x.Row) / 10.0)) * 10;
+                        }
+                        catch { ladder.RowCount = 50; }
                         ladder.Invalidate();
                         ladder.Select();
                         UISet();

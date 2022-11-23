@@ -51,6 +51,10 @@ namespace LadderEditor.Forms
             this.gridMessage = new Devinno.Forms.Controls.DvDataGrid();
             this.pnlContent = new Devinno.Forms.Containers.DvContainer();
             this.ladder = new LadderEditor.Controls.LadderEditorControl();
+            this.cmsDis = new Devinno.Forms.Menus.DvContextMenuStrip();
+            this.tsmiDEC = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiHEX = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiBIN = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTop = new Devinno.Forms.Containers.DvContainer();
             this.pnlLD = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.btnF12 = new Devinno.Forms.Controls.DvButton();
@@ -66,18 +70,14 @@ namespace LadderEditor.Forms
             this.pnlToolBar = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.lblConnection = new Devinno.Forms.Controls.DvValueLabelText();
             this.btnReference = new Devinno.Forms.Controls.DvButton();
-            this.cmsDis = new Devinno.Forms.Menus.DvContextMenuStrip();
-            this.tsmiDEC = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiHEX = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiBIN = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlStatus.SuspendLayout();
             this.splitter.SuspendLayout();
             this.pnlMessage.SuspendLayout();
             this.pnlContent.SuspendLayout();
+            this.cmsDis.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlLD.SuspendLayout();
             this.pnlToolBar.SuspendLayout();
-            this.cmsDis.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlStatus
@@ -542,6 +542,35 @@ namespace LadderEditor.Forms
             this.ladder.TabIndex = 0;
             this.ladder.Text = "ladderEditorControl1";
             // 
+            // cmsDis
+            // 
+            this.cmsDis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cmsDis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.cmsDis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDEC,
+            this.tsmiHEX,
+            this.tsmiBIN});
+            this.cmsDis.Name = "cmsDis";
+            this.cmsDis.Size = new System.Drawing.Size(126, 70);
+            // 
+            // tsmiDEC
+            // 
+            this.tsmiDEC.Name = "tsmiDEC";
+            this.tsmiDEC.Size = new System.Drawing.Size(125, 22);
+            this.tsmiDEC.Text = "DEC 표시";
+            // 
+            // tsmiHEX
+            // 
+            this.tsmiHEX.Name = "tsmiHEX";
+            this.tsmiHEX.Size = new System.Drawing.Size(125, 22);
+            this.tsmiHEX.Text = "HEX 표시";
+            // 
+            // tsmiBIN
+            // 
+            this.tsmiBIN.Name = "tsmiBIN";
+            this.tsmiBIN.Size = new System.Drawing.Size(125, 22);
+            this.tsmiBIN.Text = "BIN 표시";
+            // 
             // pnlTop
             // 
             this.pnlTop.Controls.Add(this.pnlLD);
@@ -916,35 +945,6 @@ namespace LadderEditor.Forms
             this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnReference.UseKey = false;
             // 
-            // cmsDis
-            // 
-            this.cmsDis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cmsDis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.cmsDis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDEC,
-            this.tsmiHEX,
-            this.tsmiBIN});
-            this.cmsDis.Name = "cmsDis";
-            this.cmsDis.Size = new System.Drawing.Size(126, 70);
-            // 
-            // tsmiDEC
-            // 
-            this.tsmiDEC.Name = "tsmiDEC";
-            this.tsmiDEC.Size = new System.Drawing.Size(125, 22);
-            this.tsmiDEC.Text = "DEC 표시";
-            // 
-            // tsmiHEX
-            // 
-            this.tsmiHEX.Name = "tsmiHEX";
-            this.tsmiHEX.Size = new System.Drawing.Size(125, 22);
-            this.tsmiHEX.Text = "HEX 표시";
-            // 
-            // tsmiBIN
-            // 
-            this.tsmiBIN.Name = "tsmiBIN";
-            this.tsmiBIN.Size = new System.Drawing.Size(125, 22);
-            this.tsmiBIN.Text = "BIN 표시";
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -965,10 +965,10 @@ namespace LadderEditor.Forms
             this.splitter.ResumeLayout(false);
             this.pnlMessage.ResumeLayout(false);
             this.pnlContent.ResumeLayout(false);
+            this.cmsDis.ResumeLayout(false);
             this.pnlTop.ResumeLayout(false);
             this.pnlLD.ResumeLayout(false);
             this.pnlToolBar.ResumeLayout(false);
-            this.cmsDis.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

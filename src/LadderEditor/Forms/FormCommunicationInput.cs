@@ -320,7 +320,7 @@ namespace LadderEditor.Forms
                 MDTM_dgBind.Invalidate();
             };
             #endregion
-            #region MQTT_btnSubAR.ButtonClick
+            #region MQTT_btnSub[Add/Del].ButtonClick
             MQTT_btnSubAR.ButtonClick += (o, s) =>
             {
                 var v = MQTT;
@@ -342,7 +342,7 @@ namespace LadderEditor.Forms
             };
             #endregion
             #region MQTT_btnPub[Add/Del].ButtonClick
-            MQTT_btnSubAR.ButtonClick += (o, s) =>
+            MQTT_btnPubAR.ButtonClick += (o, s) =>
             {
                 var v = MQTT;
 

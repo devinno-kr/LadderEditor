@@ -43,6 +43,7 @@ namespace LadderEditor.Forms
         bool bVExpand = false;
         bool bSaveFileDown = false;
         Size szPrevVExpand;
+        Size szold;
         #endregion
 
         #region Constructor
@@ -313,11 +314,11 @@ namespace LadderEditor.Forms
             ladder.Font = new Font("나눔고딕", 8);
             Theme.Animation = Theme.TouchMode = false;
             Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
-
-            //SetExComposited();
-
             #endregion
 
+            SetExComposited();
+
+            UISet();
         }
         #endregion
 
@@ -331,6 +332,11 @@ namespace LadderEditor.Forms
             using(var br = new SolidBrush(pnlContent.BackColor))
             {
                 e.Graphics.FillRectangle(br, rt);
+            }
+
+            using (var p = new Pen(pnlTop.BackColor))
+            {
+                e.Graphics.DrawLine(p, 0, pnlTop.Top - 1, this.Right, pnlTop.Top - 1);
             }
             base.OnThemeDraw(e, Theme);
         }
@@ -578,6 +584,12 @@ namespace LadderEditor.Forms
             btnUpload.Enabled = b && IsConnected && !IsDebugging;
             btnDownload.Enabled = b && (IsConnected && CurrentDocument != null) && !IsDebugging;
             btnMonitoring.Enabled = b && IsConnected && CurrentDocument != null;
+
+            if (szold != this.Size)
+            {
+                szold = this.Size;
+                Invalidate();
+            }
         }
         #endregion
         #endregion

@@ -14,6 +14,7 @@
     <PackageIcon></PackageIcon>
     <PackageIconUrl />
     <ApplicationIcon>Resources\vlogo.ico</ApplicationIcon>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Devinno.Forms" Version="1.1.0.2" />
-    <PackageReference Include="Devinno.PLC" Version="1.0.0.2" />
+    <PackageReference Include="Devinno.Forms" Version="1.1.0.6" />
+    <PackageReference Include="Devinno.PLC" Version="1.0.0.3" />
     <PackageReference Include="Devinno.PLC.Interface" Version="1.0.0" />
     <PackageReference Include="GuiLabs.Undo" Version="1.0.2" />
   </ItemGroup>

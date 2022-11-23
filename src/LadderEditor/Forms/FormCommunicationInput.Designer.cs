@@ -1310,7 +1310,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaD.Value = "";
             this.MDTS_lblAreaD.ValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             // 
-            // MDTS_lblAreWP
+            // MDTS_lblAreaWP
             // 
             this.MDTS_lblAreaWP.Button = null;
             this.MDTS_lblAreaWP.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -1324,7 +1324,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaWP.Dock = System.Windows.Forms.DockStyle.Left;
             this.MDTS_lblAreaWP.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MDTS_lblAreaWP.Location = new System.Drawing.Point(3, 363);
-            this.MDTS_lblAreaWP.Name = "MDTS_lblAreWP";
+            this.MDTS_lblAreaWP.Name = "MDTS_lblAreaWP";
             this.MDTS_lblAreaWP.Round = null;
             this.MDTS_lblAreaWP.ShadowGap = 1;
             this.MDTS_lblAreaWP.Size = new System.Drawing.Size(400, 30);
@@ -1694,7 +1694,7 @@ namespace LadderEditor.Forms
             // MQTT_dgPub
             // 
             this.MQTT_dgPub.Bevel = true;
-            this.MQTT_dgPub.BoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MQTT_dgPub.BoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.MQTT_dgPub.ColumnColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.MQTT_dgPub.ColumnHeight = 30;
             this.MQTT_dgPub.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1871,7 +1871,7 @@ namespace LadderEditor.Forms
             // MQTT_dgSub
             // 
             this.MQTT_dgSub.Bevel = true;
-            this.MQTT_dgSub.BoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MQTT_dgSub.BoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.MQTT_dgSub.ColumnColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.MQTT_dgSub.ColumnHeight = 30;
             this.MQTT_dgSub.Dock = System.Windows.Forms.DockStyle.Fill;

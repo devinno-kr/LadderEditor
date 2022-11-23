@@ -22,7 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+ 
 namespace LadderEditor.Forms
 {
     public partial class FormMain : DvForm
@@ -58,7 +58,7 @@ namespace LadderEditor.Forms
             frmComm = new FormCommunication();
             frmLibrary = new FormLibrary();
             #endregion
-            
+
             #region Grid
             gridMessage.SelectionMode = DvDataGridSelectionMode.Single;
             gridMessage.ColumnColor = Color.FromArgb(50, 50, 50);
@@ -83,11 +83,11 @@ namespace LadderEditor.Forms
             #region btnSaveAsFile.ThemeDraw         : 아이콘 그리기
             btnSaveAsFile.MouseDown += (o, s) => bSaveFileDown = true;
             btnSaveAsFile.MouseUp += (o, s) => bSaveFileDown = false;
-            btnSaveAsFile.ThemeDraw += (o, s) => {
-
+            btnSaveAsFile.ThemeDraw += (o, s) =>
+            {
                 using (var br = new SolidBrush(btnSaveAsFile.ButtonColor ?? Theme.ButtonColor))
                 {
-                    
+
                     var n = bSaveFileDown ? 1 : 0;
 
                     s.Graphics.FillEllipse(br, new Rectangle(18, 17 + n, 9, 9));
@@ -109,7 +109,7 @@ namespace LadderEditor.Forms
             btnF11.ButtonClick += (o, s) => ladder.ItemRISING_EDGE();
             btnF12.ButtonClick += (o, s) => ladder.ItemFALLING_EDGE();
             #endregion
-           
+
             #region btn[?]File.ButtonClick          : 새파일, 열기, 저장, 다른 이름으로 저장
             btnNewFile.ButtonClick += (o, s) => NewFile();
             btnSaveFile.ButtonClick += (o, s) => SaveFile();
@@ -329,7 +329,7 @@ namespace LadderEditor.Forms
             var hTOP = pnlTop.Height + Padding.Top;
             var hBTM = Padding.Bottom + pnlStatus.Height + pnlMessage.Height;
             var rt = new Rectangle(-5, hTOP, this.Width + 10, this.Height - hTOP - hBTM);
-            using(var br = new SolidBrush(pnlContent.BackColor))
+            using (var br = new SolidBrush(pnlContent.BackColor))
             {
                 e.Graphics.FillRectangle(br, rt);
             }
@@ -526,7 +526,7 @@ namespace LadderEditor.Forms
             }
         }
         #endregion
-     
+
         #region Message
         public void Message(string Title, string Message)
         {
@@ -538,7 +538,7 @@ namespace LadderEditor.Forms
         #region Debug
         public void Debug(List<DebugInfo> v) => ladder.SetDebug(v);
         #endregion
-
+         
         #region UISet
         void UISet()
         {

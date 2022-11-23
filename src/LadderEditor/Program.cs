@@ -12,6 +12,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -32,6 +33,8 @@ namespace LadderEditor
         public static DvMessageBox MessageBox { get; private set; }
         public static DvInputBox InputBox { get; private set; }
         public static PrivateFontCollection Fonts { get; private set; }
+
+        public static string Version { get; private set; }
         #endregion
 
         #region Interop
@@ -48,6 +51,9 @@ namespace LadderEditor
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var asm = typeof(Program).Assembly;
+            Version = asm.GetName().Version?.ToString() ?? "";
 
             #region Fonts 
             Fonts = new PrivateFontCollection();

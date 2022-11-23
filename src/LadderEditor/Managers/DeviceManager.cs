@@ -32,7 +32,6 @@ namespace LadderEditor.Managers
 
         #region Member Variable
         private TextCommTCPMaster comm;
-        private System.Threading.Thread th;
         #endregion
 
         #region Constructor

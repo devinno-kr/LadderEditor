@@ -538,7 +538,7 @@ namespace LadderEditor.Forms
         #region Debug
         public void Debug(List<DebugInfo> v) => ladder.SetDebug(v);
         #endregion
-         
+
         #region UISet
         void UISet()
         {

@@ -32,17 +32,14 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Member Variable
-        Timer tmr;
         FormConnect frmConnect;
         FormDescription frmDescription;
         FormSymbol frmSymbol;
         FormCommunication frmComm;
         FormLibrary frmLibrary;
 
-        Bitmap bmArrow, bmIArrow;
-        bool bVExpand = false;
+        Timer tmr;
         bool bSaveFileDown = false;
-        Size szPrevVExpand;
         Size szold;
         #endregion
 
@@ -87,12 +84,16 @@ namespace LadderEditor.Forms
             {
                 using (var br = new SolidBrush(btnSaveAsFile.ButtonColor ?? Theme.ButtonColor))
                 {
-
                     var n = bSaveFileDown ? 1 : 0;
+                    int x = 20, y = 17, gp = 3;
 
-                    s.Graphics.FillEllipse(br, new Rectangle(18, 17 + n, 9, 9));
+                    br.Color = btnSaveAsFile.ButtonColor ?? Theme.ButtonColor;
+                    s.Graphics.DrawIcon(new DvIcon("fa-asterisk") { IconSize = 7 }, br, new Rectangle(x - gp, y + n - gp, 10, 10), Devinno.Forms.DvContentAlignment.MiddleCenter);
+                    s.Graphics.DrawIcon(new DvIcon("fa-asterisk") { IconSize = 7 }, br, new Rectangle(x - 0, y + n - gp, 10, 10), Devinno.Forms.DvContentAlignment.MiddleCenter);
+                    s.Graphics.DrawIcon(new DvIcon("fa-asterisk") { IconSize = 7 }, br, new Rectangle(x - gp, y + n - 0, 10, 10), Devinno.Forms.DvContentAlignment.MiddleCenter);
+
                     br.Color = bSaveFileDown ? btnSaveAsFile.ForeColor.BrightnessTransmit(Theme.DownBrightness) : btnSaveAsFile.ForeColor;
-                    s.Graphics.DrawIcon(new DvIcon("fas fa-asterisk") { IconSize = 5 }, br, new Rectangle(20, 18 + n, 7, 7), Devinno.Forms.DvContentAlignment.MiddleCenter);
+                    s.Graphics.DrawIcon(new DvIcon("fa-asterisk") { IconSize = 7 }, br, new Rectangle(x, y + n, 10, 10), Devinno.Forms.DvContentAlignment.MiddleCenter);
                 }
             };
             #endregion
@@ -344,6 +345,7 @@ namespace LadderEditor.Forms
         #region OnLoad
         protected override void OnLoad(EventArgs e)
         {
+            ladder.Focus();
             ladder.Select();
 
             base.OnLoad(e);
@@ -436,7 +438,7 @@ namespace LadderEditor.Forms
                 using (var ofd = new OpenFileDialog())
                 {
                     ofd.Multiselect = false;
-                    ofd.Filter = "Ladder File|*.dld";
+                    ofd.Filter = "Devinno Ladder File|*.dld";
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
                         CurrentDocument = Serialize.JsonDeserializeWithTypeFromFile<EditorLadderDocument>(ofd.FileName);
@@ -585,11 +587,13 @@ namespace LadderEditor.Forms
             btnDownload.Enabled = b && (IsConnected && CurrentDocument != null) && !IsDebugging;
             btnMonitoring.Enabled = b && IsConnected && CurrentDocument != null;
 
+            #region SizeChanged
             if (szold != this.Size)
             {
                 szold = this.Size;
                 Invalidate();
             }
+            #endregion
         }
         #endregion
         #endregion

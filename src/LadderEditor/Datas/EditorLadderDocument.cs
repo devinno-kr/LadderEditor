@@ -46,7 +46,7 @@ namespace LadderEditor.Datas
         {
             using (var sfd = new SaveFileDialog())
             {
-                sfd.Filter = "Ladder File|*.dld";
+                sfd.Filter = "Devinno Ladder File|*.dld";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     FileName = sfd.FileName;

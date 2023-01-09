@@ -219,7 +219,7 @@ namespace LadderEditor.Forms
             this.dvLabel1.Unit = "";
             this.dvLabel1.UnitWidth = 36;
             // 
-            // LadderEditForm2
+            // LadderEditForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(430, 400);
@@ -229,7 +229,7 @@ namespace LadderEditor.Forms
             this.ForeColor = System.Drawing.Color.White;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "LadderEditForm2";
+            this.Name = "LadderEditForm";
             this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
             this.Text = "편집";
             this.Title = "편집";

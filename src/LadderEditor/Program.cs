@@ -4,6 +4,7 @@ using Devinno.Forms.Icons;
 using Devinno.Forms.Tools;
 using LadderEditor.Forms;
 using LadderEditor.Managers;
+using LadderEditor.Tools;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,11 +28,13 @@ namespace LadderEditor
         #endregion
 
         #region Properties
-        public static FormMain MainForm { get; private set; }
         public static DeviceManager DevMgr { get; private set; }
         public static LibraryManager LibMgr { get; private set; }
+
+        public static FormMain MainForm { get; private set; }
         public static DvMessageBox MessageBox { get; private set; }
         public static DvInputBox InputBox { get; private set; }
+        
         public static PrivateFontCollection Fonts { get; private set; }
 
         public static string Version { get; private set; }
@@ -81,6 +84,9 @@ namespace LadderEditor
             InputBox = new DvInputBox() { StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
             MessageBox = new DvMessageBox() { StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
             MainForm = new FormMain();
+
+            InputBox.Icon = IconTool.GetIcon(new DvIcon(InputBox.TitleIconString, Convert.ToInt32(InputBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
+            MessageBox.Icon = IconTool.GetIcon(new DvIcon(MessageBox.TitleIconString, Convert.ToInt32(MessageBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             #endregion
 
             Application.Run(MainForm);

@@ -570,33 +570,6 @@ namespace LadderEditor.Controls
                 }
                 #endregion
 
-                #region Buffer Range
-                if (Buffer.Count > 0)
-                {
-                    var minx = Buffer.Min(_x => _x.Col);
-                    var maxx = Buffer.Max(_x => _x.Col);
-                    var miny = Buffer.Min(_x => _x.Row);
-                    var maxy = Buffer.Max(_x => _x.Row);
-                    var gapx = CurX - minx;
-                    var gapy = CurY - miny;
-
-                    int w = maxx - minx + 1;
-                    int h = maxy - miny + 1;
-
-                    Color csel = Color.Magenta;
-
-                    foreach (var v in Buffer)
-                    {
-                        var x = Convert.ToInt32(rtNumber.Right + ((v.Col + gapx) * curw));
-                        var y = Convert.ToInt32((double)rtContent.Y + ((double)(v.Row + gapy) * RowHeight)) - Convert.ToInt32(ScrollPosition);
-                        Rectangle rtRange = new Rectangle(x, y, Convert.ToInt32(curw), RowHeight);
-                        Color c = csel;
-                        if (gapx + maxx > ColumnCount - 1 || gapy + maxy > RowCount - 1) c = Color.Red;
-                        PaintItem(e.Graphics, Theme, c, rtRange, v, mp);
-                    }
-                }
-                #endregion
-
                 #region Border
                 p.DashStyle = DashStyle.Solid;
                 p.Color = Color.FromArgb(15, 15, 15);
@@ -645,6 +618,34 @@ namespace LadderEditor.Controls
                     }
                 }
                 #endregion
+
+                #region Buffer Range
+                if (Buffer.Count > 0)
+                {
+                    var minx = Buffer.Min(_x => _x.Col);
+                    var maxx = Buffer.Max(_x => _x.Col);
+                    var miny = Buffer.Min(_x => _x.Row);
+                    var maxy = Buffer.Max(_x => _x.Row);
+                    var gapx = CurX - minx;
+                    var gapy = CurY - miny;
+
+                    int w = maxx - minx + 1;
+                    int h = maxy - miny + 1;
+
+                    Color csel = Color.Magenta;
+
+                    foreach (var v in Buffer)
+                    {
+                        var x = Convert.ToInt32(rtNumber.Right + ((v.Col + gapx) * curw));
+                        var y = Convert.ToInt32((double)rtContent.Y + ((double)(v.Row + gapy) * RowHeight)) - Convert.ToInt32(ScrollPosition);
+                        Rectangle rtRange = new Rectangle(x, y, Convert.ToInt32(curw), RowHeight);
+                        Color c = csel;
+                        if (gapx + maxx > ColumnCount - 1 || gapy + maxy > RowCount - 1) c = Color.Red;
+                        PaintItem(e.Graphics, Theme, c, rtRange, v, mp);
+                    }
+                }
+                #endregion
+
                 #endregion
             });
 

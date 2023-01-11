@@ -34,7 +34,8 @@ namespace LadderEditor.Forms
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
             this.btnCancel = new Devinno.Forms.Controls.DvButton();
             this.dvContainer2 = new Devinno.Forms.Containers.DvContainer();
-            this.txtDescription = new Devinno.Forms.Controls.DvTextBox();
+            this.dvBoxPanel1 = new Devinno.Forms.Containers.DvBoxPanel();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.dvLabel2 = new Devinno.Forms.Controls.DvLabel();
             this.dvControl3 = new Devinno.Forms.Controls.DvControl();
             this.txtVersion = new Devinno.Forms.Controls.DvTextBox();
@@ -44,6 +45,7 @@ namespace LadderEditor.Forms
             this.dvLabel1 = new Devinno.Forms.Controls.DvLabel();
             this.dvContainer1.SuspendLayout();
             this.dvContainer2.SuspendLayout();
+            this.dvBoxPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dvContainer1
@@ -120,7 +122,7 @@ namespace LadderEditor.Forms
             // 
             // dvContainer2
             // 
-            this.dvContainer2.Controls.Add(this.txtDescription);
+            this.dvContainer2.Controls.Add(this.dvBoxPanel1);
             this.dvContainer2.Controls.Add(this.dvLabel2);
             this.dvContainer2.Controls.Add(this.dvControl3);
             this.dvContainer2.Controls.Add(this.txtVersion);
@@ -138,27 +140,43 @@ namespace LadderEditor.Forms
             this.dvContainer2.TabStop = false;
             this.dvContainer2.Text = "dvContainer2";
             // 
+            // dvBoxPanel1
+            // 
+            this.dvBoxPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dvBoxPanel1.Border = true;
+            this.dvBoxPanel1.Controls.Add(this.txtDescription);
+            this.dvBoxPanel1.Corner = null;
+            this.dvBoxPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvBoxPanel1.DrawTitle = false;
+            this.dvBoxPanel1.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.dvBoxPanel1.IconGap = 0;
+            this.dvBoxPanel1.IconImage = null;
+            this.dvBoxPanel1.IconSize = 12F;
+            this.dvBoxPanel1.IconString = null;
+            this.dvBoxPanel1.Location = new System.Drawing.Point(7, 168);
+            this.dvBoxPanel1.Name = "dvBoxPanel1";
+            this.dvBoxPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.dvBoxPanel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.dvBoxPanel1.Round = null;
+            this.dvBoxPanel1.ShadowGap = 1;
+            this.dvBoxPanel1.Size = new System.Drawing.Size(380, 242);
+            this.dvBoxPanel1.TabIndex = 8;
+            this.dvBoxPanel1.TabStop = false;
+            this.dvBoxPanel1.Text = null;
+            this.dvBoxPanel1.TextPadding = new System.Windows.Forms.Padding(0);
+            // 
             // txtDescription
             // 
-            this.txtDescription.BorderColor = null;
-            this.txtDescription.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
+            this.txtDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescription.InputType = Devinno.Forms.DvTextBoxType.Text;
-            this.txtDescription.Location = new System.Drawing.Point(7, 168);
-            this.txtDescription.MaxLength = 32767;
-            this.txtDescription.MinusInput = false;
-            this.txtDescription.MultiLine = true;
+            this.txtDescription.Font = new System.Drawing.Font("굴림체", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDescription.ForeColor = System.Drawing.Color.White;
+            this.txtDescription.Location = new System.Drawing.Point(5, 5);
+            this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Round = null;
-            this.txtDescription.ShadowGap = 1;
-            this.txtDescription.Size = new System.Drawing.Size(380, 242);
-            this.txtDescription.Style = Devinno.Forms.Embossing.FlatConcave;
-            this.txtDescription.TabIndex = 4;
-            this.txtDescription.TabStop = false;
-            this.txtDescription.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtDescription.TextPadding = new System.Windows.Forms.Padding(5);
-            this.txtDescription.Unit = "";
-            this.txtDescription.UnitWidth = 36;
+            this.txtDescription.Size = new System.Drawing.Size(370, 232);
+            this.txtDescription.TabIndex = 0;
             // 
             // dvLabel2
             // 
@@ -201,6 +219,7 @@ namespace LadderEditor.Forms
             this.txtVersion.BorderColor = null;
             this.txtVersion.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
             this.txtVersion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtVersion.FullMode = false;
             this.txtVersion.InputType = Devinno.Forms.DvTextBoxType.Text;
             this.txtVersion.Location = new System.Drawing.Point(7, 102);
             this.txtVersion.MaxLength = 32767;
@@ -216,7 +235,7 @@ namespace LadderEditor.Forms
             this.txtVersion.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtVersion.TextPadding = new System.Windows.Forms.Padding(5);
             this.txtVersion.Unit = "";
-            this.txtVersion.UnitWidth = 36;
+            this.txtVersion.UnitWidth = null;
             // 
             // dvLabel3
             // 
@@ -259,6 +278,7 @@ namespace LadderEditor.Forms
             this.txtTitle.BorderColor = null;
             this.txtTitle.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
             this.txtTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtTitle.FullMode = false;
             this.txtTitle.InputType = Devinno.Forms.DvTextBoxType.Text;
             this.txtTitle.Location = new System.Drawing.Point(7, 36);
             this.txtTitle.MaxLength = 32767;
@@ -274,7 +294,7 @@ namespace LadderEditor.Forms
             this.txtTitle.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtTitle.TextPadding = new System.Windows.Forms.Padding(5);
             this.txtTitle.Unit = "";
-            this.txtTitle.UnitWidth = 36;
+            this.txtTitle.UnitWidth = null;
             // 
             // dvLabel1
             // 
@@ -316,6 +336,8 @@ namespace LadderEditor.Forms
             this.TitleIconString = "fa-file-lines";
             this.dvContainer1.ResumeLayout(false);
             this.dvContainer2.ResumeLayout(false);
+            this.dvBoxPanel1.ResumeLayout(false);
+            this.dvBoxPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +349,6 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvControl dvControl1;
         private Devinno.Forms.Controls.DvButton btnCancel;
         private Devinno.Forms.Containers.DvContainer dvContainer2;
-        private Devinno.Forms.Controls.DvTextBox txtDescription;
         private Devinno.Forms.Controls.DvLabel dvLabel2;
         private Devinno.Forms.Controls.DvControl dvControl3;
         private Devinno.Forms.Controls.DvTextBox txtVersion;
@@ -335,5 +356,7 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvControl dvControl2;
         private Devinno.Forms.Controls.DvTextBox txtTitle;
         private Devinno.Forms.Controls.DvLabel dvLabel1;
+        private Devinno.Forms.Containers.DvBoxPanel dvBoxPanel1;
+        private System.Windows.Forms.TextBox txtDescription;
     }
 }

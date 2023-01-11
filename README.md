@@ -278,7 +278,7 @@ LadderDB.dll은 데이터베이스와 연동할 수 있는 샘플 DLL로 MySQL�
 
 2. 1초에 한번 D10을 1씩 증가
 
-3. D10이 10이상이면 DB.Insert를 통해 Time=[현재시간], Limit1=0, Temperature=36.4라는 값을 넣고 D10을 초기화함
+3. D10이 10이상 시 DB.Insert를 통해 Time=[현재시간], Limit1=0, Temperature=36.4라는 값을 넣고 D10초기화
 
 즉, 본 프로그램은 10초에 한번씩 주기적으로 DB에 Time, Limit1, Temperature 정보를 기록함
 

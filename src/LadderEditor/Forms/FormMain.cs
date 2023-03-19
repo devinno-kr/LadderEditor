@@ -465,7 +465,11 @@ namespace LadderEditor.Forms
             {
                 if (!string.IsNullOrWhiteSpace(CurrentDocument.FileName) && File.Exists(CurrentDocument.FileName)) Block = true;
 
-                CurrentDocument.Save();
+                try
+                {
+                    CurrentDocument.Save();
+                }
+                catch (UnauthorizedAccessException) { Program.MessageBox.ShowMessageBoxOk("저장", "권한 부족으로 저장할 수 없습니다."); }
 
                 if (Block) Block = false;
             }
@@ -477,7 +481,13 @@ namespace LadderEditor.Forms
             if (CurrentDocument != null)
             {
                 Block = true;
-                CurrentDocument.SaveAs();
+
+                try
+                {
+                    CurrentDocument.SaveAs();
+                }
+                catch (UnauthorizedAccessException) { Program.MessageBox.ShowMessageBoxOk("저장", "권한 부족으로 저장할 수 없습니다."); }
+
                 Block = false;
             }
         }
@@ -575,17 +585,19 @@ namespace LadderEditor.Forms
                     case EngineState.STANDBY: s = "대기"; break;
                     case EngineState.RUN: s = "실행"; break;
                     case EngineState.DOWNLOADING: s = "다운로딩"; break;
+                    case EngineState.ERROR: s = "에러"; break;
                 }
                 lblState.Text = s;
             }
             ladder.Debug = IsConnected && IsDebugging;
 
             var st = Program.DevMgr?.DeviceState ?? EngineState.DISCONNECTED;
-            var b = st == EngineState.RUN || st == EngineState.STANDBY;
+            var b1 = st == EngineState.RUN || st == EngineState.STANDBY;
+            var b2 = st == EngineState.ERROR;
 
-            btnUpload.Enabled = b && IsConnected && !IsDebugging;
-            btnDownload.Enabled = b && (IsConnected && CurrentDocument != null) && !IsDebugging;
-            btnMonitoring.Enabled = b && IsConnected && CurrentDocument != null;
+            btnUpload.Enabled = b1 && IsConnected && !IsDebugging;
+            btnDownload.Enabled = (b1 || b2) && (IsConnected && CurrentDocument != null) && !IsDebugging;
+            btnMonitoring.Enabled = b1 && IsConnected && CurrentDocument != null;
 
             #region SizeChanged
             if (szold != this.Size)

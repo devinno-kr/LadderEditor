@@ -644,8 +644,13 @@ namespace LadderEditor.Forms
             else if (tab.SelectedTab == tpMQTT)
             {
                 var c1 = NetworkTool.ValidIPv4(MQTT_inRemoteIP.Value);
+                var c2 = MQTT.Subs.Where(x => string.IsNullOrWhiteSpace(x.Topic)).Count() == 0;
+                var c3 = MQTT.Pubs.Where(x => string.IsNullOrWhiteSpace(x.Topic)).Count() == 0;
 
                 if (!c1) ret.Add("· 원격 주소를 IPv4 형식으로 입력하여야 합니다.");
+                if (!c2) ret.Add("· 구독 항목에 빈 토픽이 존재합니다.");
+                if (!c3) ret.Add("· 발행 항목에 빈 토픽이 존재합니다.");
+
             }
 
             return ret;

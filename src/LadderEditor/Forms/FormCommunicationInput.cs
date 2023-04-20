@@ -522,7 +522,7 @@ namespace LadderEditor.Forms
             else if (tab.SelectedTab == tpMDRM)
             {
                 MDRM.Port = MDRM_inPort.Value;
-                MDRM.Baudrate = (int)MDRM_inBaudrate.Items[MDRS_inBaudrate.SelectedIndex].Tag;
+                MDRM.Baudrate = (int)MDRM_inBaudrate.Items[MDRM_inBaudrate.SelectedIndex].Tag;
             }
             #endregion
             #region MDTS

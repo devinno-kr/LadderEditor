@@ -51,6 +51,7 @@ namespace LadderEditor
         [STAThread]
         static void Main()
         {
+            //TEST
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -70,6 +70,8 @@ namespace LadderEditor.Forms
             this.pnlToolBar = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.lblConnection = new Devinno.Forms.Controls.DvValueLabelText();
             this.btnReference = new Devinno.Forms.Controls.DvButton();
+            this.btnSetting = new Devinno.Forms.Controls.DvButton();
+            this.dvControl1 = new Devinno.Forms.Controls.DvControl();
             this.pnlStatus.SuspendLayout();
             this.splitter.SuspendLayout();
             this.pnlMessage.SuspendLayout();
@@ -83,15 +85,17 @@ namespace LadderEditor.Forms
             // pnlStatus
             // 
             this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pnlStatus.Controls.Add(this.lblCursorPosition);
+            this.pnlStatus.Controls.Add(this.dvControl1);
             this.pnlStatus.Controls.Add(this.dvLabel3);
             this.pnlStatus.Controls.Add(this.lblState);
-            this.pnlStatus.Controls.Add(this.lblCursorPosition);
+            this.pnlStatus.Controls.Add(this.btnSetting);
             this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlStatus.Location = new System.Drawing.Point(3, 718);
+            this.pnlStatus.Location = new System.Drawing.Point(3, 708);
             this.pnlStatus.Name = "pnlStatus";
             this.pnlStatus.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
             this.pnlStatus.ShadowGap = 1;
-            this.pnlStatus.Size = new System.Drawing.Size(1018, 47);
+            this.pnlStatus.Size = new System.Drawing.Size(1018, 57);
             this.pnlStatus.TabIndex = 2;
             this.pnlStatus.TabStop = false;
             this.pnlStatus.Text = "dvContainer1";
@@ -112,7 +116,7 @@ namespace LadderEditor.Forms
             this.dvLabel3.Name = "dvLabel3";
             this.dvLabel3.Round = null;
             this.dvLabel3.ShadowGap = 1;
-            this.dvLabel3.Size = new System.Drawing.Size(80, 30);
+            this.dvLabel3.Size = new System.Drawing.Size(80, 40);
             this.dvLabel3.Style = Devinno.Forms.Embossing.Convex;
             this.dvLabel3.TabIndex = 2;
             this.dvLabel3.TabStop = false;
@@ -137,7 +141,7 @@ namespace LadderEditor.Forms
             this.lblState.Name = "lblState";
             this.lblState.Round = null;
             this.lblState.ShadowGap = 1;
-            this.lblState.Size = new System.Drawing.Size(160, 30);
+            this.lblState.Size = new System.Drawing.Size(160, 40);
             this.lblState.Style = Devinno.Forms.Embossing.Convex;
             this.lblState.TabIndex = 1;
             this.lblState.TabStop = false;
@@ -158,11 +162,11 @@ namespace LadderEditor.Forms
             this.lblCursorPosition.IconSize = 12F;
             this.lblCursorPosition.IconString = null;
             this.lblCursorPosition.LabelColor = null;
-            this.lblCursorPosition.Location = new System.Drawing.Point(7, 10);
+            this.lblCursorPosition.Location = new System.Drawing.Point(51, 10);
             this.lblCursorPosition.Name = "lblCursorPosition";
             this.lblCursorPosition.Round = null;
             this.lblCursorPosition.ShadowGap = 1;
-            this.lblCursorPosition.Size = new System.Drawing.Size(180, 30);
+            this.lblCursorPosition.Size = new System.Drawing.Size(180, 40);
             this.lblCursorPosition.Style = Devinno.Forms.Embossing.Convex;
             this.lblCursorPosition.TabIndex = 0;
             this.lblCursorPosition.TabStop = false;
@@ -461,7 +465,7 @@ namespace LadderEditor.Forms
             this.splitter.RowCount = 2;
             this.splitter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.splitter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.splitter.Size = new System.Drawing.Size(1018, 563);
+            this.splitter.Size = new System.Drawing.Size(1018, 553);
             this.splitter.SplitterColor = null;
             this.splitter.TabIndex = 3;
             // 
@@ -470,12 +474,12 @@ namespace LadderEditor.Forms
             this.pnlMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.pnlMessage.Controls.Add(this.gridMessage);
             this.pnlMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessage.Location = new System.Drawing.Point(0, 395);
+            this.pnlMessage.Location = new System.Drawing.Point(0, 388);
             this.pnlMessage.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.pnlMessage.Name = "pnlMessage";
             this.pnlMessage.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
             this.pnlMessage.ShadowGap = 1;
-            this.pnlMessage.Size = new System.Drawing.Size(1018, 168);
+            this.pnlMessage.Size = new System.Drawing.Size(1018, 165);
             this.pnlMessage.TabIndex = 0;
             this.pnlMessage.TabStop = false;
             this.pnlMessage.Text = "dvContainer1";
@@ -497,7 +501,7 @@ namespace LadderEditor.Forms
             this.gridMessage.SelectedRowColor = null;
             this.gridMessage.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.gridMessage.ShadowGap = 1;
-            this.gridMessage.Size = new System.Drawing.Size(1004, 158);
+            this.gridMessage.Size = new System.Drawing.Size(1004, 155);
             this.gridMessage.SummaryRowColor = null;
             this.gridMessage.TabIndex = 0;
             this.gridMessage.Text = "dvDataGrid1";
@@ -513,7 +517,7 @@ namespace LadderEditor.Forms
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Padding = new System.Windows.Forms.Padding(7, 10, 7, 8);
             this.pnlContent.ShadowGap = 1;
-            this.pnlContent.Size = new System.Drawing.Size(1018, 393);
+            this.pnlContent.Size = new System.Drawing.Size(1018, 386);
             this.pnlContent.TabIndex = 1;
             this.pnlContent.TabStop = false;
             this.pnlContent.Text = "dvContainer2";
@@ -538,7 +542,7 @@ namespace LadderEditor.Forms
             this.ladder.RowHeight = 60;
             this.ladder.ScrollPosition = 0D;
             this.ladder.ShadowGap = 1;
-            this.ladder.Size = new System.Drawing.Size(1004, 375);
+            this.ladder.Size = new System.Drawing.Size(1004, 368);
             this.ladder.TabIndex = 0;
             this.ladder.Text = "ladderEditorControl1";
             // 
@@ -851,7 +855,7 @@ namespace LadderEditor.Forms
             // pnlToolBar
             // 
             this.pnlToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.pnlToolBar.ColumnCount = 16;
+            this.pnlToolBar.ColumnCount = 18;
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -862,6 +866,8 @@ namespace LadderEditor.Forms
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
@@ -876,10 +882,10 @@ namespace LadderEditor.Forms
             this.pnlToolBar.Controls.Add(this.btnDescription, 7, 0);
             this.pnlToolBar.Controls.Add(this.btnSymbol, 8, 0);
             this.pnlToolBar.Controls.Add(this.btnCommunication, 9, 0);
-            this.pnlToolBar.Controls.Add(this.lblConnection, 12, 0);
-            this.pnlToolBar.Controls.Add(this.btnDownload, 13, 0);
-            this.pnlToolBar.Controls.Add(this.btnUpload, 14, 0);
-            this.pnlToolBar.Controls.Add(this.btnMonitoring, 15, 0);
+            this.pnlToolBar.Controls.Add(this.lblConnection, 14, 0);
+            this.pnlToolBar.Controls.Add(this.btnDownload, 15, 0);
+            this.pnlToolBar.Controls.Add(this.btnUpload, 16, 0);
+            this.pnlToolBar.Controls.Add(this.btnMonitoring, 17, 0);
             this.pnlToolBar.Controls.Add(this.btnReference, 10, 0);
             this.pnlToolBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlToolBar.Location = new System.Drawing.Point(7, 10);
@@ -944,6 +950,40 @@ namespace LadderEditor.Forms
             this.btnReference.Text = null;
             this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnReference.UseKey = false;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackgroundDraw = true;
+            this.btnSetting.ButtonColor = null;
+            this.btnSetting.Clickable = true;
+            this.btnSetting.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSetting.Gradient = true;
+            this.btnSetting.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.btnSetting.IconGap = 0;
+            this.btnSetting.IconImage = null;
+            this.btnSetting.IconSize = 12F;
+            this.btnSetting.IconString = "fa-gear";
+            this.btnSetting.Location = new System.Drawing.Point(7, 10);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Round = null;
+            this.btnSetting.ShadowGap = 1;
+            this.btnSetting.Size = new System.Drawing.Size(39, 40);
+            this.btnSetting.TabIndex = 17;
+            this.btnSetting.Text = null;
+            this.btnSetting.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnSetting.UseKey = false;
+            // 
+            // dvControl1
+            // 
+            this.dvControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dvControl1.Location = new System.Drawing.Point(46, 10);
+            this.dvControl1.Name = "dvControl1";
+            this.dvControl1.ShadowGap = 1;
+            this.dvControl1.Size = new System.Drawing.Size(5, 40);
+            this.dvControl1.TabIndex = 18;
+            this.dvControl1.TabStop = false;
+            this.dvControl1.Text = "dvControl1";
             // 
             // FormMain
             // 
@@ -1014,5 +1054,7 @@ namespace LadderEditor.Forms
         private System.Windows.Forms.ToolStripMenuItem tsmiDEC;
         private System.Windows.Forms.ToolStripMenuItem tsmiHEX;
         private System.Windows.Forms.ToolStripMenuItem tsmiBIN;
+        private Devinno.Forms.Controls.DvControl dvControl1;
+        private Devinno.Forms.Controls.DvButton btnSetting;
     }
 }

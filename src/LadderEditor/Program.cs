@@ -28,6 +28,7 @@ namespace LadderEditor
         #endregion
 
         #region Properties
+        public static DataManager DataMgr { get; private set; }
         public static DeviceManager DevMgr { get; private set; }
         public static LibraryManager LibMgr { get; private set; }
 
@@ -76,8 +77,12 @@ namespace LadderEditor
             #region Directory
             var pathLib = Path.Combine(Application.StartupPath, "LadderLibraries");
             if (!Directory.Exists(pathLib)) Directory.CreateDirectory(pathLib);
+
+            var dir = Path.Combine(Application.StartupPath, "devinno_ld");
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
             #endregion
             #region Managers
+            DataMgr = new DataManager();
             LibMgr = new LibraryManager();
             DevMgr = new DeviceManager();
             #endregion

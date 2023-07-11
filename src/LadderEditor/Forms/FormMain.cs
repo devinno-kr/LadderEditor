@@ -34,9 +34,10 @@ namespace LadderEditor.Forms
         #region Member Variable
         FormConnect frmConnect;
         FormDescription frmDescription;
-        FormSymbol frmSymbol;
+        FormSymbol2 frmSymbol;
         FormCommunication frmComm;
         FormLibrary frmLibrary;
+        FormSetting frmSetting;
 
         Timer tmr;
         bool bSaveFileDown = false;
@@ -51,9 +52,10 @@ namespace LadderEditor.Forms
             #region Forms
             frmConnect = new FormConnect();
             frmDescription = new FormDescription();
-            frmSymbol = new FormSymbol();
+            frmSymbol = new FormSymbol2();
             frmComm = new FormCommunication();
             frmLibrary = new FormLibrary();
+            frmSetting = new FormSetting();
             #endregion
 
             #region Grid
@@ -258,6 +260,19 @@ namespace LadderEditor.Forms
                 }
             };
             #endregion
+            #region btnSetting.ButtonClick          : 설정
+            btnSetting.ButtonClick += (o, s) =>
+            {
+                Block = true;
+                var ret = frmSetting.ShowSetting();
+                if (ret != null)
+                {
+                    Program.DataMgr.ProjectFolder = ret.ProjectFolder;
+                    Program.DataMgr.SaveSetting();
+                }
+                Block = false;
+            };
+            #endregion
 
             #region ladder.LadderChanged            : 레더 변경
             ladder.LadderChanged += (o, s) => { if (CurrentDocument != null) CurrentDocument.Edit = true; };
@@ -437,6 +452,7 @@ namespace LadderEditor.Forms
                 Block = true;
                 using (var ofd = new OpenFileDialog())
                 {
+                    ofd.InitialDirectory = Program.DataMgr.ProjectFolder;
                     ofd.Multiselect = false;
                     ofd.Filter = "Devinno Ladder File|*.dld";
                     if (ofd.ShowDialog() == DialogResult.OK)
@@ -608,6 +624,7 @@ namespace LadderEditor.Forms
             #endregion
         }
         #endregion
+
         #endregion
     }
 }

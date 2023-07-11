@@ -17,7 +17,6 @@
     <Version>1.0.0.1</Version>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +27,15 @@
 
   <ItemGroup>
     <Compile Remove="Controls\LadderEditorControl.Old.cs" />
+    <Compile Remove="Forms\FormSymbol.cs" />
+    <Compile Remove="Forms\FormSymbol.Designer.cs" />
+    <Compile Remove="Forms\FormSymbolImport.cs" />
+    <Compile Remove="Forms\FormSymbolImport.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\FormSymbol.resx" />
+    <EmbeddedResource Remove="Forms\FormSymbolImport.resx" />
   </ItemGroup>
 
   <ItemGroup>

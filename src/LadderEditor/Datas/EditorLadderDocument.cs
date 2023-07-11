@@ -46,6 +46,7 @@ namespace LadderEditor.Datas
         {
             using (var sfd = new SaveFileDialog())
             {
+                sfd.InitialDirectory = Program.DataMgr.ProjectFolder;
                 sfd.Filter = "Devinno Ladder File|*.dld";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {

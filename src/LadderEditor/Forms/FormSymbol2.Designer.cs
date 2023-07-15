@@ -46,9 +46,9 @@ namespace LadderEditor.Forms
             this.dvLabel1 = new Devinno.Forms.Controls.DvLabel();
             this.dvContainer3 = new Devinno.Forms.Containers.DvContainer();
             this.dvLabel2 = new Devinno.Forms.Controls.DvLabel();
-            this.inputPanel1 = new Controls.InputPanel();
+            this.inputPanel1 = new LadderEditor.Controls.InputPanel();
             this.txt = new System.Windows.Forms.TextBox();
-            this.tbl = new Controls.SymbolTable();
+            this.tbl = new LadderEditor.Controls.SymbolTable();
             this.dvControl3 = new Devinno.Forms.Controls.DvControl();
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
             this.dvTableLayoutPanel1.SuspendLayout();
@@ -555,7 +555,6 @@ namespace LadderEditor.Forms
             this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
             this.Text = "심볼";
             this.Title = "심볼";
-            this.TitleIconBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(99)))));
             this.TitleIconSize = 14F;
             this.TitleIconString = "fa-tags";
             this.dvTableLayoutPanel1.ResumeLayout(false);

@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Thread = System.Threading.Thread;
 using ThreadStart = System.Threading.ThreadStart;
-using LM = LadderEditor.Managers.LangTool;
+using LM = LadderEditor.Tools.LangTool;
 
 namespace LadderEditor.Forms
 {

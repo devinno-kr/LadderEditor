@@ -14,7 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LM = LadderEditor.Managers.LangTool;
+using LM = LadderEditor.Tools.LangTool;
 
 namespace LadderEditor.Forms
 {

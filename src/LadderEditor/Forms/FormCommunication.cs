@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using LM = LadderEditor.Managers.LangTool;
+using LM = LadderEditor.Tools.LangTool;
 
 namespace LadderEditor.Forms
 {

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using LadderEditor.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LadderEditor.Managers
+namespace LadderEditor.Tools
 {
     public class LangTool
     {
         static Lang lang => Program.DataMgr?.Language ?? Lang.KO;
-
         
         #region SaveQuestion
         public static string SaveQuestion

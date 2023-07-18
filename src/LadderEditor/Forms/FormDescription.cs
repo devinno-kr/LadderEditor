@@ -39,6 +39,29 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Method
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "프로젝트 정보";
+                dvLabel1.Text = "제목";
+                dvLabel3.Text = "버전";
+                dvLabel2.Text = "설명";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Project Information";
+                dvLabel1.Text = "Title";
+                dvLabel3.Text = "Version";
+                dvLabel2.Text = "Description";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+            }
+        }
+        #endregion
         #region ShowDescription
         public Result ShowDescription(LadderDocument doc)
         {
@@ -55,6 +78,8 @@ namespace LadderEditor.Forms
             }
             #endregion
 
+            LangSet();
+            
             if (this.ShowDialog() == DialogResult.OK)
             {
                 ret = new Result()

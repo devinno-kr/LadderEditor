@@ -1,9 +1,10 @@
-﻿using Devinno.Extensions;
-using Devinno.Forms;
+﻿using Devinno.Forms;
 using Devinno.Forms.Controls;
 using Devinno.Forms.Dialogs;
+using Devinno.Forms.Extensions;
 using Devinno.Forms.Icons;
 using Devinno.Forms.Themes;
+using Devinno.Forms.Utils;
 using Devinno.PLC.Ladder;
 using Devinno.Tools;
 using LadderEditor.Datas;
@@ -13,6 +14,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,24 +24,22 @@ namespace LadderEditor.Forms
 {
     public partial class FormSymbol : DvForm
     {
-        #region [Class] Result
+        #region class : Result
         public class Result
         {
-            public int P_Count { get; set; } = LadderBase.MAX_P_COUNT;
-            public int M_Count { get; set; } = LadderBase.MAX_M_COUNT;
-            public int T_Count { get; set; } = LadderBase.MAX_T_COUNT;
-            public int C_Count { get; set; } = LadderBase.MAX_C_COUNT;
-            public int D_Count { get; set; } = LadderBase.MAX_D_COUNT;
+            public int P_Count { get; set; } = 32768;   //4096 bytes
+            public int M_Count { get; set; } = 32768;   //4096 bytes
+            public int T_Count { get; set; } = 2048;    //4096 bytes
+            public int C_Count { get; set; } = 2048;    //4096 bytes
+            public int D_Count { get; set; } = 4096;    //8192 bytes
 
             public List<SymbolInfo> Symbols { get; set; } = new List<SymbolInfo>();
         }
         #endregion
 
         #region Member Variable
-        EditorLadderDocument doc;
+        LadderDocument doc;
         Result Data = new Result();
-        DvInputBox frmNumBox;
-        FormSymbolImport frmSymbolImport;
         #endregion
 
         #region Constructor
@@ -47,61 +47,55 @@ namespace LadderEditor.Forms
         {
             InitializeComponent();
 
-            #region DataGrid
-            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Address", HeaderText = "주소", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
-            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "SymbolName", HeaderText = "명칭", SizeMode = DvSizeMode.Percent, Width = 50, UseSort = true, UseFilter = true });
-            dg.ColumnColor = Color.FromArgb(30, 30, 30);
-            dg.SelectionMode = DvDataGridSelectionMode.Selector;
-            #endregion
-            #region Forms
-            frmNumBox = new DvInputBox() { StartPosition = FormStartPosition.CenterParent };
-            frmSymbolImport = new FormSymbolImport() { StartPosition = FormStartPosition.CenterParent };
-            #endregion
-            #region Buttons
-            btnPM.Buttons.Add(new ButtonInfo("Plus") { IconString = "fa-plus", IconSize = 12, Size = new SizeInfo(DvSizeMode.Percent, 50) });
-            btnPM.Buttons.Add(new ButtonInfo("Minus") { IconString = "fa-minus", IconSize = 12, Size = new SizeInfo(DvSizeMode.Percent, 50) });
-            #endregion
-
-            #region lbl[P/M/T/C/D/F].ButtonClick
-            lblP.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("P 영역 크기", Data.P_Count, 128, LadderBase.MAX_P_COUNT); if (r.HasValue) Data.P_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            lblM.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("M 영역 크기", Data.M_Count, 128, LadderBase.MAX_M_COUNT); if (r.HasValue) Data.M_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            lblT.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("T 영역 크기", Data.T_Count, 128, LadderBase.MAX_T_COUNT); if (r.HasValue) Data.T_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            lblC.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("C 영역 크기", Data.C_Count, 128, LadderBase.MAX_C_COUNT); if (r.HasValue) Data.C_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            lblD.ButtonClicked += (o, s) => { Block = true; var r = frmNumBox.ShowInt("D 영역 크기", Data.D_Count, 64, LadderBase.MAX_D_COUNT); if (r.HasValue) Data.D_Count = Convert.ToInt32(r.Value); Block = false; Set(); };
-            #endregion
+            #region Event
             #region btn[OK/Cancel].ButtonClick
             btnOK.ButtonClick += (o, s) => { if (ValidCheck()) DialogResult = DialogResult.OK; };
             btnCancel.ButtonClick += (o, s) => DialogResult = DialogResult.Cancel;
             #endregion
-            #region btnPM.ButtonClick
-            btnPM.ButtonClick += (o, s) =>
+
+            #region txt.KeyPress
+            txt.CharacterCasing = CharacterCasing.Upper;
+            txt.KeyPress += (o, s) => { if (s.KeyChar == ' ') s.KeyChar = '\t'; };
+            txt.TextChanged += (o, s) =>
             {
-                if (s.Button.Name == "Plus") Add();
-                if (s.Button.Name == "Minus") Del();
+                using (var sr = new StringReader(txt.Text))
+                {
+                    var lsv = new List<SymbolInfo>();
+
+                    #region Make Symbols
+                    while (true)
+                    {
+                        var line = sr.ReadLine();
+                        if (line != null)
+                        {
+                            var sp = line.Trim().Split(new char[] { ',', ' ', '\t' }).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+
+                            if (sp != null && sp.Length == 2)
+                            {
+                                if (doc.ValidAddress(sp[0]))
+                                {
+                                    lsv.Add(new SymbolInfo { Address = sp[0], SymbolName = sp[1] });
+                                }
+                            }
+                        }
+                        if (line == null) break;
+                    }
+                    #endregion
+                    #region Check
+                    var lk1 = lsv.ToLookup(x => x.Address);
+                    var lk2 = lsv.ToLookup(x => x.SymbolName);
+                    var c1 = lk1.Count > 0 ? lk1.Max(x => lk1[x.Key].Count()) : 0;
+                    var c2 = lk2.Count > 0 ? lk2.Max(x => lk2[x.Key].Count()) : 0;
+                    if (c1 < 2 && c2 < 2)
+                    {
+                        Data.Symbols.Clear();
+                        Data.Symbols.AddRange(lsv);
+                        tbl.SetItems(Data.Symbols);
+                    }
+                    #endregion
+                }
             };
             #endregion
-            #region btnImport.ButtonClick
-            btnImport.ButtonClick += (o, s) =>
-            {
-                Block = true;
-                var ret = frmSymbolImport.ShowSymbolImport(Data);
-                if (ret != null)
-                {
-                    Data.Symbols.Clear();
-                    Data.Symbols.AddRange(ret.List);
-                    Set();
-                }
-                Block = false;
-            };
-            #endregion
-            #region  txt.OriginalTextBox.KeyPress
-            txt.OriginalTextBox.KeyPress += (o, s) =>
-            {
-                if (s.KeyChar == '\r')
-                {
-                    Add();
-                }
-            };
             #endregion
 
             #region Form Props
@@ -109,9 +103,6 @@ namespace LadderEditor.Forms
             this.Icon = Tools.IconTool.GetIcon(new Devinno.Forms.Icons.DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             #endregion
 
-            #region Icon
-            Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
-            #endregion
         }
         #endregion
 
@@ -121,99 +112,66 @@ namespace LadderEditor.Forms
         {
             bool ret = true;
 
-            return ret;
-        }
-        #endregion
-        #region Set
-        void Set()
-        {
-            if (Data != null)
-            {
-                lblP.Value = Data.P_Count;
-                lblM.Value = Data.M_Count;
-                lblT.Value = Data.T_Count;
-                lblC.Value = Data.C_Count;
-                lblD.Value = Data.D_Count;
+            var ls = new List<string>();
 
-                dg.SetDataSource<SymbolInfo>(Data.Symbols);
-                dg.Invalidate();
-                ValidCheck();
-            }
-        }
-        #endregion
-        #region Add
-        void Add()
-        {
-            var r = SymbolTool.InputLineCheck(Data, txt.Value);
-            if (r.Success)
-            {
-                Data.Symbols.Add(new SymbolInfo() { SymbolName = r.SymbolName, Address = r.Address.ToUpper() });
+            if (inP.Error == InputError.Empty) ls.Add("P 영역 크기가 비어있습니다.");
+            else if (inP.Error == InputError.RangeOver) ls.Add("P 영역 범위는 0 ~ 32768 입니다.");
 
-                var old = dg.VScrollPosition;
-                Set();
-                dg.VScrollPosition = old;
+            if (inM.Error == InputError.Empty) ls.Add("M 영역 크기가 비어있습니다.");
+            else if (inM.Error == InputError.RangeOver) ls.Add("M 영역 범위는 0 ~ 32768 입니다.");
 
-                txt.Value = "";
-                txt.OriginalTextBox.SelectAll();
-            }
-            else
-            {
-                Block = true;
-                Program.MessageBox.ShowMessageBoxOk("입력", r.Message);
-                Block = false;
-            }
-        }
-        #endregion
-        #region Del
-        void Del()
-        {
-            var ls = dg.Rows.Where(x => x.Selected).ToList();
+            if (inT.Error == InputError.Empty) ls.Add("T 영역 크기가 비어있습니다.");
+            else if (inT.Error == InputError.RangeOver) ls.Add("T 영역 범위는 0 ~ 2048 입니다.");
+
+            if (inC.Error == InputError.Empty) ls.Add("C영역 크기가 비어있습니다.");
+            else if (inC.Error == InputError.RangeOver) ls.Add("C영역 범위는 0 ~ 2048 입니다.");
+
+            if (inD.Error == InputError.Empty) ls.Add("D영역 크기가 비어있습니다.");
+            else if (inD.Error == InputError.RangeOver) ls.Add("D영역 범위는 0 ~ 4096 입니다.");
 
             if (ls.Count > 0)
             {
-                Block = true;
-
-                if (Program.MessageBox.ShowMessageBoxYesNo("삭제", "선택한 항목을 삭제하시겠습니까?") == DialogResult.Yes)
-                {
-                    var old = dg.VScrollPosition;
-
-                    foreach (var row in ls)
-                    {
-                        var v = row.Source as SymbolInfo;
-                        if (v != null)
-                            Data.Symbols.Remove(v);
-                    }
-                    Set();
-
-                    dg.VScrollPosition = old;
-                }
-                Block = false;
+                //Block = true;
+                var msg = string.Concat(ls.Select(x => x + "\r\n")).Trim();
+                Program.MessageBox.ShowMessageBoxOk("심볼 입력", msg);
+                //Block = false;
             }
+
+            return ls.Count == 0;
         }
         #endregion
-        #region GetCount
-        int? GetCount(string code)
+        #region LangSet
+        void LangSet()
         {
-            int? ret = null;
-            switch (code.ToUpper())
+            if (Program.DataMgr.Language == Managers.Lang.KO)
             {
-                case "P": ret = Data.P_Count; break;
-                case "M": ret = Data.M_Count; break;
-                case "T": ret = Data.T_Count; break;
-                case "C": ret = Data.C_Count; break;
-                case "D": ret = Data.D_Count; break;
+                Title = "심볼";
+                lblTitleAreas.Text = "영역 크기";
+                dvLabel1.Text = "심볼 목록";
+                dvLabel2.Text = "입력";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+                dvLabel3.Text = "※입력 형식 : '[주소]    [명칭]'\r\n※입력 예시 : 'D0    Test'";
             }
-            return ret;
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Symbol";
+                lblTitleAreas.Text = "Area Count";
+                dvLabel1.Text = "Symbol List";
+                dvLabel2.Text = "Input";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+                dvLabel3.Text = "※Input format : '[address]    [name]'\r\n※Input example : 'D0    Test'";
+            }
         }
         #endregion
-
         #region ShowSymbol
-        public Result ShowSymbol(EditorLadderDocument doc)
+        public Result ShowSymbol(LadderDocument doc)
         {
             Result ret = null;
-            
-            #region Set
+
             this.doc = doc;
+
             Data = new Result();
             if (doc != null)
             {
@@ -224,8 +182,20 @@ namespace LadderEditor.Forms
                 Data.D_Count = doc.D_Count;
                 Data.Symbols = doc.Symbols.Select(x => new SymbolInfo() { SymbolName = x.SymbolName, Address = x.Address }).ToList();
             }
-            Set();
-            #endregion
+
+            inP.Value = Data.P_Count;
+            inM.Value = Data.M_Count;
+            inT.Value = Data.T_Count;
+            inC.Value = Data.C_Count;
+            inD.Value = Data.D_Count;
+
+            var sb = new StringBuilder();
+            foreach (var v in Data.Symbols) sb.AppendLine($"{v.Address}\t{v.SymbolName}");
+            txt.Text = sb.ToString();
+            tbl.SetItems(Data.Symbols);
+
+            LangSet();
+
             #region ShowDialog
             if (this.ShowDialog() == DialogResult.OK)
             {

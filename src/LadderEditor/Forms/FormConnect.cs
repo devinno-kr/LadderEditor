@@ -154,6 +154,25 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Method
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "연결";
+                dvLabel1.Text = "주소록";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Connect";
+                dvLabel1.Text = "Address Book";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+            }
+        }
+        #endregion
         #region GetConnectionItems
         List<ConnItem> GetConnectionItems()
         {
@@ -176,6 +195,8 @@ namespace LadderEditor.Forms
                 tree.Nodes.Add(new DvTreeViewLabelNode(v.Name + " - " + v.Address) { Tag = v });
             tree.Invalidate();
             #endregion
+
+            LangSet();
 
             string ret = null;
             inAddr.Value = "";

@@ -11,7 +11,7 @@ namespace LadderEditor.Tools
     public class SymbolTool
     {
         #region InputLineCheck
-        public static SymbolInputLineCheck InputLineCheck(FormSymbol2.Result Data, string s)
+        public static SymbolInputLineCheck InputLineCheck(FormSymbol.Result Data, string s)
         {
             var ret = new SymbolInputLineCheck() { Success = true };
             var ls = s.Split(new char[] { ',', ' ' }).Select(x => x.Trim()).Where(x => x != "").ToList();
@@ -90,7 +90,7 @@ namespace LadderEditor.Tools
         }
         #endregion
         #region AddressCheck
-        public static SymbolAddressCheck AddressCheck(FormSymbol2.Result Data, string addr)
+        public static SymbolAddressCheck AddressCheck(FormSymbol.Result Data, string addr)
         {
             var ret = new SymbolAddressCheck() { Success = true };
             var vlsAddress = Data.Symbols.Select(x => x.Address);
@@ -136,7 +136,7 @@ namespace LadderEditor.Tools
         }
         #endregion
         #region GetCount
-        public static int? GetCount(FormSymbol2.Result Data, string code)
+        public static int? GetCount(FormSymbol.Result Data, string code)
         {
             int? ret = null;
             switch (code.ToUpper())

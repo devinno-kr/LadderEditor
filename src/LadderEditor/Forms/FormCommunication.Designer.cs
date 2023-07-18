@@ -129,7 +129,7 @@ namespace LadderEditor.Forms
             this.lblTitleAreas.Name = "lblTitleAreas";
             this.lblTitleAreas.Round = null;
             this.lblTitleAreas.ShadowGap = 1;
-            this.lblTitleAreas.Size = new System.Drawing.Size(112, 30);
+            this.lblTitleAreas.Size = new System.Drawing.Size(224, 30);
             this.lblTitleAreas.Style = Devinno.Forms.Embossing.FlatConcave;
             this.lblTitleAreas.TabIndex = 1;
             this.lblTitleAreas.TabStop = false;

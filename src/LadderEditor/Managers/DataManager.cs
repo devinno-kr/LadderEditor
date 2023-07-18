@@ -17,6 +17,26 @@ namespace LadderEditor.Managers
 
         #region Properties 
         public string ProjectFolder { get; set; }
+
+        #region Language
+        private Lang lang = Lang.NONE;
+        public Lang Language
+        {
+            get => lang;
+            set
+            {
+                if(lang != value)
+                {
+                    lang = value;
+                    LanguageChanged?.Invoke(this, null);
+                }
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Event
+        public event EventHandler LanguageChanged;
         #endregion
 
         #region Constructor
@@ -32,7 +52,8 @@ namespace LadderEditor.Managers
         {
             Serialize.JsonSerializeToFile(PATH_SETTING, new Set
             {
-                ProjectFolder = this.ProjectFolder
+                ProjectFolder = this.ProjectFolder,
+                Language = this.Language,
             });
         }
         #endregion
@@ -43,18 +64,26 @@ namespace LadderEditor.Managers
             {
                 var set = Serialize.JsonDeserializeFromFile<Set>(PATH_SETTING);
                 this.ProjectFolder = set.ProjectFolder;
+                this.Language = set.Language;
             }
             else
             {
                 this.ProjectFolder = Path.Combine(Application.StartupPath, "devinno_ld");
+                this.Language = Lang.KO;
             }
         }
         #endregion
         #endregion
     }
 
+    #region enum : Lang
+    public enum Lang { NONE, KO, EN }
+    #endregion
+    #region class : Set
     public class Set
     {
         public string ProjectFolder { get; set; }
+        public Lang Language { get; set; } = Lang.NONE;
     }
+    #endregion
 }

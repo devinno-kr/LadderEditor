@@ -657,6 +657,146 @@ namespace LadderEditor.Forms
         }
         #endregion
 
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "통신 항목";
+                dvPanel2.Text = "통신 유형";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+
+                dvLabel1.Text = "속성";
+                MDRS_inPort.Title = "통신 포트";
+                MDRS_inBaudrate.Title = "통신 속도";
+                MDRS_inSlave.Title = "국번";
+                dvLabel2.Text = "메모리 맵";
+                MDRS_lblAreaP.Title = "P 영역 시작주소";
+                MDRS_lblAreaM.Title = "M 영역 시작주소";
+                MDRS_lblAreaT.Title = "T 영역 시작주소";
+                MDRS_lblAreaC.Title = "C 영역 시작주소";
+                MDRS_lblAreaD.Title = "D 영역 시작주소";
+                MDRS_lblAreaWP.Title = "WP 영역 시작주소";
+                MDRS_lblAreaWM.Title = "WM 영역 시작주소";
+
+                dvLabel4.Text = "속성";
+                MDRM_inPort.Title = "통신 포트";
+                MDRM_inBaudrate.Title = "통신 속도";
+                dvLabel3.Text = "모니터링";
+                MDRM_dgMonitor.Columns[0].HeaderText = "국번";
+                MDRM_dgMonitor.Columns[1].HeaderText = "코드";
+                MDRM_dgMonitor.Columns[2].HeaderText = "시작 주소";
+                MDRM_dgMonitor.Columns[3].HeaderText = "길이";
+                dvLabel5.Text = "메모리바인딩";
+                MDRM_dgBind.Columns[0].HeaderText = "국번";
+                MDRM_dgBind.Columns[1].HeaderText = "코드";
+                MDRM_dgBind.Columns[2].HeaderText = "시작 주소";
+                MDRM_dgBind.Columns[3].HeaderText = "바인딩";
+
+                dvLabel7.Text = "속성";
+                MDTS_inSlave.Title = "국번";
+                dvLabel6.Text = "메모리 맵";
+                MDTS_lblAreaP.Title = "P 영역 시작주소";
+                MDTS_lblAreaM.Title = "M 영역 시작주소";
+                MDTS_lblAreaT.Title = "T 영역 시작주소";
+                MDTS_lblAreaC.Title = "C 영역 시작주소";
+                MDTS_lblAreaD.Title = "D 영역 시작주소";
+                MDTS_lblAreaWP.Title = "WP 영역 시작주소";
+                MDTS_lblAreaWM.Title = "WM 영역 시작주소";
+
+                dvLabel10.Text = "속성";
+                MDTM_inRemoteIP.Title = "원격 주소";
+                dvLabel9.Text = "모니터링";
+                MDTM_dgMonitor.Columns[0].HeaderText = "국번";
+                MDTM_dgMonitor.Columns[1].HeaderText = "코드";
+                MDTM_dgMonitor.Columns[2].HeaderText = "시작 주소";
+                MDTM_dgMonitor.Columns[3].HeaderText = "길이";
+                dvLabel15.Text = "메모리바인딩";
+                MDTM_dgBind.Columns[0].HeaderText = "국번";
+                MDTM_dgBind.Columns[1].HeaderText = "코드";
+                MDTM_dgBind.Columns[2].HeaderText = "시작 주소";
+                MDTM_dgBind.Columns[3].HeaderText = "바인딩";
+
+                dvLabel13.Text = "속성";
+                MQTT_inRemoteIP.Title = "원격 주소";
+                dvLabel13.Text = "구독";
+                MQTT_dgSub.Columns[0].HeaderText = "토픽";
+                MQTT_dgSub.Columns[1].HeaderText = "메모리 주소";
+                dvLabel11.Text = "발행";
+                MQTT_dgPub.Columns[0].HeaderText = "토픽";
+                MQTT_dgPub.Columns[1].HeaderText = "메모리 주소";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Commnication Item";
+                dvPanel2.Text = "Commnication Type";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+
+                dvLabel1.Text = "Property";
+                MDRS_inPort.Title = "Port";
+                MDRS_inBaudrate.Title = "Baudrate";
+                MDRS_inSlave.Title = "Slave";
+                dvLabel2.Text = "Memory Map";
+                MDRS_lblAreaP.Title = "P Area Address";
+                MDRS_lblAreaM.Title = "M Area Address";
+                MDRS_lblAreaT.Title = "T Area Address";
+                MDRS_lblAreaC.Title = "C Area Address";
+                MDRS_lblAreaD.Title = "D Area Address";
+                MDRS_lblAreaWP.Title = "WP Area Address";
+                MDRS_lblAreaWM.Title = "WM Area Address";
+
+                dvLabel4.Text = "Property";
+                MDRM_inPort.Title = "Port";
+                MDRM_inBaudrate.Title = "Baudrate";
+                dvLabel3.Text = "Monitoring";
+                MDRM_dgMonitor.Columns[0].HeaderText = "Slave";
+                MDRM_dgMonitor.Columns[1].HeaderText = "Func";
+                MDRM_dgMonitor.Columns[2].HeaderText = "Start Address";
+                MDRM_dgMonitor.Columns[3].HeaderText = "Length";
+                dvLabel5.Text = "Memory Binding";
+                MDRM_dgBind.Columns[0].HeaderText = "Slave";
+                MDRM_dgBind.Columns[1].HeaderText = "Func";
+                MDRM_dgBind.Columns[2].HeaderText = "Start Address";
+                MDRM_dgBind.Columns[3].HeaderText = "Binding";
+
+                dvLabel7.Text = "Property";
+                MDTS_inSlave.Title = "Slave";
+                dvLabel6.Text = "Memory Map";
+                MDTS_lblAreaP.Title = "P Area Address";
+                MDTS_lblAreaM.Title = "M Area Address";
+                MDTS_lblAreaT.Title = "T Area Address";
+                MDTS_lblAreaC.Title = "C Area Address";
+                MDTS_lblAreaD.Title = "D Area Address";
+                MDTS_lblAreaWP.Title = "WP Area Address";
+                MDTS_lblAreaWM.Title = "WM Area Address";
+
+                dvLabel10.Text = "Property";
+                MDTM_inRemoteIP.Title = "Remote IP";
+                dvLabel9.Text = "Monitoring";
+                MDTM_dgMonitor.Columns[0].HeaderText = "Slave";
+                MDTM_dgMonitor.Columns[1].HeaderText = "Func";
+                MDTM_dgMonitor.Columns[2].HeaderText = "Start Address";
+                MDTM_dgMonitor.Columns[3].HeaderText = "Length";
+                dvLabel15.Text = "Memory Binding";
+                MDTM_dgBind.Columns[0].HeaderText = "Slave";
+                MDTM_dgBind.Columns[1].HeaderText = "Func";
+                MDTM_dgBind.Columns[2].HeaderText = "Start Address";
+                MDTM_dgBind.Columns[3].HeaderText = "Binding";
+
+                dvLabel13.Text = "Property";
+                MQTT_inRemoteIP.Title = "Remote IP";
+                dvLabel13.Text = "Subscribe";
+                MQTT_dgSub.Columns[0].HeaderText = "Topic";
+                MQTT_dgSub.Columns[1].HeaderText = "Memory Address";
+                dvLabel11.Text = "Publish";
+                MQTT_dgPub.Columns[0].HeaderText = "Topic";
+                MQTT_dgPub.Columns[1].HeaderText = "Memory Address";
+            }
+        }
+        #endregion
+
         #region ShowCommInputAdd
         public ILadderComm ShowCommInputAdd()
         {
@@ -672,6 +812,8 @@ namespace LadderEditor.Forms
 
             SetUI();
             #endregion
+
+            LangSet();
 
             ILadderComm ret = null;
             if (this.ShowDialog() == DialogResult.OK)
@@ -802,6 +944,8 @@ namespace LadderEditor.Forms
 
             SetUI();
             #endregion
+
+            LangSet();
 
             ILadderComm ret = null;
             if (this.ShowDialog() == DialogResult.OK)

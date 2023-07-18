@@ -107,6 +107,30 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Method
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "통신 설정";
+                lblTitleAreas.Text = "통신 목록";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+                dg.Columns[0].HeaderText = "통신 유형";
+                dg.Columns[1].HeaderText = "정보";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Commnication Setting";
+                lblTitleAreas.Text = "Commnication List";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+                dg.Columns[0].HeaderText = "Type";
+                dg.Columns[1].HeaderText = "Information";
+            }
+        }
+        #endregion
+
         #region ShowCommunication
         public List<ILadderComm> ShowCommunication(EditorLadderDocument doc)
         {
@@ -124,6 +148,8 @@ namespace LadderEditor.Forms
             }
             dg.SetDataSource<ILadderComm>(Items);
             #endregion
+
+            LangSet();
 
             List<ILadderComm> ret = null;
             if (this.ShowDialog() == DialogResult.OK)

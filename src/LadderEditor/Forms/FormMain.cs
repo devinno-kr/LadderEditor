@@ -34,7 +34,7 @@ namespace LadderEditor.Forms
         #region Member Variable
         FormConnect frmConnect;
         FormDescription frmDescription;
-        FormSymbol2 frmSymbol;
+        FormSymbol frmSymbol;
         FormCommunication frmComm;
         FormLibrary frmLibrary;
         FormSetting frmSetting;
@@ -52,7 +52,7 @@ namespace LadderEditor.Forms
             #region Forms
             frmConnect = new FormConnect();
             frmDescription = new FormDescription();
-            frmSymbol = new FormSymbol2();
+            frmSymbol = new FormSymbol();
             frmComm = new FormCommunication();
             frmLibrary = new FormLibrary();
             frmSetting = new FormSetting();
@@ -268,6 +268,7 @@ namespace LadderEditor.Forms
                 if (ret != null)
                 {
                     Program.DataMgr.ProjectFolder = ret.ProjectFolder;
+                    Program.DataMgr.Language = ret.Language;
                     Program.DataMgr.SaveSetting();
                 }
                 Block = false;
@@ -335,6 +336,10 @@ namespace LadderEditor.Forms
             SetExComposited();
 
             UISet();
+
+            #region Language
+            Program.DataMgr.LanguageChanged += (o, s) => ToolTipSet();
+            #endregion
         }
         #endregion
 
@@ -363,6 +368,8 @@ namespace LadderEditor.Forms
             ladder.Focus();
             ladder.Select();
 
+            ToolTipSet();
+            LangSet();
             base.OnLoad(e);
         }
         #endregion
@@ -438,12 +445,17 @@ namespace LadderEditor.Forms
             if (CurrentDocument != null && CurrentDocument.MustSave)
             {
                 Block = true;
-                switch (Program.MessageBox.ShowMessageBoxYesNoCancel("저장", "저장 하시겠습니까?"))
+
+                var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
+                var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "저장 하시겠습니까?" : "Would you like me to save it?";
+
+                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(sTitle, sMessage))
                 {
                     case DialogResult.Yes: SaveFile(); break;
                     case DialogResult.No: break;
                     case DialogResult.Cancel: bCancel = true; break;
                 }
+
                 Block = false;
             }
 
@@ -452,9 +464,12 @@ namespace LadderEditor.Forms
                 Block = true;
                 using (var ofd = new OpenFileDialog())
                 {
+                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "열기" : "Open";
+
                     ofd.InitialDirectory = Program.DataMgr.ProjectFolder;
                     ofd.Multiselect = false;
                     ofd.Filter = "Devinno Ladder File|*.dld";
+
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
                         CurrentDocument = Serialize.JsonDeserializeWithTypeFromFile<EditorLadderDocument>(ofd.FileName);
@@ -485,7 +500,13 @@ namespace LadderEditor.Forms
                 {
                     CurrentDocument.Save();
                 }
-                catch (UnauthorizedAccessException) { Program.MessageBox.ShowMessageBoxOk("저장", "권한 부족으로 저장할 수 없습니다."); }
+                catch (UnauthorizedAccessException)
+                {
+                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
+                    var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "권한 부족으로 저장할 수 없습니다." : "Insufficient permissions to save.";
+
+                    Program.MessageBox.ShowMessageBoxOk(sTitle, sMessage);
+                }
 
                 if (Block) Block = false;
             }
@@ -502,7 +523,13 @@ namespace LadderEditor.Forms
                 {
                     CurrentDocument.SaveAs();
                 }
-                catch (UnauthorizedAccessException) { Program.MessageBox.ShowMessageBoxOk("저장", "권한 부족으로 저장할 수 없습니다."); }
+                catch (UnauthorizedAccessException)
+                {
+                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
+                    var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "권한 부족으로 저장할 수 없습니다." : "Insufficient permissions to save.";
+
+                    Program.MessageBox.ShowMessageBoxOk(sTitle, sMessage);
+                }
 
                 Block = false;
             }
@@ -514,7 +541,10 @@ namespace LadderEditor.Forms
             bool bCancel = false;
             if (CurrentDocument != null && CurrentDocument.MustSave)
             {
-                switch (Program.MessageBox.ShowMessageBoxYesNoCancel("저장", "저장 하시겠습니까?"))
+                var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
+                var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "저장 하시겠습니까?" : "Would you like me to save it?";
+
+                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(sTitle, sMessage))
                 {
                     case DialogResult.Yes: SaveFile(); break;
                     case DialogResult.No: break;
@@ -567,15 +597,100 @@ namespace LadderEditor.Forms
         public void Debug(List<DebugInfo> v) => ladder.SetDebug(v);
         #endregion
 
+        #region ToolTipSet
+        void ToolTipSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                toolTip.SetToolTip(btnUpload, "업로드");
+                toolTip.SetToolTip(btnSymbol, "심볼");
+                toolTip.SetToolTip(btnSaveFile, "저장");
+                toolTip.SetToolTip(btnSaveAsFile, "다른 이름으로 저장");
+                toolTip.SetToolTip(btnOpenFile, "열기");
+                toolTip.SetToolTip(btnNewFile, "새 파일");
+                toolTip.SetToolTip(btnMonitoring, "모니터링");
+                toolTip.SetToolTip(btnDownload, "다운로드");
+                toolTip.SetToolTip(btnDescription, "프로젝트 설명");
+                toolTip.SetToolTip(btnCommunication, "통신 설정");
+                toolTip.SetToolTip(btnCheck, "유효성 체크");
+                toolTip.SetToolTip(btnReference, "라이브러리");
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                toolTip.SetToolTip(btnUpload, "Upload");
+                toolTip.SetToolTip(btnSymbol, "Symbol");
+                toolTip.SetToolTip(btnSaveFile, "Save File");
+                toolTip.SetToolTip(btnSaveAsFile, "Save As File");
+                toolTip.SetToolTip(btnOpenFile, "Open File");
+                toolTip.SetToolTip(btnNewFile, "New File");
+                toolTip.SetToolTip(btnMonitoring, "Monitoring");
+                toolTip.SetToolTip(btnDownload, "Download");
+                toolTip.SetToolTip(btnDescription, "Project Description");
+                toolTip.SetToolTip(btnCommunication, "Communication");
+                toolTip.SetToolTip(btnCheck, "Validation Check");
+                toolTip.SetToolTip(btnReference, "Library");
+            }
+        }
+        #endregion
+        #region LandSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                lblConnection.Title = "장비";
+                lblDeviceState.Text = "장치 상태";
+                lblConnection.Button = Program.DevMgr.IsConnected ? "해지" : "연결";
+
+                lblCursorPosition.Text = CurrentDocument != null ? $"열 : {(ladder.CurX + 1)}        행 : {(ladder.CurRow + 1)}" : "";
+                Title = "레더 에디터" + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
+
+                if (Program.DevMgr != null)
+                {
+                    var s = "";
+                    switch (Program.DevMgr.DeviceState)
+                    {
+                        case EngineState.DISCONNECTED: s = "미연결"; break;
+                        case EngineState.STANDBY: s = "대기"; break;
+                        case EngineState.RUN: s = "실행"; break;
+                        case EngineState.DOWNLOADING: s = "다운로딩"; break;
+                        case EngineState.ERROR: s = "에러"; break;
+                    }
+                    lblState.Text = s;
+                }
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                lblConnection.Title = "Device";
+                lblDeviceState.Text = "Device State";
+                lblConnection.Button = Program.DevMgr.IsConnected ? "Disconn" : "Conn";
+                lblCursorPosition.Text = CurrentDocument != null ? $"Col : {(ladder.CurX + 1)}        Row : {(ladder.CurRow + 1)}" : "";
+                Title = "Ladder Editor" + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
+
+                if (Program.DevMgr != null)
+                {
+                    var s = "";
+                    switch (Program.DevMgr.DeviceState)
+                    {
+                        case EngineState.DISCONNECTED: s = "Disconnected"; break;
+                        case EngineState.STANDBY: s = "Standby"; break;
+                        case EngineState.RUN: s = "Run"; break;
+                        case EngineState.DOWNLOADING: s = "Downloading"; break;
+                        case EngineState.ERROR: s = "Error"; break;
+                    }
+                    lblState.Text = s;
+                }
+            }
+        }
+        #endregion
         #region UISet
         void UISet()
         {
             bool IsConnected = Program.DevMgr.IsConnected;
             bool IsDebugging = Program.DevMgr.IsDebugging;
 
-            lblCursorPosition.Text = CurrentDocument != null ? string.Format("행 : {0, -5}    열 : {1, -5}", ladder.CurX + 1, ladder.CurRow + 1) : "";
             lblConnection.Value = IsConnected ? Program.DevMgr.TargetIP : "";
-            lblConnection.Button = IsConnected ? "해지" : "연결";
+
+            LangSet();
 
             btnMonitoring.ButtonColor = IsConnected && IsDebugging ? Color.Teal : Theme.ButtonColor;
 
@@ -590,21 +705,6 @@ namespace LadderEditor.Forms
             pnlLD.Enabled = CurrentDocument != null && !IsDebugging && ladder.Editable;
             gridMessage.Enabled = CurrentDocument != null;
 
-            Title = "레더 에디터" + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
-
-            if (Program.DevMgr != null)
-            {
-                var s = "";
-                switch (Program.DevMgr.DeviceState)
-                {
-                    case EngineState.DISCONNECTED: s = "미연결"; break;
-                    case EngineState.STANDBY: s = "대기"; break;
-                    case EngineState.RUN: s = "실행"; break;
-                    case EngineState.DOWNLOADING: s = "다운로딩"; break;
-                    case EngineState.ERROR: s = "에러"; break;
-                }
-                lblState.Text = s;
-            }
             ladder.Debug = IsConnected && IsDebugging;
 
             var st = Program.DevMgr?.DeviceState ?? EngineState.DISCONNECTED;
@@ -624,7 +724,6 @@ namespace LadderEditor.Forms
             #endregion
         }
         #endregion
-
         #endregion
     }
 }

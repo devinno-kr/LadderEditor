@@ -31,9 +31,11 @@ namespace LadderEditor.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.pnlStatus = new Devinno.Forms.Containers.DvContainer();
-            this.dvLabel3 = new Devinno.Forms.Controls.DvLabel();
-            this.lblState = new Devinno.Forms.Controls.DvLabel();
             this.lblCursorPosition = new Devinno.Forms.Controls.DvLabel();
+            this.dvControl1 = new Devinno.Forms.Controls.DvControl();
+            this.lblDeviceState = new Devinno.Forms.Controls.DvLabel();
+            this.lblState = new Devinno.Forms.Controls.DvLabel();
+            this.btnSetting = new Devinno.Forms.Controls.DvButton();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnNewFile = new Devinno.Forms.Controls.DvButton();
             this.btnOpenFile = new Devinno.Forms.Controls.DvButton();
@@ -46,6 +48,7 @@ namespace LadderEditor.Forms
             this.btnDownload = new Devinno.Forms.Controls.DvButton();
             this.btnUpload = new Devinno.Forms.Controls.DvButton();
             this.btnMonitoring = new Devinno.Forms.Controls.DvButton();
+            this.btnReference = new Devinno.Forms.Controls.DvButton();
             this.splitter = new Devinno.Forms.Containers.DvSplitterTableLayoutPanel();
             this.pnlMessage = new Devinno.Forms.Containers.DvContainer();
             this.gridMessage = new Devinno.Forms.Controls.DvDataGrid();
@@ -69,9 +72,6 @@ namespace LadderEditor.Forms
             this.btnSPC = new Devinno.Forms.Controls.DvButton();
             this.pnlToolBar = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.lblConnection = new Devinno.Forms.Controls.DvValueLabelText();
-            this.btnReference = new Devinno.Forms.Controls.DvButton();
-            this.btnSetting = new Devinno.Forms.Controls.DvButton();
-            this.dvControl1 = new Devinno.Forms.Controls.DvControl();
             this.pnlStatus.SuspendLayout();
             this.splitter.SuspendLayout();
             this.pnlMessage.SuspendLayout();
@@ -87,7 +87,7 @@ namespace LadderEditor.Forms
             this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.pnlStatus.Controls.Add(this.lblCursorPosition);
             this.pnlStatus.Controls.Add(this.dvControl1);
-            this.pnlStatus.Controls.Add(this.dvLabel3);
+            this.pnlStatus.Controls.Add(this.lblDeviceState);
             this.pnlStatus.Controls.Add(this.lblState);
             this.pnlStatus.Controls.Add(this.btnSetting);
             this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -100,30 +100,66 @@ namespace LadderEditor.Forms
             this.pnlStatus.TabStop = false;
             this.pnlStatus.Text = "dvContainer1";
             // 
-            // dvLabel3
+            // lblCursorPosition
             // 
-            this.dvLabel3.BackgroundDraw = false;
-            this.dvLabel3.BorderColor = null;
-            this.dvLabel3.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
-            this.dvLabel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dvLabel3.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.dvLabel3.IconGap = 0;
-            this.dvLabel3.IconImage = null;
-            this.dvLabel3.IconSize = 12F;
-            this.dvLabel3.IconString = null;
-            this.dvLabel3.LabelColor = null;
-            this.dvLabel3.Location = new System.Drawing.Point(771, 10);
-            this.dvLabel3.Name = "dvLabel3";
-            this.dvLabel3.Round = null;
-            this.dvLabel3.ShadowGap = 1;
-            this.dvLabel3.Size = new System.Drawing.Size(80, 40);
-            this.dvLabel3.Style = Devinno.Forms.Embossing.Convex;
-            this.dvLabel3.TabIndex = 2;
-            this.dvLabel3.TabStop = false;
-            this.dvLabel3.Text = "장치 상태";
-            this.dvLabel3.TextPadding = new System.Windows.Forms.Padding(0);
-            this.dvLabel3.Unit = "";
-            this.dvLabel3.UnitWidth = null;
+            this.lblCursorPosition.BackgroundDraw = true;
+            this.lblCursorPosition.BorderColor = null;
+            this.lblCursorPosition.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
+            this.lblCursorPosition.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCursorPosition.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.lblCursorPosition.IconGap = 0;
+            this.lblCursorPosition.IconImage = null;
+            this.lblCursorPosition.IconSize = 12F;
+            this.lblCursorPosition.IconString = null;
+            this.lblCursorPosition.LabelColor = null;
+            this.lblCursorPosition.Location = new System.Drawing.Point(51, 10);
+            this.lblCursorPosition.Name = "lblCursorPosition";
+            this.lblCursorPosition.Round = null;
+            this.lblCursorPosition.ShadowGap = 1;
+            this.lblCursorPosition.Size = new System.Drawing.Size(188, 40);
+            this.lblCursorPosition.Style = Devinno.Forms.Embossing.Convex;
+            this.lblCursorPosition.TabIndex = 0;
+            this.lblCursorPosition.TabStop = false;
+            this.lblCursorPosition.Text = null;
+            this.lblCursorPosition.TextPadding = new System.Windows.Forms.Padding(0);
+            this.lblCursorPosition.Unit = "";
+            this.lblCursorPosition.UnitWidth = null;
+            // 
+            // dvControl1
+            // 
+            this.dvControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dvControl1.Location = new System.Drawing.Point(46, 10);
+            this.dvControl1.Name = "dvControl1";
+            this.dvControl1.ShadowGap = 1;
+            this.dvControl1.Size = new System.Drawing.Size(5, 40);
+            this.dvControl1.TabIndex = 18;
+            this.dvControl1.TabStop = false;
+            this.dvControl1.Text = "dvControl1";
+            // 
+            // lblDeviceState
+            // 
+            this.lblDeviceState.BackgroundDraw = false;
+            this.lblDeviceState.BorderColor = null;
+            this.lblDeviceState.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleRight;
+            this.lblDeviceState.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDeviceState.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.lblDeviceState.IconGap = 0;
+            this.lblDeviceState.IconImage = null;
+            this.lblDeviceState.IconSize = 12F;
+            this.lblDeviceState.IconString = null;
+            this.lblDeviceState.LabelColor = null;
+            this.lblDeviceState.Location = new System.Drawing.Point(683, 10);
+            this.lblDeviceState.Name = "lblDeviceState";
+            this.lblDeviceState.Round = null;
+            this.lblDeviceState.ShadowGap = 1;
+            this.lblDeviceState.Size = new System.Drawing.Size(168, 40);
+            this.lblDeviceState.Style = Devinno.Forms.Embossing.Convex;
+            this.lblDeviceState.TabIndex = 2;
+            this.lblDeviceState.TabStop = false;
+            this.lblDeviceState.Text = "장치 상태";
+            this.lblDeviceState.TextPadding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblDeviceState.Unit = "";
+            this.lblDeviceState.UnitWidth = null;
             // 
             // lblState
             // 
@@ -150,30 +186,28 @@ namespace LadderEditor.Forms
             this.lblState.Unit = "";
             this.lblState.UnitWidth = null;
             // 
-            // lblCursorPosition
+            // btnSetting
             // 
-            this.lblCursorPosition.BackgroundDraw = true;
-            this.lblCursorPosition.BorderColor = null;
-            this.lblCursorPosition.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
-            this.lblCursorPosition.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblCursorPosition.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.lblCursorPosition.IconGap = 0;
-            this.lblCursorPosition.IconImage = null;
-            this.lblCursorPosition.IconSize = 12F;
-            this.lblCursorPosition.IconString = null;
-            this.lblCursorPosition.LabelColor = null;
-            this.lblCursorPosition.Location = new System.Drawing.Point(51, 10);
-            this.lblCursorPosition.Name = "lblCursorPosition";
-            this.lblCursorPosition.Round = null;
-            this.lblCursorPosition.ShadowGap = 1;
-            this.lblCursorPosition.Size = new System.Drawing.Size(180, 40);
-            this.lblCursorPosition.Style = Devinno.Forms.Embossing.Convex;
-            this.lblCursorPosition.TabIndex = 0;
-            this.lblCursorPosition.TabStop = false;
-            this.lblCursorPosition.Text = null;
-            this.lblCursorPosition.TextPadding = new System.Windows.Forms.Padding(0);
-            this.lblCursorPosition.Unit = "";
-            this.lblCursorPosition.UnitWidth = null;
+            this.btnSetting.BackgroundDraw = true;
+            this.btnSetting.ButtonColor = null;
+            this.btnSetting.Clickable = true;
+            this.btnSetting.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSetting.Gradient = true;
+            this.btnSetting.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.btnSetting.IconGap = 0;
+            this.btnSetting.IconImage = null;
+            this.btnSetting.IconSize = 12F;
+            this.btnSetting.IconString = "fa-gear";
+            this.btnSetting.Location = new System.Drawing.Point(7, 10);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Round = null;
+            this.btnSetting.ShadowGap = 1;
+            this.btnSetting.Size = new System.Drawing.Size(39, 40);
+            this.btnSetting.TabIndex = 17;
+            this.btnSetting.Text = null;
+            this.btnSetting.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnSetting.UseKey = false;
             // 
             // toolTip
             // 
@@ -450,6 +484,30 @@ namespace LadderEditor.Forms
             this.btnMonitoring.TextPadding = new System.Windows.Forms.Padding(0);
             this.toolTip.SetToolTip(this.btnMonitoring, "모니터링");
             this.btnMonitoring.UseKey = false;
+            // 
+            // btnReference
+            // 
+            this.btnReference.BackgroundDraw = true;
+            this.btnReference.ButtonColor = null;
+            this.btnReference.Clickable = true;
+            this.btnReference.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
+            this.btnReference.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReference.Gradient = true;
+            this.btnReference.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.btnReference.IconGap = 0;
+            this.btnReference.IconImage = null;
+            this.btnReference.IconSize = 12F;
+            this.btnReference.IconString = "fa-book-open";
+            this.btnReference.Location = new System.Drawing.Point(383, 3);
+            this.btnReference.Name = "btnReference";
+            this.btnReference.Round = null;
+            this.btnReference.ShadowGap = 1;
+            this.btnReference.Size = new System.Drawing.Size(39, 34);
+            this.btnReference.TabIndex = 15;
+            this.btnReference.Text = null;
+            this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
+            this.toolTip.SetToolTip(this.btnReference, "라이브러리");
+            this.btnReference.UseKey = false;
             // 
             // splitter
             // 
@@ -928,63 +986,6 @@ namespace LadderEditor.Forms
             this.lblConnection.Value = "";
             this.lblConnection.ValueColor = null;
             // 
-            // btnReference
-            // 
-            this.btnReference.BackgroundDraw = true;
-            this.btnReference.ButtonColor = null;
-            this.btnReference.Clickable = true;
-            this.btnReference.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
-            this.btnReference.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReference.Gradient = true;
-            this.btnReference.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.btnReference.IconGap = 0;
-            this.btnReference.IconImage = null;
-            this.btnReference.IconSize = 12F;
-            this.btnReference.IconString = "fa-book-open";
-            this.btnReference.Location = new System.Drawing.Point(383, 3);
-            this.btnReference.Name = "btnReference";
-            this.btnReference.Round = null;
-            this.btnReference.ShadowGap = 1;
-            this.btnReference.Size = new System.Drawing.Size(39, 34);
-            this.btnReference.TabIndex = 15;
-            this.btnReference.Text = null;
-            this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnReference.UseKey = false;
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackgroundDraw = true;
-            this.btnSetting.ButtonColor = null;
-            this.btnSetting.Clickable = true;
-            this.btnSetting.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSetting.Gradient = true;
-            this.btnSetting.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.btnSetting.IconGap = 0;
-            this.btnSetting.IconImage = null;
-            this.btnSetting.IconSize = 12F;
-            this.btnSetting.IconString = "fa-gear";
-            this.btnSetting.Location = new System.Drawing.Point(7, 10);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Round = null;
-            this.btnSetting.ShadowGap = 1;
-            this.btnSetting.Size = new System.Drawing.Size(39, 40);
-            this.btnSetting.TabIndex = 17;
-            this.btnSetting.Text = null;
-            this.btnSetting.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnSetting.UseKey = false;
-            // 
-            // dvControl1
-            // 
-            this.dvControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dvControl1.Location = new System.Drawing.Point(46, 10);
-            this.dvControl1.Name = "dvControl1";
-            this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(5, 40);
-            this.dvControl1.TabIndex = 18;
-            this.dvControl1.TabStop = false;
-            this.dvControl1.Text = "dvControl1";
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1016,7 +1017,7 @@ namespace LadderEditor.Forms
         #endregion
         private Devinno.Forms.Containers.DvContainer pnlStatus;
         private Devinno.Forms.Controls.DvLabel lblCursorPosition;
-        private Devinno.Forms.Controls.DvLabel dvLabel3;
+        private Devinno.Forms.Controls.DvLabel lblDeviceState;
         private Devinno.Forms.Controls.DvLabel lblState;
         private System.Windows.Forms.ToolTip toolTip;
         private Devinno.Forms.Containers.DvSplitterTableLayoutPanel splitter;

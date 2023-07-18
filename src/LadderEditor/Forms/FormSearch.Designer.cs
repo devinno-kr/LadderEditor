@@ -45,11 +45,11 @@ namespace LadderEditor.Forms
             this.dvContainer1.Controls.Add(this.dvControl1);
             this.dvContainer1.Controls.Add(this.btnClose);
             this.dvContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvContainer1.Location = new System.Drawing.Point(3, 77);
+            this.dvContainer1.Location = new System.Drawing.Point(3, 90);
             this.dvContainer1.Name = "dvContainer1";
             this.dvContainer1.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
             this.dvContainer1.ShadowGap = 1;
-            this.dvContainer1.Size = new System.Drawing.Size(342, 47);
+            this.dvContainer1.Size = new System.Drawing.Size(342, 57);
             this.dvContainer1.TabIndex = 3;
             this.dvContainer1.TabStop = false;
             this.dvContainer1.Text = "dvContainer1";
@@ -71,7 +71,7 @@ namespace LadderEditor.Forms
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Round = null;
             this.btnSearch.ShadowGap = 1;
-            this.btnSearch.Size = new System.Drawing.Size(90, 30);
+            this.btnSearch.Size = new System.Drawing.Size(90, 40);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.TabStop = false;
             this.btnSearch.Text = "찾기";
@@ -84,7 +84,7 @@ namespace LadderEditor.Forms
             this.dvControl1.Location = new System.Drawing.Point(235, 10);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(10, 30);
+            this.dvControl1.Size = new System.Drawing.Size(10, 40);
             this.dvControl1.TabIndex = 1;
             this.dvControl1.TabStop = false;
             this.dvControl1.Text = "dvControl1";
@@ -106,7 +106,7 @@ namespace LadderEditor.Forms
             this.btnClose.Name = "btnClose";
             this.btnClose.Round = null;
             this.btnClose.ShadowGap = 1;
-            this.btnClose.Size = new System.Drawing.Size(90, 30);
+            this.btnClose.Size = new System.Drawing.Size(90, 40);
             this.btnClose.TabIndex = 0;
             this.btnClose.TabStop = false;
             this.btnClose.Text = "닫기";
@@ -121,7 +121,7 @@ namespace LadderEditor.Forms
             this.dvContainer2.Name = "dvContainer2";
             this.dvContainer2.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
             this.dvContainer2.ShadowGap = 1;
-            this.dvContainer2.Size = new System.Drawing.Size(342, 37);
+            this.dvContainer2.Size = new System.Drawing.Size(342, 50);
             this.dvContainer2.TabIndex = 4;
             this.dvContainer2.TabStop = false;
             this.dvContainer2.Text = "dvContainer2";
@@ -142,7 +142,7 @@ namespace LadderEditor.Forms
             this.inSearch.Name = "inSearch";
             this.inSearch.Round = null;
             this.inSearch.ShadowGap = 1;
-            this.inSearch.Size = new System.Drawing.Size(328, 27);
+            this.inSearch.Size = new System.Drawing.Size(328, 40);
             this.inSearch.TabIndex = 0;
             this.inSearch.Text = "검색어";
             this.inSearch.Title = "검색어";
@@ -162,7 +162,7 @@ namespace LadderEditor.Forms
             // FormSearch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(348, 127);
+            this.ClientSize = new System.Drawing.Size(348, 150);
             this.Controls.Add(this.dvContainer2);
             this.Controls.Add(this.dvContainer1);
             this.Fixed = true;

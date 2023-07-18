@@ -125,6 +125,33 @@ namespace LadderEditor.Forms
             dgReference.Invalidate();
         }
         #endregion
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "라이브러리";
+                dvLabel1.Text = "라이브러리 목록";
+                dvLabel2.Text = "라이브러리 참조";
+                dgLibrary.Columns[0].HeaderText = "라이브러리";
+                dgReference.Columns[0].HeaderText = "라이브러리";
+                dgReference.Columns[2].HeaderText = "변수명";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Library";
+                dvLabel1.Text = "Library List";
+                dvLabel2.Text = "Reference";
+                dgLibrary.Columns[0].HeaderText = "Library";
+                dgReference.Columns[0].HeaderText = "Library";
+                dgReference.Columns[2].HeaderText = "Variable Name";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+            }
+        }
+        #endregion
         #region ShowLibrary
         public List<LadderLibrary> ShowLibrary(List<LadderLibrary> libs)
         {
@@ -134,6 +161,8 @@ namespace LadderEditor.Forms
             Libs.AddRange(libs);
 
             RefreshLibrary();
+
+            LangSet();
 
             if (this.ShowDialog() == DialogResult.OK)
             {

@@ -31,7 +31,7 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Member Variable
-        Dictionary<string, string> Dic;
+        Dictionary<string, string> DicK, DicE;
         bool bOpen = false;
         bool bLoop = false;
         AutocompleteMenu autocompleteMenu;
@@ -94,7 +94,8 @@ namespace LadderEditor.Forms
             #endregion
 
             #region Dic
-            Dic = LadderFunc.Funcs.ToDictionary(x => x.Name, y => y.Description);
+            DicK = LadderFunc.Funcs.ToDictionary(x => x.Name, y => y.DescriptionKO);
+            DicE = LadderFunc.Funcs.ToDictionary(x => x.Name, y => y.DescriptionEN);
             #endregion
 
             #region Form Props
@@ -150,6 +151,25 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Method
+        #region LangSet
+        void LangSet()
+        {
+            if (Program.DataMgr.Language == Managers.Lang.KO)
+            {
+                Title = "편집";
+                dvLabel1.Text = "설명";
+                btnOK.Text = "확인";
+                btnCancel.Text = "취소";
+            }
+            else if (Program.DataMgr.Language == Managers.Lang.EN)
+            {
+                Title = "Edit";
+                dvLabel1.Text = "Description";
+                btnOK.Text = "Ok";
+                btnCancel.Text = "Cancel";
+            }
+        }
+        #endregion
         #region ShowLadderCode
         public string ShowLadderCode(LadderItem ld)
         {
@@ -205,6 +225,8 @@ namespace LadderEditor.Forms
             SetLabel();
             MakeAutoComplete();
             #endregion
+
+            LangSet();
 
             if (this.ShowDialog() == DialogResult.OK)
             {
@@ -298,6 +320,7 @@ namespace LadderEditor.Forms
                 if (!bCode)
                 {
                     var fn = txt.Text.Split('(').FirstOrDefault()?.ToUpper()?.Trim();
+                    var Dic = Program.DataMgr.Language == Managers.Lang.KO ? DicK : DicE;
 
                     if (fn != null && Dic != null && Dic.ContainsKey(fn))
                         lblDesc.Text = Dic[fn];

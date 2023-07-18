@@ -393,6 +393,17 @@ namespace LadderEditor.Managers
         }
         #endregion
 
+        #region Name
+        public static string Name
+        {
+            get
+            {
+                if (lang == Lang.KO) return "명칭";
+                else if (lang == Lang.EN) return "Name";
+                else return "";
+            }
+        }
+        #endregion
         #region Slave
         public static string Slave
         {

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -51,21 +52,21 @@ namespace LadderEditor.Forms
         {
             if (lang == Managers.Lang.KO)
             {
-                Title = "설정";
-                lblTitleAreas.Text = "설정 목록";
-                lblPath.Title = "프로젝트 폴더";
-                inLang.Title = "언어";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
+                Title = LM.SettingK;
+                lblTitleAreas.Text = LM.SettingListK;
+                lblPath.Title = LM.ProjectFolderK;
+                inLang.Title = LM.LanguageK;
+                btnOK.Text = LM.OkK;
+                btnCancel.Text = LM.CancelK;
             }
             else if (lang == Managers.Lang.EN)
             {
-                Title = "Setting";
-                lblTitleAreas.Text = "Setting List";
-                lblPath.Title = "Project Folder";
-                inLang.Title = "Language";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
+                Title = LM.SettingE;
+                lblTitleAreas.Text = LM.SettingListE;
+                lblPath.Title = LM.ProjectFolderE;
+                inLang.Title = LM.LanguageE;
+                btnOK.Text = LM.OkE;
+                btnCancel.Text = LM.CancelE;
             }
         }
         #endregion

@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -40,14 +41,14 @@ namespace LadderEditor.Forms
             #endregion
             #region dgLibrary
             dgLibrary.SelectionMode = DvDataGridSelectionMode.Selector;
-            dgLibrary.Columns.Add(new DvDataGridColumn(dgLibrary) { Name = "Name", HeaderText = "라이브러리", Width = 50M, SizeMode = DvSizeMode.Percent });
+            dgLibrary.Columns.Add(new DvDataGridColumn(dgLibrary) { Name = "Name", HeaderText = LM.Library, Width = 50M, SizeMode = DvSizeMode.Percent });
             dgLibrary.Columns.Add(new DvDataGridColumn(dgLibrary) { Name = "DllPath", HeaderText = "DLL", Width = 50M, SizeMode = DvSizeMode.Percent });
             #endregion
             #region dgReference
             dgReference.SelectionMode = DvDataGridSelectionMode.Selector;
-            dgReference.Columns.Add(new DvDataGridColumn(dgReference) { Name = "Name", HeaderText = "라이브러리", Width = 40M, SizeMode = DvSizeMode.Percent });
+            dgReference.Columns.Add(new DvDataGridColumn(dgReference) { Name = "Name", HeaderText = LM.Library, Width = 40M, SizeMode = DvSizeMode.Percent });
             dgReference.Columns.Add(new DvDataGridColumn(dgReference) { Name = "DllPath", HeaderText = "DLL", Width = 30M, SizeMode = DvSizeMode.Percent });
-            dgReference.Columns.Add(new DvDataGridEditTextColumn(dgReference) { Name = "InstanceName", HeaderText = "변수명", Width = 30M, SizeMode = DvSizeMode.Percent });
+            dgReference.Columns.Add(new DvDataGridEditTextColumn(dgReference) { Name = "InstanceName", HeaderText = LM.VariableName, Width = 30M, SizeMode = DvSizeMode.Percent });
             #endregion
             #endregion
 
@@ -128,28 +129,14 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "라이브러리";
-                dvLabel1.Text = "라이브러리 목록";
-                dvLabel2.Text = "라이브러리 참조";
-                dgLibrary.Columns[0].HeaderText = "라이브러리";
-                dgReference.Columns[0].HeaderText = "라이브러리";
-                dgReference.Columns[2].HeaderText = "변수명";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Library";
-                dvLabel1.Text = "Library List";
-                dvLabel2.Text = "Reference";
-                dgLibrary.Columns[0].HeaderText = "Library";
-                dgReference.Columns[0].HeaderText = "Library";
-                dgReference.Columns[2].HeaderText = "Variable Name";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-            }
+            Title = LM.Library;
+            dvLabel1.Text = LM.LibraryList;
+            dvLabel2.Text = LM.LibraryReference;
+            dgLibrary.Columns[0].HeaderText = LM.Library;
+            dgReference.Columns[0].HeaderText = LM.Library;
+            dgReference.Columns[2].HeaderText = LM.VariableName;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
         }
         #endregion
         #region ShowLibrary

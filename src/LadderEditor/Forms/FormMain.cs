@@ -22,7 +22,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
- 
+using LM = LadderEditor.Managers.LangTool;
+
 namespace LadderEditor.Forms
 {
     public partial class FormMain : DvForm
@@ -61,9 +62,9 @@ namespace LadderEditor.Forms
             #region Grid
             gridMessage.SelectionMode = DvDataGridSelectionMode.Single;
             gridMessage.ColumnColor = Color.FromArgb(50, 50, 50);
-            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Row", HeaderText = "행", SizeMode = DvSizeMode.Pixel, Width = 70, CellType = typeof(DvDataGridLabelCell) });
-            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Column", HeaderText = "열", SizeMode = DvSizeMode.Pixel, Width = 70, CellType = typeof(DvDataGridLabelCell) });
-            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Message", HeaderText = "메시지", SizeMode = DvSizeMode.Percent, Width = 100, CellType = typeof(DvDataGridLabelCell) });
+            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Row", HeaderText = LM.Row, SizeMode = DvSizeMode.Pixel, Width = 70, CellType = typeof(DvDataGridLabelCell) });
+            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Column", HeaderText = LM.Col, SizeMode = DvSizeMode.Pixel, Width = 70, CellType = typeof(DvDataGridLabelCell) });
+            gridMessage.Columns.Add(new DvDataGridColumn(gridMessage) { Name = "Message", HeaderText = LM.Message, SizeMode = DvSizeMode.Percent, Width = 100, CellType = typeof(DvDataGridLabelCell) });
             #endregion
 
             #region Ladder Properties
@@ -127,11 +128,12 @@ namespace LadderEditor.Forms
                     if (CurrentDocument.Edit) CurrentDocument.Save();
 
                     var ret = LadderTool.ValidCheck(CurrentDocument, true);
+                    foreach (var v in ret) v.Message = LM.Error(v.Message); 
                     gridMessage.SetDataSource<LadderCheckMessage>(ret);
                     if (ret.Count == 0)
-                        Message("유효성 체크", "유효성 체크 결과 정상입니다.");
+                        Message(LM.ValidationCheck, LM.ValidationOK);
                     else
-                        Message("유효성 체크", "유효성 체크 결과 문제가 확인되었습니다.");
+                        Message(LM.ValidationCheck, LM.ValidationFail);
                 }
             };
             #endregion
@@ -167,6 +169,7 @@ namespace LadderEditor.Forms
                     if (CurrentDocument != null)
                     {
                         var ret = LadderTool.ValidCheck(CurrentDocument, true);
+                        foreach (var v in ret) v.Message = LM.Error(v.Message);
                         gridMessage.SetDataSource<LadderCheckMessage>(ret);
                         if (ret.Count == 0)
                         {
@@ -175,7 +178,7 @@ namespace LadderEditor.Forms
                             Program.DevMgr.Download(CurrentDocument);
                         }
                         else
-                            Message("유효성 체크", "유효성 체크 결과 문제가 확인되었습니다.");
+                            Message(LM.ValidationCheck, LM.ValidationFail);
                     }
                 }
             };
@@ -380,7 +383,7 @@ namespace LadderEditor.Forms
             {
                 Block = true;
 
-                var ret = Program.MessageBox.ShowMessageBoxYesNo("저장", "저장하시겠습니까?");
+                var ret = Program.MessageBox.ShowMessageBoxYesNo(LM.Save, LM.SaveQuestion);
                 if (ret == DialogResult.Yes) SaveFile();
                 else if (ret == DialogResult.Cancel) e.Cancel = true;
 
@@ -406,7 +409,7 @@ namespace LadderEditor.Forms
             if (CurrentDocument != null && CurrentDocument.MustSave)
             {
                 Block = true;
-                switch (Program.MessageBox.ShowMessageBoxYesNoCancel("저장", "저장 하시겠습니까?"))
+                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(LM.Save, LM.SaveQuestion))
                 {
                     case DialogResult.Yes: SaveFile(); break;
                     case DialogResult.No: break;
@@ -420,7 +423,7 @@ namespace LadderEditor.Forms
                 Block = true;
 
                 Program.InputBox.UseEnterKey = true;
-                var ret = Program.InputBox.ShowString("새 파일");
+                var ret = Program.InputBox.ShowString(LM.NewFile);
                 if (ret != null)
                 {
                     CurrentDocument = new EditorLadderDocument() { Title = ret };
@@ -446,10 +449,7 @@ namespace LadderEditor.Forms
             {
                 Block = true;
 
-                var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
-                var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "저장 하시겠습니까?" : "Would you like me to save it?";
-
-                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(sTitle, sMessage))
+                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(LM.Save, LM.SaveQuestion))
                 {
                     case DialogResult.Yes: SaveFile(); break;
                     case DialogResult.No: break;
@@ -464,8 +464,7 @@ namespace LadderEditor.Forms
                 Block = true;
                 using (var ofd = new OpenFileDialog())
                 {
-                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "열기" : "Open";
-
+                    ofd.Title = LM.Open;
                     ofd.InitialDirectory = Program.DataMgr.ProjectFolder;
                     ofd.Multiselect = false;
                     ofd.Filter = "Devinno Ladder File|*.dld";
@@ -502,10 +501,7 @@ namespace LadderEditor.Forms
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
-                    var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "권한 부족으로 저장할 수 없습니다." : "Insufficient permissions to save.";
-
-                    Program.MessageBox.ShowMessageBoxOk(sTitle, sMessage);
+                    Program.MessageBox.ShowMessageBoxOk(LM.Save, LM.SavePermissions);
                 }
 
                 if (Block) Block = false;
@@ -525,10 +521,7 @@ namespace LadderEditor.Forms
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
-                    var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "권한 부족으로 저장할 수 없습니다." : "Insufficient permissions to save.";
-
-                    Program.MessageBox.ShowMessageBoxOk(sTitle, sMessage);
+                    Program.MessageBox.ShowMessageBoxOk(LM.Save, LM.SavePermissions);
                 }
 
                 Block = false;
@@ -541,10 +534,7 @@ namespace LadderEditor.Forms
             bool bCancel = false;
             if (CurrentDocument != null && CurrentDocument.MustSave)
             {
-                var sTitle = Program.DataMgr.Language == Managers.Lang.KO ? "저장" : "Save";
-                var sMessage = Program.DataMgr.Language == Managers.Lang.KO ? "저장 하시겠습니까?" : "Would you like me to save it?";
-
-                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(sTitle, sMessage))
+                switch (Program.MessageBox.ShowMessageBoxYesNoCancel(LM.Save, LM.SaveQuestion))
                 {
                     case DialogResult.Yes: SaveFile(); break;
                     case DialogResult.No: break;
@@ -600,85 +590,42 @@ namespace LadderEditor.Forms
         #region ToolTipSet
         void ToolTipSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                toolTip.SetToolTip(btnUpload, "업로드");
-                toolTip.SetToolTip(btnSymbol, "심볼");
-                toolTip.SetToolTip(btnSaveFile, "저장");
-                toolTip.SetToolTip(btnSaveAsFile, "다른 이름으로 저장");
-                toolTip.SetToolTip(btnOpenFile, "열기");
-                toolTip.SetToolTip(btnNewFile, "새 파일");
-                toolTip.SetToolTip(btnMonitoring, "모니터링");
-                toolTip.SetToolTip(btnDownload, "다운로드");
-                toolTip.SetToolTip(btnDescription, "프로젝트 설명");
-                toolTip.SetToolTip(btnCommunication, "통신 설정");
-                toolTip.SetToolTip(btnCheck, "유효성 체크");
-                toolTip.SetToolTip(btnReference, "라이브러리");
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                toolTip.SetToolTip(btnUpload, "Upload");
-                toolTip.SetToolTip(btnSymbol, "Symbol");
-                toolTip.SetToolTip(btnSaveFile, "Save File");
-                toolTip.SetToolTip(btnSaveAsFile, "Save As File");
-                toolTip.SetToolTip(btnOpenFile, "Open File");
-                toolTip.SetToolTip(btnNewFile, "New File");
-                toolTip.SetToolTip(btnMonitoring, "Monitoring");
-                toolTip.SetToolTip(btnDownload, "Download");
-                toolTip.SetToolTip(btnDescription, "Project Description");
-                toolTip.SetToolTip(btnCommunication, "Communication");
-                toolTip.SetToolTip(btnCheck, "Validation Check");
-                toolTip.SetToolTip(btnReference, "Library");
-            }
+            toolTip.SetToolTip(btnUpload, LM.Upload);
+            toolTip.SetToolTip(btnSymbol, LM.Symbol);
+            toolTip.SetToolTip(btnSaveFile, LM.Save);
+            toolTip.SetToolTip(btnSaveAsFile, LM.SaveAs);
+            toolTip.SetToolTip(btnOpenFile, LM.Open);
+            toolTip.SetToolTip(btnNewFile, LM.NewFile);
+            toolTip.SetToolTip(btnMonitoring, LM.Monitoring);
+            toolTip.SetToolTip(btnDownload, LM.Download);
+            toolTip.SetToolTip(btnDescription, LM.ProjectDescription);
+            toolTip.SetToolTip(btnCommunication, LM.Communication);
+            toolTip.SetToolTip(btnCheck, LM.ValidationCheck);
+            toolTip.SetToolTip(btnReference, LM.Library);
         }
         #endregion
         #region LandSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
+            lblConnection.Title = LM.Device;
+            lblDeviceState.Text = LM.DeviceState;
+            lblConnection.Button = Program.DevMgr.IsConnected ? LM.Disconnect : LM.Connect;
+
+            lblCursorPosition.Text = CurrentDocument != null ? $"{LM.Col} : {(ladder.CurX + 1)}        {LM.Row} : {(ladder.CurRow + 1)}" : "";
+            Title = LM.AppTitle + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
+
+            if (Program.DevMgr != null)
             {
-                lblConnection.Title = "장비";
-                lblDeviceState.Text = "장치 상태";
-                lblConnection.Button = Program.DevMgr.IsConnected ? "해지" : "연결";
-
-                lblCursorPosition.Text = CurrentDocument != null ? $"열 : {(ladder.CurX + 1)}        행 : {(ladder.CurRow + 1)}" : "";
-                Title = "레더 에디터" + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
-
-                if (Program.DevMgr != null)
+                var s = "";
+                switch (Program.DevMgr.DeviceState)
                 {
-                    var s = "";
-                    switch (Program.DevMgr.DeviceState)
-                    {
-                        case EngineState.DISCONNECTED: s = "미연결"; break;
-                        case EngineState.STANDBY: s = "대기"; break;
-                        case EngineState.RUN: s = "실행"; break;
-                        case EngineState.DOWNLOADING: s = "다운로딩"; break;
-                        case EngineState.ERROR: s = "에러"; break;
-                    }
-                    lblState.Text = s;
+                    case EngineState.DISCONNECTED: s = LM.StateDisconnected; break;
+                    case EngineState.STANDBY: s = LM.StateStandby; break;
+                    case EngineState.RUN: s = LM.StateRun; break;
+                    case EngineState.DOWNLOADING: s = LM.StateDownloading; break;
+                    case EngineState.ERROR: s = LM.StateError; break;
                 }
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                lblConnection.Title = "Device";
-                lblDeviceState.Text = "Device State";
-                lblConnection.Button = Program.DevMgr.IsConnected ? "Disconn" : "Conn";
-                lblCursorPosition.Text = CurrentDocument != null ? $"Col : {(ladder.CurX + 1)}        Row : {(ladder.CurRow + 1)}" : "";
-                Title = "Ladder Editor" + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
-
-                if (Program.DevMgr != null)
-                {
-                    var s = "";
-                    switch (Program.DevMgr.DeviceState)
-                    {
-                        case EngineState.DISCONNECTED: s = "Disconnected"; break;
-                        case EngineState.STANDBY: s = "Standby"; break;
-                        case EngineState.RUN: s = "Run"; break;
-                        case EngineState.DOWNLOADING: s = "Downloading"; break;
-                        case EngineState.ERROR: s = "Error"; break;
-                    }
-                    lblState.Text = s;
-                }
+                lblState.Text = s;
             }
         }
         #endregion

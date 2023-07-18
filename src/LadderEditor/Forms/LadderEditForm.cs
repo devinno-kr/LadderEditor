@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Thread = System.Threading.Thread;
 using ThreadStart = System.Threading.ThreadStart;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -154,20 +155,10 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "편집";
-                dvLabel1.Text = "설명";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Edit";
-                dvLabel1.Text = "Description";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-            }
+            Title = LM.Edit;
+            dvLabel1.Text = LM.Description;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
         }
         #endregion
         #region ShowLadderCode

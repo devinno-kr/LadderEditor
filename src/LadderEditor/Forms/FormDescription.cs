@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -42,24 +42,12 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "프로젝트 정보";
-                dvLabel1.Text = "제목";
-                dvLabel3.Text = "버전";
-                dvLabel2.Text = "설명";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Project Information";
-                dvLabel1.Text = "Title";
-                dvLabel3.Text = "Version";
-                dvLabel2.Text = "Description";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-            }
+            Title = LM.ProjectInformation;
+            dvLabel1.Text = LM.Title;
+            dvLabel3.Text = LM.Version;
+            dvLabel2.Text = LM.Description;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
         }
         #endregion
         #region ShowDescription

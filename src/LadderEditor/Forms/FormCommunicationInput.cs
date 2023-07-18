@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -74,36 +75,36 @@ namespace LadderEditor.Forms
             MDRM_dgMonitor.ColumnColor = MDRM_dgBind.ColumnColor = MDTM_dgMonitor.ColumnColor = MDTM_dgBind.ColumnColor = MQTT_dgPub.ColumnColor = MQTT_dgSub.ColumnColor = Color.FromArgb(30, 30, 30);
 
             MDRM_dgMonitor.SelectionMode = DvDataGridSelectionMode.Selector;
-            MDRM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDRM_dgMonitor) { Name = "Slave", HeaderText = "국번", SizeMode = DvSizeMode.Percent, Width = 15 });
-            MDRM_dgMonitor.Columns.Add(new DvDataGridComboBoxColumn(MDRM_dgMonitor) { Name = "Func", HeaderText = "코드", SizeMode = DvSizeMode.Percent, Width = 40, Items = fns });
-            MDRM_dgMonitor.Columns.Add(new DvDataGridColumn(MDRM_dgMonitor) { Name = "Address", HeaderText = "시작 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
-            MDRM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<int>(MDRM_dgMonitor) { Name = "Length", HeaderText = "길이", SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDRM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDRM_dgMonitor) { Name = "Slave", HeaderText = LM.Slave, SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDRM_dgMonitor.Columns.Add(new DvDataGridComboBoxColumn(MDRM_dgMonitor) { Name = "Func", HeaderText = LM.FuncCode, SizeMode = DvSizeMode.Percent, Width = 40, Items = fns });
+            MDRM_dgMonitor.Columns.Add(new DvDataGridColumn(MDRM_dgMonitor) { Name = "Address", HeaderText = LM.StartAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
+            MDRM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<int>(MDRM_dgMonitor) { Name = "Length", HeaderText = LM.Length, SizeMode = DvSizeMode.Percent, Width = 15 });
 
             MDRM_dgBind.SelectionMode = DvDataGridSelectionMode.Selector;
-            MDRM_dgBind.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDRM_dgBind) { Name = "Slave", HeaderText = "국번", SizeMode = DvSizeMode.Percent, Width = 15 });
-            MDRM_dgBind.Columns.Add(new DvDataGridComboBoxColumn(MDRM_dgBind) { Name = "Mode", HeaderText = "모드", SizeMode = DvSizeMode.Percent, Width = 35, Items = mods });
-            MDRM_dgBind.Columns.Add(new DvDataGridColumn(MDRM_dgBind) { Name = "Address", HeaderText = "시작 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
-            MDRM_dgBind.Columns.Add(new DvDataGridColumn(MDRM_dgBind) { Name = "Bind", HeaderText = "바인딩", SizeMode = DvSizeMode.Percent, Width = 20, CellType = typeof(DvDataGridEditTextCell) });
+            MDRM_dgBind.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDRM_dgBind) { Name = "Slave", HeaderText = LM.Slave, SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDRM_dgBind.Columns.Add(new DvDataGridComboBoxColumn(MDRM_dgBind) { Name = "Mode", HeaderText = LM.FuncCode, SizeMode = DvSizeMode.Percent, Width = 35, Items = mods });
+            MDRM_dgBind.Columns.Add(new DvDataGridColumn(MDRM_dgBind) { Name = "Address", HeaderText = LM.StartAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
+            MDRM_dgBind.Columns.Add(new DvDataGridColumn(MDRM_dgBind) { Name = "Bind", HeaderText = LM.Bind, SizeMode = DvSizeMode.Percent, Width = 20, CellType = typeof(DvDataGridEditTextCell) });
 
             MDTM_dgMonitor.SelectionMode = DvDataGridSelectionMode.Selector;
-            MDTM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDTM_dgMonitor) { Name = "Slave", HeaderText = "국번", SizeMode = DvSizeMode.Percent, Width = 15 });
-            MDTM_dgMonitor.Columns.Add(new DvDataGridComboBoxColumn(MDTM_dgMonitor) { Name = "Func", HeaderText = "코드", SizeMode = DvSizeMode.Percent, Width = 40, Items = fns });
-            MDTM_dgMonitor.Columns.Add(new DvDataGridColumn(MDTM_dgMonitor) { Name = "Address", HeaderText = "시작 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
-            MDTM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<int>(MDTM_dgMonitor) { Name = "Length", HeaderText = "길이", SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDTM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDTM_dgMonitor) { Name = "Slave", HeaderText = LM.Slave, SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDTM_dgMonitor.Columns.Add(new DvDataGridComboBoxColumn(MDTM_dgMonitor) { Name = "Func", HeaderText = LM.FuncCode, SizeMode = DvSizeMode.Percent, Width = 40, Items = fns });
+            MDTM_dgMonitor.Columns.Add(new DvDataGridColumn(MDTM_dgMonitor) { Name = "Address", HeaderText = LM.StartAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
+            MDTM_dgMonitor.Columns.Add(new DvDataGridEditNumberColumn<int>(MDTM_dgMonitor) { Name = "Length", HeaderText = LM.Length, SizeMode = DvSizeMode.Percent, Width = 15 });
 
             MDTM_dgBind.SelectionMode = DvDataGridSelectionMode.Selector;
-            MDTM_dgBind.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDTM_dgBind) { Name = "Slave", HeaderText = "국번", SizeMode = DvSizeMode.Percent, Width = 15 });
-            MDTM_dgBind.Columns.Add(new DvDataGridComboBoxColumn(MDTM_dgBind) { Name = "Mode", HeaderText = "모드", SizeMode = DvSizeMode.Percent, Width = 35, Items = mods });
-            MDTM_dgBind.Columns.Add(new DvDataGridColumn(MDTM_dgBind) { Name = "Address", HeaderText = "시작 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
-            MDTM_dgBind.Columns.Add(new DvDataGridColumn(MDTM_dgBind) { Name = "Bind", HeaderText = "바인딩", SizeMode = DvSizeMode.Percent, Width = 20, CellType = typeof(DvDataGridEditTextCell) });
+            MDTM_dgBind.Columns.Add(new DvDataGridEditNumberColumn<byte>(MDTM_dgBind) { Name = "Slave", HeaderText = LM.Slave, SizeMode = DvSizeMode.Percent, Width = 15 });
+            MDTM_dgBind.Columns.Add(new DvDataGridComboBoxColumn(MDTM_dgBind) { Name = "Mode", HeaderText = LM.FuncCode, SizeMode = DvSizeMode.Percent, Width = 35, Items = mods });
+            MDTM_dgBind.Columns.Add(new DvDataGridColumn(MDTM_dgBind) { Name = "Address", HeaderText = LM.StartAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(AddressCell) });
+            MDTM_dgBind.Columns.Add(new DvDataGridColumn(MDTM_dgBind) { Name = "Bind", HeaderText = LM.Bind, SizeMode = DvSizeMode.Percent, Width = 20, CellType = typeof(DvDataGridEditTextCell) });
 
             MQTT_dgPub.SelectionMode = DvDataGridSelectionMode.Selector;
-            MQTT_dgPub.Columns.Add(new DvDataGridColumn(MQTT_dgPub) { Name = "Topic", HeaderText = "토픽", SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridEditTextCell) });
-            MQTT_dgPub.Columns.Add(new DvDataGridColumn(MQTT_dgPub) { Name = "Address", HeaderText = "메모리 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridEditTextCell) });
+            MQTT_dgPub.Columns.Add(new DvDataGridColumn(MQTT_dgPub) { Name = "Topic", HeaderText = LM.Topic, SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridEditTextCell) });
+            MQTT_dgPub.Columns.Add(new DvDataGridColumn(MQTT_dgPub) { Name = "Address", HeaderText = LM.MemoryAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridEditTextCell) });
 
             MQTT_dgSub.SelectionMode = DvDataGridSelectionMode.Selector;
-            MQTT_dgSub.Columns.Add(new DvDataGridColumn(MQTT_dgSub) { Name = "Topic", HeaderText = "토픽", SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridEditTextCell) });
-            MQTT_dgSub.Columns.Add(new DvDataGridColumn(MQTT_dgSub) { Name = "Address", HeaderText = "메모리 주소", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridEditTextCell) });
+            MQTT_dgSub.Columns.Add(new DvDataGridColumn(MQTT_dgSub) { Name = "Topic", HeaderText = LM.Topic, SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridEditTextCell) });
+            MQTT_dgSub.Columns.Add(new DvDataGridColumn(MQTT_dgSub) { Name = "Address", HeaderText = LM.MemoryAddress, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridEditTextCell) });
             #endregion
 
             #region Event
@@ -131,7 +132,7 @@ namespace LadderEditor.Forms
                 {
                     var sb = new StringBuilder();
                     foreach (var v in ret) sb.AppendLine(v);
-                    Program.MessageBox.ShowMessageBoxOk("입력 오류", sb.ToString());
+                    Program.MessageBox.ShowMessageBoxOk(LM.InputError, sb.ToString());
                 }
             };
             btnCancel.ButtonClick += (o, s) => DialogResult = DialogResult.Cancel;
@@ -140,49 +141,49 @@ namespace LadderEditor.Forms
             MDRS_lblAreaP.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaM.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaT.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaC.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaD.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaWP.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDRS_lblAreaWM.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역 시작주소", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + " " + LM.AreaStartAddress, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
             #endregion
@@ -190,49 +191,49 @@ namespace LadderEditor.Forms
             MDTS_lblAreaP.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaM.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaT.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaC.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaD.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaWP.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
 
             MDTS_lblAreaWM.ButtonClicked += (o, s) =>
             {
                 var c = ((DvValueLabelText)o);
-                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + "영역", c.Text);
+                var r = InputBaseAddress(c.Text.Split(' ').FirstOrDefault() + LM.Area, c.Text);
                 if (r.HasValue) c.Value = ValueTool.GetHexString(r.Value);
             };
             #endregion
@@ -595,24 +596,24 @@ namespace LadderEditor.Forms
                 var c9 = ValueTool.GetHexValue(MDRS_lblAreaWP.Value).HasValue;
                 var c10 = ValueTool.GetHexValue(MDRS_lblAreaWM.Value).HasValue;
 
-                if (!c1) ret.Add("· 통신 포트를 입력하세요.");
-                if (!c2) ret.Add("· 통신 속도를 입력하세요.");
-                if (!c3) ret.Add("· 국번은 0~255 사이 숫자로 입력하여야 합니다.");
-                if (!c4) ret.Add("· P 영역 시작주소를 입력하세요.");
-                if (!c5) ret.Add("· M 영역 시작주소를 입력하세요.");
-                if (!c6) ret.Add("· T 영역 시작주소를 입력하세요.");
-                if (!c7) ret.Add("· C 영역 시작주소를 입력하세요.");
-                if (!c8) ret.Add("· D 영역 시작주소를 입력하세요.");
-                if (!c9) ret.Add("· WP 영역 시작주소를 입력하세요.");
-                if (!c10) ret.Add("· WM 영역 시작주소를 입력하세요.");
+                if (!c1) ret.Add(LM.CommErrorPort);
+                if (!c2) ret.Add(LM.CommErrorBaudrate);
+                if (!c3) ret.Add(LM.CommErrorSlave);
+                if (!c4) ret.Add(LM.CommErrorAreaP);
+                if (!c5) ret.Add(LM.CommErrorAreaM);
+                if (!c6) ret.Add(LM.CommErrorAreaT);
+                if (!c7) ret.Add(LM.CommErrorAreaC);
+                if (!c8) ret.Add(LM.CommErrorAreaD);
+                if (!c9) ret.Add(LM.CommErrorAreaWP);
+                if (!c10) ret.Add(LM.CommErrorAreaWM);
             }
             else if (tab.SelectedTab == tpMDRM)
             {
                 var c1 = !string.IsNullOrWhiteSpace(MDRM_inPort.Value);
                 var c2 = MDRM_inBaudrate.SelectedIndex >= 0;
 
-                if (!c1) ret.Add("· 통신 포트를 입력하세요.");
-                if (!c2) ret.Add("· 통신 속도를 입력하세요.");
+                if (!c1) ret.Add(LM.CommErrorPort);
+                if (!c2) ret.Add(LM.CommErrorBaudrate);
             }
             else if (tab.SelectedTab == tpMDTS)
             {
@@ -626,20 +627,20 @@ namespace LadderEditor.Forms
                 var c7 = ValueTool.GetHexValue(MDTS_lblAreaWP.Value).HasValue;
                 var c8 = ValueTool.GetHexValue(MDTS_lblAreaWM.Value).HasValue;
 
-                if (!c1) ret.Add("· 국번은 0~255 사이 숫자로 입력하여야 합니다.");
-                if (!c2) ret.Add("· P 영역 시작주소를 입력하세요.");
-                if (!c3) ret.Add("· M 영역 시작주소를 입력하세요.");
-                if (!c4) ret.Add("· T 영역 시작주소를 입력하세요.");
-                if (!c5) ret.Add("· C 영역 시작주소를 입력하세요.");
-                if (!c6) ret.Add("· D 영역 시작주소를 입력하세요.");
-                if (!c7) ret.Add("· WP 영역 시작주소를 입력하세요.");
-                if (!c8) ret.Add("· WM 영역 시작주소를 입력하세요.");
+                if (!c1) ret.Add(LM.CommErrorSlave);
+                if (!c2) ret.Add(LM.CommErrorAreaP);
+                if (!c3) ret.Add(LM.CommErrorAreaM);
+                if (!c4) ret.Add(LM.CommErrorAreaT);
+                if (!c5) ret.Add(LM.CommErrorAreaC);
+                if (!c6) ret.Add(LM.CommErrorAreaD);
+                if (!c7) ret.Add(LM.CommErrorAreaWP);
+                if (!c8) ret.Add(LM.CommErrorAreaWM);
             }
             else if (tab.SelectedTab == tpMDTM)
             {
                 var c1 = NetworkTool.ValidIPv4(MDTM_inRemoteIP.Value);
 
-                if (!c1) ret.Add("· 원격 주소를 IPv4 형식으로 입력하여야 합니다.");
+                if (!c1) ret.Add(LM.CommErrorRemoteIP);
             }
             else if (tab.SelectedTab == tpMQTT)
             {
@@ -647,9 +648,9 @@ namespace LadderEditor.Forms
                 var c2 = MQTT.Subs.Where(x => string.IsNullOrWhiteSpace(x.Topic)).Count() == 0;
                 var c3 = MQTT.Pubs.Where(x => string.IsNullOrWhiteSpace(x.Topic)).Count() == 0;
 
-                if (!c1) ret.Add("· 원격 주소를 IPv4 형식으로 입력하여야 합니다.");
-                if (!c2) ret.Add("· 구독 항목에 빈 토픽이 존재합니다.");
-                if (!c3) ret.Add("· 발행 항목에 빈 토픽이 존재합니다.");
+                if (!c1) ret.Add(LM.CommErrorRemoteIP);
+                if (!c2) ret.Add(LM.CommErrorSub);
+                if (!c3) ret.Add(LM.CommErrorPub);
 
             }
 
@@ -660,140 +661,70 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "통신 항목";
-                dvPanel2.Text = "통신 유형";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
+            Title = LM.CommunicationItem;
+            dvPanel2.Text = LM.CommunicationType;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
 
-                dvLabel1.Text = "속성";
-                MDRS_inPort.Title = "통신 포트";
-                MDRS_inBaudrate.Title = "통신 속도";
-                MDRS_inSlave.Title = "국번";
-                dvLabel2.Text = "메모리 맵";
-                MDRS_lblAreaP.Title = "P 영역 시작주소";
-                MDRS_lblAreaM.Title = "M 영역 시작주소";
-                MDRS_lblAreaT.Title = "T 영역 시작주소";
-                MDRS_lblAreaC.Title = "C 영역 시작주소";
-                MDRS_lblAreaD.Title = "D 영역 시작주소";
-                MDRS_lblAreaWP.Title = "WP 영역 시작주소";
-                MDRS_lblAreaWM.Title = "WM 영역 시작주소";
+            dvLabel1.Text = LM.Property;
+            MDRS_inPort.Title = LM.Port;
+            MDRS_inBaudrate.Title = LM.Baudrate;
+            MDRS_inSlave.Title = LM.Slave;
+            dvLabel2.Text = LM.MemoryMap;
+            MDRS_lblAreaP.Title = "P " + LM.AreaStartAddress;
+            MDRS_lblAreaM.Title = "M " + LM.AreaStartAddress;
+            MDRS_lblAreaT.Title = "T " + LM.AreaStartAddress;
+            MDRS_lblAreaC.Title = "C " + LM.AreaStartAddress;
+            MDRS_lblAreaD.Title = "D " + LM.AreaStartAddress;
+            MDRS_lblAreaWP.Title = "WP " + LM.AreaStartAddress;
+            MDRS_lblAreaWM.Title = "WM " + LM.AreaStartAddress;
 
-                dvLabel4.Text = "속성";
-                MDRM_inPort.Title = "통신 포트";
-                MDRM_inBaudrate.Title = "통신 속도";
-                dvLabel3.Text = "모니터링";
-                MDRM_dgMonitor.Columns[0].HeaderText = "국번";
-                MDRM_dgMonitor.Columns[1].HeaderText = "코드";
-                MDRM_dgMonitor.Columns[2].HeaderText = "시작 주소";
-                MDRM_dgMonitor.Columns[3].HeaderText = "길이";
-                dvLabel5.Text = "메모리바인딩";
-                MDRM_dgBind.Columns[0].HeaderText = "국번";
-                MDRM_dgBind.Columns[1].HeaderText = "코드";
-                MDRM_dgBind.Columns[2].HeaderText = "시작 주소";
-                MDRM_dgBind.Columns[3].HeaderText = "바인딩";
+            dvLabel4.Text = LM.Property;
+            MDRM_inPort.Title = LM.Port;
+            MDRM_inBaudrate.Title = LM.Baudrate;
+            dvLabel3.Text = LM.Monitoring;
+            MDRM_dgMonitor.Columns[0].HeaderText = LM.Slave;
+            MDRM_dgMonitor.Columns[1].HeaderText = LM.FuncCode;
+            MDRM_dgMonitor.Columns[2].HeaderText = LM.StartAddress;
+            MDRM_dgMonitor.Columns[3].HeaderText = LM.Length;
+            dvLabel5.Text = LM.MemoryBind;
+            MDRM_dgBind.Columns[0].HeaderText = LM.Slave;
+            MDRM_dgBind.Columns[1].HeaderText = LM.FuncCode;
+            MDRM_dgBind.Columns[2].HeaderText = LM.StartAddress;
+            MDRM_dgBind.Columns[3].HeaderText = LM.Bind;
 
-                dvLabel7.Text = "속성";
-                MDTS_inSlave.Title = "국번";
-                dvLabel6.Text = "메모리 맵";
-                MDTS_lblAreaP.Title = "P 영역 시작주소";
-                MDTS_lblAreaM.Title = "M 영역 시작주소";
-                MDTS_lblAreaT.Title = "T 영역 시작주소";
-                MDTS_lblAreaC.Title = "C 영역 시작주소";
-                MDTS_lblAreaD.Title = "D 영역 시작주소";
-                MDTS_lblAreaWP.Title = "WP 영역 시작주소";
-                MDTS_lblAreaWM.Title = "WM 영역 시작주소";
+            dvLabel7.Text = LM.Property;
+            MDTS_inSlave.Title = LM.Slave;
+            dvLabel6.Text = LM.MemoryMap;
+            MDTS_lblAreaP.Title = "P " + LM.AreaStartAddress;
+            MDTS_lblAreaM.Title = "M " + LM.AreaStartAddress;
+            MDTS_lblAreaT.Title = "T " + LM.AreaStartAddress;
+            MDTS_lblAreaC.Title = "C " + LM.AreaStartAddress;
+            MDTS_lblAreaD.Title = "D " + LM.AreaStartAddress;
+            MDTS_lblAreaWP.Title = "WP " + LM.AreaStartAddress;
+            MDTS_lblAreaWM.Title = "WM " + LM.AreaStartAddress;
 
-                dvLabel10.Text = "속성";
-                MDTM_inRemoteIP.Title = "원격 주소";
-                dvLabel9.Text = "모니터링";
-                MDTM_dgMonitor.Columns[0].HeaderText = "국번";
-                MDTM_dgMonitor.Columns[1].HeaderText = "코드";
-                MDTM_dgMonitor.Columns[2].HeaderText = "시작 주소";
-                MDTM_dgMonitor.Columns[3].HeaderText = "길이";
-                dvLabel15.Text = "메모리바인딩";
-                MDTM_dgBind.Columns[0].HeaderText = "국번";
-                MDTM_dgBind.Columns[1].HeaderText = "코드";
-                MDTM_dgBind.Columns[2].HeaderText = "시작 주소";
-                MDTM_dgBind.Columns[3].HeaderText = "바인딩";
+            dvLabel10.Text = LM.Property;
+            MDTM_inRemoteIP.Title = LM.RemoteIP;
+            dvLabel9.Text = LM.Monitoring;
+            MDTM_dgMonitor.Columns[0].HeaderText = LM.Slave;
+            MDTM_dgMonitor.Columns[1].HeaderText = LM.FuncCode;
+            MDTM_dgMonitor.Columns[2].HeaderText = LM.StartAddress;
+            MDTM_dgMonitor.Columns[3].HeaderText = LM.Length;
+            dvLabel15.Text = LM.MemoryBind;
+            MDTM_dgBind.Columns[0].HeaderText = LM.Slave;
+            MDTM_dgBind.Columns[1].HeaderText = LM.FuncCode;
+            MDTM_dgBind.Columns[2].HeaderText = LM.StartAddress;
+            MDTM_dgBind.Columns[3].HeaderText = LM.Bind;
 
-                dvLabel13.Text = "속성";
-                MQTT_inRemoteIP.Title = "원격 주소";
-                dvLabel13.Text = "구독";
-                MQTT_dgSub.Columns[0].HeaderText = "토픽";
-                MQTT_dgSub.Columns[1].HeaderText = "메모리 주소";
-                dvLabel11.Text = "발행";
-                MQTT_dgPub.Columns[0].HeaderText = "토픽";
-                MQTT_dgPub.Columns[1].HeaderText = "메모리 주소";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Commnication Item";
-                dvPanel2.Text = "Commnication Type";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-
-                dvLabel1.Text = "Property";
-                MDRS_inPort.Title = "Port";
-                MDRS_inBaudrate.Title = "Baudrate";
-                MDRS_inSlave.Title = "Slave";
-                dvLabel2.Text = "Memory Map";
-                MDRS_lblAreaP.Title = "P Area Address";
-                MDRS_lblAreaM.Title = "M Area Address";
-                MDRS_lblAreaT.Title = "T Area Address";
-                MDRS_lblAreaC.Title = "C Area Address";
-                MDRS_lblAreaD.Title = "D Area Address";
-                MDRS_lblAreaWP.Title = "WP Area Address";
-                MDRS_lblAreaWM.Title = "WM Area Address";
-
-                dvLabel4.Text = "Property";
-                MDRM_inPort.Title = "Port";
-                MDRM_inBaudrate.Title = "Baudrate";
-                dvLabel3.Text = "Monitoring";
-                MDRM_dgMonitor.Columns[0].HeaderText = "Slave";
-                MDRM_dgMonitor.Columns[1].HeaderText = "Func";
-                MDRM_dgMonitor.Columns[2].HeaderText = "Start Address";
-                MDRM_dgMonitor.Columns[3].HeaderText = "Length";
-                dvLabel5.Text = "Memory Binding";
-                MDRM_dgBind.Columns[0].HeaderText = "Slave";
-                MDRM_dgBind.Columns[1].HeaderText = "Func";
-                MDRM_dgBind.Columns[2].HeaderText = "Start Address";
-                MDRM_dgBind.Columns[3].HeaderText = "Binding";
-
-                dvLabel7.Text = "Property";
-                MDTS_inSlave.Title = "Slave";
-                dvLabel6.Text = "Memory Map";
-                MDTS_lblAreaP.Title = "P Area Address";
-                MDTS_lblAreaM.Title = "M Area Address";
-                MDTS_lblAreaT.Title = "T Area Address";
-                MDTS_lblAreaC.Title = "C Area Address";
-                MDTS_lblAreaD.Title = "D Area Address";
-                MDTS_lblAreaWP.Title = "WP Area Address";
-                MDTS_lblAreaWM.Title = "WM Area Address";
-
-                dvLabel10.Text = "Property";
-                MDTM_inRemoteIP.Title = "Remote IP";
-                dvLabel9.Text = "Monitoring";
-                MDTM_dgMonitor.Columns[0].HeaderText = "Slave";
-                MDTM_dgMonitor.Columns[1].HeaderText = "Func";
-                MDTM_dgMonitor.Columns[2].HeaderText = "Start Address";
-                MDTM_dgMonitor.Columns[3].HeaderText = "Length";
-                dvLabel15.Text = "Memory Binding";
-                MDTM_dgBind.Columns[0].HeaderText = "Slave";
-                MDTM_dgBind.Columns[1].HeaderText = "Func";
-                MDTM_dgBind.Columns[2].HeaderText = "Start Address";
-                MDTM_dgBind.Columns[3].HeaderText = "Binding";
-
-                dvLabel13.Text = "Property";
-                MQTT_inRemoteIP.Title = "Remote IP";
-                dvLabel13.Text = "Subscribe";
-                MQTT_dgSub.Columns[0].HeaderText = "Topic";
-                MQTT_dgSub.Columns[1].HeaderText = "Memory Address";
-                dvLabel11.Text = "Publish";
-                MQTT_dgPub.Columns[0].HeaderText = "Topic";
-                MQTT_dgPub.Columns[1].HeaderText = "Memory Address";
-            }
+            dvLabel13.Text = LM.Property;
+            MQTT_inRemoteIP.Title = LM.RemoteIP;
+            dvLabel12.Text = LM.Subscribe;
+            MQTT_dgSub.Columns[0].HeaderText = LM.Topic;
+            MQTT_dgSub.Columns[1].HeaderText = LM.MemoryAddress;
+            dvLabel11.Text = LM.Publish;
+            MQTT_dgPub.Columns[0].HeaderText = LM.Topic;
+            MQTT_dgPub.Columns[1].HeaderText = LM.MemoryAddress;
         }
         #endregion
 
@@ -801,9 +732,8 @@ namespace LadderEditor.Forms
         public ILadderComm ShowCommInputAdd()
         {
             #region Set
-            this.Title = this.Text = "통신 추가";
-            #endregion
-            #region Var Set
+            this.Title = this.Text = LM.CommunicationAdd;
+
             MDRS = new LcModbusRtuSlave();
             MDRM = new LcModbusRtuMaster();
             MDTS = new LcModbusTcpSlave();
@@ -827,9 +757,8 @@ namespace LadderEditor.Forms
         public ILadderComm ShowCommInputModify(ILadderComm v)
         {
             #region Set
-            this.Title = this.Text = "통신 수정";
-            #endregion
-            #region Var Set
+            this.Title = this.Text = LM.CommunicationModify;
+
             MDRS = new LcModbusRtuSlave();
             MDRM = new LcModbusRtuMaster();
             MDTS = new LcModbusTcpSlave();

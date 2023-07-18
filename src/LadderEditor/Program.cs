@@ -93,6 +93,13 @@ namespace LadderEditor
 
             InputBox.Icon = IconTool.GetIcon(new DvIcon(InputBox.TitleIconString, Convert.ToInt32(InputBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             MessageBox.Icon = IconTool.GetIcon(new DvIcon(MessageBox.TitleIconString, Convert.ToInt32(MessageBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
+
+            MessageBox.ButtonOk.Text = LangTool.Ok;
+            MessageBox.ButtonCancel.Text = LangTool.Cancel;
+            MessageBox.ButtonYes.Text = LangTool.Yes;
+            MessageBox.ButtonNo.Text = LangTool.No;
+            InputBox.ButtonOK.Text = LangTool.Ok;
+            InputBox.ButtonCancel.Text = LangTool.Cancel;
             #endregion
 
             Application.Run(MainForm);

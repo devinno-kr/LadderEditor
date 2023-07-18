@@ -19,6 +19,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -114,26 +115,26 @@ namespace LadderEditor.Forms
 
             var ls = new List<string>();
 
-            if (inP.Error == InputError.Empty) ls.Add("P 영역 크기가 비어있습니다.");
-            else if (inP.Error == InputError.RangeOver) ls.Add("P 영역 범위는 0 ~ 32768 입니다.");
+            if (inP.Error == InputError.Empty) ls.Add(LM.SymbolErrorEmptyP);
+            else if (inP.Error == InputError.RangeOver) ls.Add(LM.SymbolErrorRangeP);
 
-            if (inM.Error == InputError.Empty) ls.Add("M 영역 크기가 비어있습니다.");
-            else if (inM.Error == InputError.RangeOver) ls.Add("M 영역 범위는 0 ~ 32768 입니다.");
+            if (inM.Error == InputError.Empty) ls.Add(LM.SymbolErrorEmptyM);
+            else if (inM.Error == InputError.RangeOver) ls.Add(LM.SymbolErrorRangeM);
 
-            if (inT.Error == InputError.Empty) ls.Add("T 영역 크기가 비어있습니다.");
-            else if (inT.Error == InputError.RangeOver) ls.Add("T 영역 범위는 0 ~ 2048 입니다.");
+            if (inT.Error == InputError.Empty) ls.Add(LM.SymbolErrorEmptyT);
+            else if (inT.Error == InputError.RangeOver) ls.Add(LM.SymbolErrorRangeT);
 
-            if (inC.Error == InputError.Empty) ls.Add("C영역 크기가 비어있습니다.");
-            else if (inC.Error == InputError.RangeOver) ls.Add("C영역 범위는 0 ~ 2048 입니다.");
+            if (inC.Error == InputError.Empty) ls.Add(LM.SymbolErrorEmptyC);
+            else if (inC.Error == InputError.RangeOver) ls.Add(LM.SymbolErrorRangeC);
 
-            if (inD.Error == InputError.Empty) ls.Add("D영역 크기가 비어있습니다.");
-            else if (inD.Error == InputError.RangeOver) ls.Add("D영역 범위는 0 ~ 4096 입니다.");
+            if (inD.Error == InputError.Empty) ls.Add(LM.SymbolErrorEmptyD);
+            else if (inD.Error == InputError.RangeOver) ls.Add(LM.SymbolErrorRangeD);
 
             if (ls.Count > 0)
             {
                 //Block = true;
                 var msg = string.Concat(ls.Select(x => x + "\r\n")).Trim();
-                Program.MessageBox.ShowMessageBoxOk("심볼 입력", msg);
+                Program.MessageBox.ShowMessageBoxOk(LM.SymbolInput, msg);
                 //Block = false;
             }
 
@@ -143,26 +144,13 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "심볼";
-                lblTitleAreas.Text = "영역 크기";
-                dvLabel1.Text = "심볼 목록";
-                dvLabel2.Text = "입력";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-                dvLabel3.Text = "※입력 형식 : '[주소]    [명칭]'\r\n※입력 예시 : 'D0    Test'";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Symbol";
-                lblTitleAreas.Text = "Area Count";
-                dvLabel1.Text = "Symbol List";
-                dvLabel2.Text = "Input";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-                dvLabel3.Text = "※Input format : '[address]    [name]'\r\n※Input example : 'D0    Test'";
-            }
+            Title = LM.Symbol;
+            lblTitleAreas.Text = LM.AreaCount;
+            dvLabel1.Text = LM.SymbolList;
+            dvLabel2.Text = LM.Input;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
+            dvLabel3.Text = LM.SymbolInputFormat;
         }
         #endregion
         #region ShowSymbol

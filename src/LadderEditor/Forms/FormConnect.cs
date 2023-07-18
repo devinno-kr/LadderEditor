@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -77,9 +78,9 @@ namespace LadderEditor.Forms
                 if (!string.IsNullOrWhiteSpace(inAddr.Value))
                 {
                     if (Devinno.Tools.NetworkTool.ValidDomain(inAddr.Value)) DialogResult = DialogResult.OK;
-                    else msg = "유효한 주소가 아닙니다.";
+                    else msg = LM.ConnectErrorAddress;
                 }
-                else msg = "주소를 입력하거나 조회 항목을 선택하세요.";
+                else msg = LM.ConnectErrorEmpty;
 
                 if (msg != null)
                 {
@@ -96,11 +97,11 @@ namespace LadderEditor.Forms
                 {
                     #region Add
                     var ls = new Dictionary<string, InputBoxInfo>();
-                    ls.Add("Name", new InputBoxInfo() { Title = "연결명" });
-                    ls.Add("Address", new InputBoxInfo() { Title = "주소" });
+                    ls.Add("Name", new InputBoxInfo() { Title = LM.ConnectionName });
+                    ls.Add("Address", new InputBoxInfo() { Title = LM.Address });
 
                     Block = true;
-                    var ret = Program.InputBox.ShowInputBox<ConnItem>("연결", null, ls);
+                    var ret = Program.InputBox.ShowInputBox<ConnItem>(LM.Connect, null, ls);
                     Block = false;
                     if (ret != null)
                     {
@@ -120,7 +121,7 @@ namespace LadderEditor.Forms
                         else
                         {
                             Block = true;
-                            Program.MessageBox.ShowMessageBoxOk("", "잘못된 주소입니다.");
+                            Program.MessageBox.ShowMessageBoxOk("", LM.ConnectErrorAddress);
                             Block = false;
                         }
                     }
@@ -157,20 +158,11 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "연결";
-                dvLabel1.Text = "주소록";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Connect";
-                dvLabel1.Text = "Address Book";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-            }
+            Title = LM.Connect;
+            dvLabel1.Text = LM.AddressBook;
+            inAddr.Title = LM.Address;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
         }
         #endregion
         #region GetConnectionItems

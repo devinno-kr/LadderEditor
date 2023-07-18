@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using LM = LadderEditor.Managers.LangTool;
 
 namespace LadderEditor.Forms
 {
@@ -28,8 +29,8 @@ namespace LadderEditor.Forms
             InitializeComponent();
 
             #region DataGrid
-            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Name", HeaderText = "통신 유형", SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridLabelCell) });
-            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Summary", HeaderText = "정보", SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridLabelCell) });
+            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Name", HeaderText = LM.CommunicationType, SizeMode = DvSizeMode.Percent, Width = 30, CellType = typeof(DvDataGridLabelCell) });
+            dg.Columns.Add(new DvDataGridColumn(dg) { Name = "Summary", HeaderText = LM.Information, SizeMode = DvSizeMode.Percent, Width = 70, CellType = typeof(DvDataGridLabelCell) });
             dg.Columns.Add(new DvDataGridButtonColumn(dg) { Name = "Tag", HeaderText = "", SizeMode = DvSizeMode.Pixel, Width = 50, Text = "..." });
 
             dg.ColumnColor = Color.FromArgb(30, 30, 30);
@@ -110,24 +111,14 @@ namespace LadderEditor.Forms
         #region LangSet
         void LangSet()
         {
-            if (Program.DataMgr.Language == Managers.Lang.KO)
-            {
-                Title = "통신 설정";
-                lblTitleAreas.Text = "통신 목록";
-                btnOK.Text = "확인";
-                btnCancel.Text = "취소";
-                dg.Columns[0].HeaderText = "통신 유형";
-                dg.Columns[1].HeaderText = "정보";
-            }
-            else if (Program.DataMgr.Language == Managers.Lang.EN)
-            {
-                Title = "Commnication Setting";
-                lblTitleAreas.Text = "Commnication List";
-                btnOK.Text = "Ok";
-                btnCancel.Text = "Cancel";
-                dg.Columns[0].HeaderText = "Type";
-                dg.Columns[1].HeaderText = "Information";
-            }
+
+            Title = LM.Communication;
+            lblTitleAreas.Text = LM.CommunicationList;
+            btnOK.Text = LM.Ok;
+            btnCancel.Text = LM.Cancel;
+            dg.Columns[0].HeaderText = LM.CommunicationType;
+            dg.Columns[1].HeaderText = LM.Information;
+             
         }
         #endregion
 

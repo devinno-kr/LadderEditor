@@ -25,10 +25,23 @@ namespace LadderEditor.Managers
             get => lang;
             set
             {
-                if(lang != value)
+                if (lang != value)
                 {
                     lang = value;
                     LanguageChanged?.Invoke(this, null);
+
+                    if (Program.MessageBox != null)
+                    {
+                        Program.MessageBox.ButtonOk.Text = LangTool.Ok;
+                        Program.MessageBox.ButtonCancel.Text = LangTool.Cancel;
+                        Program.MessageBox.ButtonYes.Text = LangTool.Yes;
+                        Program.MessageBox.ButtonNo.Text = LangTool.No;
+                    }
+                    if (Program.InputBox != null)
+                    {
+                        Program.InputBox.ButtonOK.Text = LangTool.Ok;
+                        Program.InputBox.ButtonCancel.Text = LangTool.Cancel;
+                    }
                 }
             }
         }

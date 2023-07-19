@@ -59,7 +59,7 @@ namespace LadderEditor
 
             var asm = typeof(Program).Assembly;
             Version = asm.GetName().Version?.ToString() ?? "";
-
+                       
             #region Fonts 
             Fonts = new PrivateFontCollection();
             var ba = Properties.Resources.NanumGothic;
@@ -100,6 +100,8 @@ namespace LadderEditor
             MessageBox.ButtonNo.Text = LangTool.No;
             InputBox.ButtonOK.Text = LangTool.Ok;
             InputBox.ButtonCancel.Text = LangTool.Cancel;
+
+            InputBox.MinWidth = 300;
             #endregion
 
             Application.Run(MainForm);

@@ -258,6 +258,50 @@ namespace LadderEditor.Tools
             }
         }
         #endregion
+        #region DownloadComplete
+        public static string DownloadComplete
+        {
+            get
+            {
+                if (lang == Lang.KO) return "다운로드를 완료하였습니다.";
+                else if (lang == Lang.EN) return "The download has been completed.";
+                else return "";
+            }
+        }
+        #endregion
+        #region DownloadFail
+        public static string DownloadFail
+        {
+            get
+            {
+                if (lang == Lang.KO) return "다운로드에 실패하였습니다.";
+                else if (lang == Lang.EN) return "The download has failed.";
+                else return "";
+            }
+        }
+        #endregion
+        #region UploadComplete
+        public static string UploadComplete
+        {
+            get
+            {
+                if (lang == Lang.KO) return "업로드를 완료하였습니다.";
+                else if (lang == Lang.EN) return "The upload has been completed.";
+                else return "";
+            }
+        }
+        #endregion
+        #region UploadFail
+        public static string UploadFail
+        {
+            get
+            {
+                if (lang == Lang.KO) return "업로드에 실패하였습니다.";
+                else if (lang == Lang.EN) return "The upload has failed.";
+                else return "";
+            }
+        }
+        #endregion
 
         #region AppTitle
         public static string AppTitle
@@ -405,12 +449,14 @@ namespace LadderEditor.Tools
         }
         #endregion
         #region Slave
+        public const string SlaveK = "국번";
+        public const string SlaveE = "Slave";
         public static string Slave
         {
             get
             {
-                if (lang == Lang.KO) return "국번";
-                else if (lang == Lang.EN) return "Slave";
+                if (lang == Lang.KO) return SlaveK;
+                else if (lang == Lang.EN) return SlaveE;
                 else return "";
             }
         }
@@ -1341,6 +1387,16 @@ namespace LadderEditor.Tools
                 else return error;
             }
             else return error;
+        }
+        #endregion
+        #region Summary
+        public static string Summary(string summary)
+        {
+            if (lang == Lang.EN)
+            {
+                return summary.Replace(SlaveK, SlaveE);
+            }
+            else return summary;
         }
         #endregion
     }

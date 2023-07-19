@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using LM = LadderEditor.Tools.LangTool;
 namespace LadderEditor.Managers
 {
     public class DeviceManager
@@ -61,12 +61,12 @@ namespace LadderEditor.Managers
                 {
                     case LadderEngine.CMD_DOWNLOAD:
                         {
-                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message("다운로드", "다운로드에 실패하였습니다.")));
+                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message(LM.Download, LM.DownloadFail)));
                         }
                         break;
                     case LadderEngine.CMD_UPLOAD:
                         {
-                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message("업로드", "업로드에 실패하였습니다.")));
+                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message(LM.Upload, LM.UploadFail)));
                         }
                         break;
                 }
@@ -83,14 +83,14 @@ namespace LadderEditor.Managers
                     case LadderEngine.CMD_DOWNLOAD:
                         {
                             var v = Serialize.JsonDeserialize<PacketResult>(e.Message);
-                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message("다운로드", v.Message == "OK" ? "다운로드를 완료하였습니다." : "다운로드에 실패하였습니다.")));
+                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message(LM.Download, v.Message == "OK" ? LM.DownloadComplete : LM.DownloadFail)));
                         }
                         break;
                     case LadderEngine.CMD_UPLOAD:
                         {
                             var v = Serialize.JsonDeserialize<LadderDocument>(e.Message);
                             Program.MainForm.Invoke(new Action(() => Program.MainForm.UploadFile(v)));
-                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message("업로드", "업로드를 완료하였습니다.")));
+                            Program.MainForm.BeginInvoke(new Action(() => Program.MainForm.Message(LM.Upload, LM.UploadComplete)));
                         }
                         break;
                     case LadderEngine.CMD_DEBUG:

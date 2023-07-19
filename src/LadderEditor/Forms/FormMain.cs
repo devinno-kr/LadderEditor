@@ -614,6 +614,10 @@ namespace LadderEditor.Forms
             lblCursorPosition.Text = CurrentDocument != null ? $"{LM.Col} : {(ladder.CurX + 1)}        {LM.Row} : {(ladder.CurRow + 1)}" : "";
             Title = LM.AppTitle + (CurrentDocument != null ? "  :  " + CurrentDocument.DisplayTitle : "");
 
+            gridMessage.Columns[0].HeaderText = LM.Row;
+            gridMessage.Columns[1].HeaderText = LM.Col;
+            gridMessage.Columns[2].HeaderText = LM.Message;
+
             if (Program.DevMgr != null)
             {
                 var s = "";

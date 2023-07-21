@@ -14,10 +14,10 @@
     <PackageIcon></PackageIcon>
     <PackageIconUrl />
     <ApplicationIcon>Resources\vlogo.ico</ApplicationIcon>
-    <Version>1.0.0.2</Version>
+    <Version>0.0.0.1</Version>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

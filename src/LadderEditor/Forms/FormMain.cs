@@ -39,6 +39,7 @@ namespace LadderEditor.Forms
         FormCommunication frmComm;
         FormLibrary frmLibrary;
         FormSetting frmSetting;
+        FormMultiDownload frmMultiDown;
 
         Timer tmr;
         bool bSaveFileDown = false;
@@ -57,6 +58,7 @@ namespace LadderEditor.Forms
             frmComm = new FormCommunication();
             frmLibrary = new FormLibrary();
             frmSetting = new FormSetting();
+            frmMultiDown = new FormMultiDownload();
             #endregion
 
             #region Grid
@@ -88,7 +90,7 @@ namespace LadderEditor.Forms
                 using (var br = new SolidBrush(btnSaveAsFile.ButtonColor ?? Theme.ButtonColor))
                 {
                     var n = bSaveFileDown ? 1 : 0;
-                    int x = 20, y = 17, gp = 3;
+                    int x = 20, y = 20, gp = 3;
 
                     br.Color = btnSaveAsFile.ButtonColor ?? Theme.ButtonColor;
                     s.Graphics.DrawIcon(new DvIcon("fa-asterisk") { IconSize = 7 }, br, new Rectangle(x - gp, y + n - gp, 10, 10), Devinno.Forms.DvContentAlignment.MiddleCenter);
@@ -333,13 +335,13 @@ namespace LadderEditor.Forms
             #region Set
             ladder.Font = new Font("나눔고딕", 8);
             Theme.Animation = Theme.TouchMode = false;
-            Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             #endregion
 
             SetExComposited();
 
             UISet();
 
+            KeyPreview = true;
             #region Language
             Program.DataMgr.LanguageChanged += (o, s) => ToolTipSet();
             #endregion
@@ -397,6 +399,25 @@ namespace LadderEditor.Forms
         {
             ladder.Focus();
             base.OnKeyDown(e);
+        }
+        #endregion
+        #region OnKeyUp
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode == Keys.F10)
+            {
+                System.Threading.ThreadPool.QueueUserWorkItem((o) => {
+
+                    this.Invoke(new Action(() => {
+
+                        frmMultiDown.ShowMultiDownload();
+                        
+                    }));
+                
+                });
+            }
+
+            base.OnKeyUp(e);
         }
         #endregion
         #endregion

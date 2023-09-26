@@ -29,6 +29,7 @@ namespace LadderEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDescription));
             this.dvContainer1 = new Devinno.Forms.Containers.DvContainer();
             this.btnOK = new Devinno.Forms.Controls.DvButton();
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
@@ -54,11 +55,11 @@ namespace LadderEditor.Forms
             this.dvContainer1.Controls.Add(this.dvControl1);
             this.dvContainer1.Controls.Add(this.btnCancel);
             this.dvContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvContainer1.Location = new System.Drawing.Point(3, 450);
+            this.dvContainer1.Location = new System.Drawing.Point(0, 401);
             this.dvContainer1.Name = "dvContainer1";
-            this.dvContainer1.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.dvContainer1.Padding = new System.Windows.Forms.Padding(10);
             this.dvContainer1.ShadowGap = 1;
-            this.dvContainer1.Size = new System.Drawing.Size(394, 47);
+            this.dvContainer1.Size = new System.Drawing.Size(384, 60);
             this.dvContainer1.TabIndex = 2;
             this.dvContainer1.TabStop = false;
             this.dvContainer1.Text = "dvContainer1";
@@ -76,11 +77,11 @@ namespace LadderEditor.Forms
             this.btnOK.IconImage = null;
             this.btnOK.IconSize = 10F;
             this.btnOK.IconString = null;
-            this.btnOK.Location = new System.Drawing.Point(197, 10);
+            this.btnOK.Location = new System.Drawing.Point(184, 10);
             this.btnOK.Name = "btnOK";
             this.btnOK.Round = null;
             this.btnOK.ShadowGap = 1;
-            this.btnOK.Size = new System.Drawing.Size(90, 30);
+            this.btnOK.Size = new System.Drawing.Size(90, 40);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "확인";
             this.btnOK.TextPadding = new System.Windows.Forms.Padding(0);
@@ -89,10 +90,10 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dvControl1.Location = new System.Drawing.Point(287, 10);
+            this.dvControl1.Location = new System.Drawing.Point(274, 10);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(10, 30);
+            this.dvControl1.Size = new System.Drawing.Size(10, 40);
             this.dvControl1.TabIndex = 1;
             this.dvControl1.TabStop = false;
             this.dvControl1.Text = "dvControl1";
@@ -110,11 +111,11 @@ namespace LadderEditor.Forms
             this.btnCancel.IconImage = null;
             this.btnCancel.IconSize = 10F;
             this.btnCancel.IconString = null;
-            this.btnCancel.Location = new System.Drawing.Point(297, 10);
+            this.btnCancel.Location = new System.Drawing.Point(284, 10);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Round = null;
             this.btnCancel.ShadowGap = 1;
-            this.btnCancel.Size = new System.Drawing.Size(90, 30);
+            this.btnCancel.Size = new System.Drawing.Size(90, 40);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "취소";
             this.btnCancel.TextPadding = new System.Windows.Forms.Padding(0);
@@ -131,11 +132,11 @@ namespace LadderEditor.Forms
             this.dvContainer2.Controls.Add(this.txtTitle);
             this.dvContainer2.Controls.Add(this.dvLabel1);
             this.dvContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvContainer2.Location = new System.Drawing.Point(3, 40);
+            this.dvContainer2.Location = new System.Drawing.Point(0, 0);
             this.dvContainer2.Name = "dvContainer2";
-            this.dvContainer2.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
+            this.dvContainer2.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.dvContainer2.ShadowGap = 1;
-            this.dvContainer2.Size = new System.Drawing.Size(394, 410);
+            this.dvContainer2.Size = new System.Drawing.Size(384, 401);
             this.dvContainer2.TabIndex = 3;
             this.dvContainer2.TabStop = false;
             this.dvContainer2.Text = "dvContainer2";
@@ -153,13 +154,13 @@ namespace LadderEditor.Forms
             this.dvBoxPanel1.IconImage = null;
             this.dvBoxPanel1.IconSize = 12F;
             this.dvBoxPanel1.IconString = null;
-            this.dvBoxPanel1.Location = new System.Drawing.Point(7, 168);
+            this.dvBoxPanel1.Location = new System.Drawing.Point(10, 188);
             this.dvBoxPanel1.Name = "dvBoxPanel1";
             this.dvBoxPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.dvBoxPanel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.dvBoxPanel1.Round = null;
             this.dvBoxPanel1.ShadowGap = 1;
-            this.dvBoxPanel1.Size = new System.Drawing.Size(380, 242);
+            this.dvBoxPanel1.Size = new System.Drawing.Size(364, 213);
             this.dvBoxPanel1.TabIndex = 8;
             this.dvBoxPanel1.TabStop = false;
             this.dvBoxPanel1.Text = null;
@@ -175,7 +176,7 @@ namespace LadderEditor.Forms
             this.txtDescription.Location = new System.Drawing.Point(5, 5);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(370, 232);
+            this.txtDescription.Size = new System.Drawing.Size(354, 203);
             this.txtDescription.TabIndex = 0;
             // 
             // dvLabel2
@@ -190,11 +191,11 @@ namespace LadderEditor.Forms
             this.dvLabel2.IconSize = 10F;
             this.dvLabel2.IconString = "fa-angle-right";
             this.dvLabel2.LabelColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dvLabel2.Location = new System.Drawing.Point(7, 142);
+            this.dvLabel2.Location = new System.Drawing.Point(10, 162);
             this.dvLabel2.Name = "dvLabel2";
             this.dvLabel2.Round = null;
             this.dvLabel2.ShadowGap = 1;
-            this.dvLabel2.Size = new System.Drawing.Size(380, 26);
+            this.dvLabel2.Size = new System.Drawing.Size(364, 26);
             this.dvLabel2.Style = Devinno.Forms.Embossing.FlatConcave;
             this.dvLabel2.TabIndex = 3;
             this.dvLabel2.TabStop = false;
@@ -206,10 +207,10 @@ namespace LadderEditor.Forms
             // dvControl3
             // 
             this.dvControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dvControl3.Location = new System.Drawing.Point(7, 132);
+            this.dvControl3.Location = new System.Drawing.Point(10, 152);
             this.dvControl3.Name = "dvControl3";
             this.dvControl3.ShadowGap = 1;
-            this.dvControl3.Size = new System.Drawing.Size(380, 10);
+            this.dvControl3.Size = new System.Drawing.Size(364, 10);
             this.dvControl3.TabIndex = 7;
             this.dvControl3.TabStop = false;
             this.dvControl3.Text = "dvControl3";
@@ -221,14 +222,14 @@ namespace LadderEditor.Forms
             this.txtVersion.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtVersion.FullMode = false;
             this.txtVersion.InputType = Devinno.Forms.DvTextBoxType.Text;
-            this.txtVersion.Location = new System.Drawing.Point(7, 102);
+            this.txtVersion.Location = new System.Drawing.Point(10, 112);
             this.txtVersion.MaxLength = 32767;
             this.txtVersion.MinusInput = false;
             this.txtVersion.MultiLine = false;
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Round = null;
             this.txtVersion.ShadowGap = 1;
-            this.txtVersion.Size = new System.Drawing.Size(380, 30);
+            this.txtVersion.Size = new System.Drawing.Size(364, 40);
             this.txtVersion.Style = Devinno.Forms.Embossing.FlatConcave;
             this.txtVersion.TabIndex = 6;
             this.txtVersion.TabStop = false;
@@ -249,11 +250,11 @@ namespace LadderEditor.Forms
             this.dvLabel3.IconSize = 10F;
             this.dvLabel3.IconString = "fa-angle-right";
             this.dvLabel3.LabelColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dvLabel3.Location = new System.Drawing.Point(7, 76);
+            this.dvLabel3.Location = new System.Drawing.Point(10, 86);
             this.dvLabel3.Name = "dvLabel3";
             this.dvLabel3.Round = null;
             this.dvLabel3.ShadowGap = 1;
-            this.dvLabel3.Size = new System.Drawing.Size(380, 26);
+            this.dvLabel3.Size = new System.Drawing.Size(364, 26);
             this.dvLabel3.Style = Devinno.Forms.Embossing.FlatConcave;
             this.dvLabel3.TabIndex = 5;
             this.dvLabel3.TabStop = false;
@@ -265,10 +266,10 @@ namespace LadderEditor.Forms
             // dvControl2
             // 
             this.dvControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dvControl2.Location = new System.Drawing.Point(7, 66);
+            this.dvControl2.Location = new System.Drawing.Point(10, 76);
             this.dvControl2.Name = "dvControl2";
             this.dvControl2.ShadowGap = 1;
-            this.dvControl2.Size = new System.Drawing.Size(380, 10);
+            this.dvControl2.Size = new System.Drawing.Size(364, 10);
             this.dvControl2.TabIndex = 2;
             this.dvControl2.TabStop = false;
             this.dvControl2.Text = "dvControl2";
@@ -280,14 +281,14 @@ namespace LadderEditor.Forms
             this.txtTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtTitle.FullMode = false;
             this.txtTitle.InputType = Devinno.Forms.DvTextBoxType.Text;
-            this.txtTitle.Location = new System.Drawing.Point(7, 36);
+            this.txtTitle.Location = new System.Drawing.Point(10, 36);
             this.txtTitle.MaxLength = 32767;
             this.txtTitle.MinusInput = false;
             this.txtTitle.MultiLine = false;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Round = null;
             this.txtTitle.ShadowGap = 1;
-            this.txtTitle.Size = new System.Drawing.Size(380, 30);
+            this.txtTitle.Size = new System.Drawing.Size(364, 40);
             this.txtTitle.Style = Devinno.Forms.Embossing.FlatConcave;
             this.txtTitle.TabIndex = 1;
             this.txtTitle.TabStop = false;
@@ -308,11 +309,11 @@ namespace LadderEditor.Forms
             this.dvLabel1.IconSize = 10F;
             this.dvLabel1.IconString = "fa-angle-right";
             this.dvLabel1.LabelColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dvLabel1.Location = new System.Drawing.Point(7, 10);
+            this.dvLabel1.Location = new System.Drawing.Point(10, 10);
             this.dvLabel1.Name = "dvLabel1";
             this.dvLabel1.Round = null;
             this.dvLabel1.ShadowGap = 1;
-            this.dvLabel1.Size = new System.Drawing.Size(380, 26);
+            this.dvLabel1.Size = new System.Drawing.Size(364, 26);
             this.dvLabel1.Style = Devinno.Forms.Embossing.FlatConcave;
             this.dvLabel1.TabIndex = 0;
             this.dvLabel1.TabStop = false;
@@ -324,15 +325,19 @@ namespace LadderEditor.Forms
             // FormDescription
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(400, 500);
+            this.BlankForm = true;
+            this.ClientSize = new System.Drawing.Size(384, 461);
             this.Controls.Add(this.dvContainer2);
             this.Controls.Add(this.dvContainer1);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 500);
             this.Name = "FormDescription";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "프로젝트 정보";
             this.Title = "프로젝트 정보";
+            this.TitleHeight = 0;
             this.TitleIconString = "fa-file-lines";
             this.dvContainer1.ResumeLayout(false);
             this.dvContainer2.ResumeLayout(false);

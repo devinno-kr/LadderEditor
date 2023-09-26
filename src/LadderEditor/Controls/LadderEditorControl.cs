@@ -261,7 +261,7 @@ namespace LadderEditor.Controls
         private DateTime downTime;
         #endregion
         #region Dialogs
-        DvMessageBox MessageBox = new DvMessageBox() { StartPosition = FormStartPosition.CenterParent };
+        DvMessageBox MessageBox = new DvMessageBox() { BlankForm = true, FormBorderStyle = FormBorderStyle.FixedSingle, StartPosition = FormStartPosition.CenterParent };
         #endregion
         #region Drag
         Point? dragpos = null;

@@ -29,6 +29,7 @@ namespace LadderEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSearch));
             this.dvContainer1 = new Devinno.Forms.Containers.DvContainer();
             this.btnSearch = new Devinno.Forms.Controls.DvButton();
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
@@ -45,11 +46,11 @@ namespace LadderEditor.Forms
             this.dvContainer1.Controls.Add(this.dvControl1);
             this.dvContainer1.Controls.Add(this.btnClose);
             this.dvContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvContainer1.Location = new System.Drawing.Point(3, 90);
+            this.dvContainer1.Location = new System.Drawing.Point(0, 50);
             this.dvContainer1.Name = "dvContainer1";
-            this.dvContainer1.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.dvContainer1.Padding = new System.Windows.Forms.Padding(10);
             this.dvContainer1.ShadowGap = 1;
-            this.dvContainer1.Size = new System.Drawing.Size(342, 57);
+            this.dvContainer1.Size = new System.Drawing.Size(348, 60);
             this.dvContainer1.TabIndex = 3;
             this.dvContainer1.TabStop = false;
             this.dvContainer1.Text = "dvContainer1";
@@ -67,7 +68,7 @@ namespace LadderEditor.Forms
             this.btnSearch.IconImage = null;
             this.btnSearch.IconSize = 10F;
             this.btnSearch.IconString = null;
-            this.btnSearch.Location = new System.Drawing.Point(145, 10);
+            this.btnSearch.Location = new System.Drawing.Point(148, 10);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Round = null;
             this.btnSearch.ShadowGap = 1;
@@ -81,7 +82,7 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dvControl1.Location = new System.Drawing.Point(235, 10);
+            this.dvControl1.Location = new System.Drawing.Point(238, 10);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
             this.dvControl1.Size = new System.Drawing.Size(10, 40);
@@ -102,7 +103,7 @@ namespace LadderEditor.Forms
             this.btnClose.IconImage = null;
             this.btnClose.IconSize = 10F;
             this.btnClose.IconString = null;
-            this.btnClose.Location = new System.Drawing.Point(245, 10);
+            this.btnClose.Location = new System.Drawing.Point(248, 10);
             this.btnClose.Name = "btnClose";
             this.btnClose.Round = null;
             this.btnClose.ShadowGap = 1;
@@ -117,11 +118,11 @@ namespace LadderEditor.Forms
             // 
             this.dvContainer2.Controls.Add(this.inSearch);
             this.dvContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvContainer2.Location = new System.Drawing.Point(3, 40);
+            this.dvContainer2.Location = new System.Drawing.Point(0, 0);
             this.dvContainer2.Name = "dvContainer2";
-            this.dvContainer2.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
+            this.dvContainer2.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.dvContainer2.ShadowGap = 1;
-            this.dvContainer2.Size = new System.Drawing.Size(342, 50);
+            this.dvContainer2.Size = new System.Drawing.Size(348, 50);
             this.dvContainer2.TabIndex = 4;
             this.dvContainer2.TabStop = false;
             this.dvContainer2.Text = "dvContainer2";
@@ -138,7 +139,7 @@ namespace LadderEditor.Forms
             this.inSearch.ButtonTextPadding = new System.Windows.Forms.Padding(0);
             this.inSearch.ButtonWidth = null;
             this.inSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inSearch.Location = new System.Drawing.Point(7, 10);
+            this.inSearch.Location = new System.Drawing.Point(10, 10);
             this.inSearch.Name = "inSearch";
             this.inSearch.Round = null;
             this.inSearch.ShadowGap = 1;
@@ -162,17 +163,21 @@ namespace LadderEditor.Forms
             // FormSearch
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(348, 150);
+            this.BlankForm = true;
+            this.ClientSize = new System.Drawing.Size(348, 110);
             this.Controls.Add(this.dvContainer2);
             this.Controls.Add(this.dvContainer1);
             this.Fixed = true;
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormSearch";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "찾기";
             this.Title = "찾기";
+            this.TitleHeight = 0;
             this.TitleIconString = "fa-magnifying-glass";
             this.dvContainer1.ResumeLayout(false);
             this.dvContainer2.ResumeLayout(false);

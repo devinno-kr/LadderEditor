@@ -87,12 +87,9 @@ namespace LadderEditor
             DevMgr = new DeviceManager();
             #endregion
             #region Forms
-            InputBox = new DvInputBox() { StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
-            MessageBox = new DvMessageBox() { StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
+            InputBox = new DvInputBox() { FormBorderStyle = FormBorderStyle.FixedSingle, BlankForm = true, StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
+            MessageBox = new DvMessageBox() { FormBorderStyle = FormBorderStyle.FixedSingle, BlankForm = true, StartPosition = FormStartPosition.CenterParent, MinWidth = 250 };
             MainForm = new FormMain();
-
-            InputBox.Icon = IconTool.GetIcon(new DvIcon(InputBox.TitleIconString, Convert.ToInt32(InputBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
-            MessageBox.Icon = IconTool.GetIcon(new DvIcon(MessageBox.TitleIconString, Convert.ToInt32(MessageBox.TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
 
             MessageBox.ButtonOk.Text = LangTool.Ok;
             MessageBox.ButtonCancel.Text = LangTool.Cancel;
@@ -100,7 +97,6 @@ namespace LadderEditor
             MessageBox.ButtonNo.Text = LangTool.No;
             InputBox.ButtonOK.Text = LangTool.Ok;
             InputBox.ButtonCancel.Text = LangTool.Cancel;
-
             InputBox.MinWidth = 300;
             #endregion
 

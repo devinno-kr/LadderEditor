@@ -29,6 +29,7 @@ namespace LadderEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommunicationInput));
             this.pnl = new Devinno.Forms.Containers.DvContainer();
             this.pnlContent = new Devinno.Forms.Containers.DvPanel();
             this.tab = new Devinno.Forms.Containers.DvTablessControl();
@@ -160,11 +161,11 @@ namespace LadderEditor.Forms
             this.pnl.Controls.Add(this.dvControl6);
             this.pnl.Controls.Add(this.dvPanel2);
             this.pnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl.Location = new System.Drawing.Point(3, 40);
+            this.pnl.Location = new System.Drawing.Point(0, 0);
             this.pnl.Name = "pnl";
-            this.pnl.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
+            this.pnl.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.pnl.ShadowGap = 1;
-            this.pnl.Size = new System.Drawing.Size(1018, 678);
+            this.pnl.Size = new System.Drawing.Size(1024, 708);
             this.pnl.TabIndex = 5;
             this.pnl.TabStop = false;
             this.pnl.Text = "dvContainer2";
@@ -180,13 +181,13 @@ namespace LadderEditor.Forms
             this.pnlContent.IconImage = null;
             this.pnlContent.IconSize = 12F;
             this.pnlContent.IconString = "fa-pen-to-square";
-            this.pnlContent.Location = new System.Drawing.Point(7, 130);
+            this.pnlContent.Location = new System.Drawing.Point(10, 130);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Padding = new System.Windows.Forms.Padding(3, 33, 3, 3);
             this.pnlContent.PanelColor = null;
             this.pnlContent.Round = null;
             this.pnlContent.ShadowGap = 1;
-            this.pnlContent.Size = new System.Drawing.Size(1004, 548);
+            this.pnlContent.Size = new System.Drawing.Size(1004, 578);
             this.pnlContent.TabIndex = 3;
             this.pnlContent.TabStop = false;
             this.pnlContent.Text = "Modbus RTU Slave";
@@ -207,7 +208,7 @@ namespace LadderEditor.Forms
             this.tab.Multiline = true;
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(998, 512);
+            this.tab.Size = new System.Drawing.Size(998, 542);
             this.tab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tab.TabIndex = 11;
             // 
@@ -218,7 +219,7 @@ namespace LadderEditor.Forms
             this.tpMDRS.Location = new System.Drawing.Point(4, 5);
             this.tpMDRS.Name = "tpMDRS";
             this.tpMDRS.Padding = new System.Windows.Forms.Padding(7);
-            this.tpMDRS.Size = new System.Drawing.Size(990, 503);
+            this.tpMDRS.Size = new System.Drawing.Size(990, 533);
             this.tpMDRS.TabIndex = 0;
             // 
             // MDRS_tbl
@@ -254,7 +255,7 @@ namespace LadderEditor.Forms
             this.MDRS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDRS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDRS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MDRS_tbl.Size = new System.Drawing.Size(976, 489);
+            this.MDRS_tbl.Size = new System.Drawing.Size(976, 519);
             this.MDRS_tbl.TabIndex = 0;
             // 
             // dvContainer2
@@ -1928,7 +1929,7 @@ namespace LadderEditor.Forms
             // dvControl6
             // 
             this.dvControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dvControl6.Location = new System.Drawing.Point(7, 120);
+            this.dvControl6.Location = new System.Drawing.Point(10, 120);
             this.dvControl6.Name = "dvControl6";
             this.dvControl6.ShadowGap = 1;
             this.dvControl6.Size = new System.Drawing.Size(1004, 10);
@@ -1947,7 +1948,7 @@ namespace LadderEditor.Forms
             this.dvPanel2.IconImage = null;
             this.dvPanel2.IconSize = 12F;
             this.dvPanel2.IconString = "fa-check";
-            this.dvPanel2.Location = new System.Drawing.Point(7, 10);
+            this.dvPanel2.Location = new System.Drawing.Point(10, 10);
             this.dvPanel2.Name = "dvPanel2";
             this.dvPanel2.Padding = new System.Windows.Forms.Padding(10, 40, 10, 10);
             this.dvPanel2.PanelColor = null;
@@ -2212,11 +2213,11 @@ namespace LadderEditor.Forms
             this.pnlBottom.Controls.Add(this.dvControl1);
             this.pnlBottom.Controls.Add(this.btnCancel);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(3, 718);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 708);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.pnlBottom.Padding = new System.Windows.Forms.Padding(10);
             this.pnlBottom.ShadowGap = 1;
-            this.pnlBottom.Size = new System.Drawing.Size(1018, 47);
+            this.pnlBottom.Size = new System.Drawing.Size(1024, 60);
             this.pnlBottom.TabIndex = 6;
             this.pnlBottom.TabStop = false;
             this.pnlBottom.Text = "dvContainer1";
@@ -2234,11 +2235,11 @@ namespace LadderEditor.Forms
             this.btnOK.IconImage = null;
             this.btnOK.IconSize = 10F;
             this.btnOK.IconString = null;
-            this.btnOK.Location = new System.Drawing.Point(821, 10);
+            this.btnOK.Location = new System.Drawing.Point(824, 10);
             this.btnOK.Name = "btnOK";
             this.btnOK.Round = null;
             this.btnOK.ShadowGap = 1;
-            this.btnOK.Size = new System.Drawing.Size(90, 30);
+            this.btnOK.Size = new System.Drawing.Size(90, 40);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "확인";
             this.btnOK.TextPadding = new System.Windows.Forms.Padding(0);
@@ -2247,10 +2248,10 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dvControl1.Location = new System.Drawing.Point(911, 10);
+            this.dvControl1.Location = new System.Drawing.Point(914, 10);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(10, 30);
+            this.dvControl1.Size = new System.Drawing.Size(10, 40);
             this.dvControl1.TabIndex = 1;
             this.dvControl1.TabStop = false;
             this.dvControl1.Text = "dvControl1";
@@ -2268,11 +2269,11 @@ namespace LadderEditor.Forms
             this.btnCancel.IconImage = null;
             this.btnCancel.IconSize = 10F;
             this.btnCancel.IconString = null;
-            this.btnCancel.Location = new System.Drawing.Point(921, 10);
+            this.btnCancel.Location = new System.Drawing.Point(924, 10);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Round = null;
             this.btnCancel.ShadowGap = 1;
-            this.btnCancel.Size = new System.Drawing.Size(90, 30);
+            this.btnCancel.Size = new System.Drawing.Size(90, 40);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "취소";
             this.btnCancel.TextPadding = new System.Windows.Forms.Padding(0);
@@ -2281,15 +2282,19 @@ namespace LadderEditor.Forms
             // FormCommunicationInput
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BlankForm = true;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.pnl);
             this.Controls.Add(this.pnlBottom);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "FormCommunicationInput";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "통신항목";
             this.Title = "통신항목";
+            this.TitleHeight = 0;
             this.TitleIconSize = 14F;
             this.TitleIconString = "fa-wifi";
             this.WindowStateButtonColor = System.Drawing.Color.White;

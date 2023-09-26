@@ -29,6 +29,7 @@ namespace LadderEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSymbol));
             this.dvTableLayoutPanel1 = new Devinno.Forms.Containers.DvTableLayoutPanel();
             this.inD = new Devinno.Forms.Controls.DvValueInputInt();
             this.inC = new Devinno.Forms.Controls.DvValueInputInt();
@@ -70,7 +71,7 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel1.Controls.Add(this.lblTitleAreas, 0, 0);
             this.dvTableLayoutPanel1.Controls.Add(this.inP, 0, 1);
             this.dvTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dvTableLayoutPanel1.Location = new System.Drawing.Point(7, 10);
+            this.dvTableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
             this.dvTableLayoutPanel1.Name = "dvTableLayoutPanel1";
             this.dvTableLayoutPanel1.RowCount = 7;
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
@@ -80,7 +81,7 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dvTableLayoutPanel1.Size = new System.Drawing.Size(161, 661);
+            this.dvTableLayoutPanel1.Size = new System.Drawing.Size(161, 698);
             this.dvTableLayoutPanel1.TabIndex = 1;
             // 
             // inD
@@ -295,7 +296,7 @@ namespace LadderEditor.Forms
             this.dvContainer2.Controls.Add(this.dvControl2);
             this.dvContainer2.Controls.Add(this.btnCancel);
             this.dvContainer2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvContainer2.Location = new System.Drawing.Point(7, 678);
+            this.dvContainer2.Location = new System.Drawing.Point(10, 718);
             this.dvContainer2.Name = "dvContainer2";
             this.dvContainer2.Padding = new System.Windows.Forms.Padding(168, 0, 0, 0);
             this.dvContainer2.ShadowGap = 1;
@@ -395,12 +396,12 @@ namespace LadderEditor.Forms
             this.dvContainer1.Controls.Add(this.dvControl1);
             this.dvContainer1.Controls.Add(this.dvContainer2);
             this.dvContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvContainer1.Location = new System.Drawing.Point(3, 40);
+            this.dvContainer1.Location = new System.Drawing.Point(0, 0);
             this.dvContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.dvContainer1.Name = "dvContainer1";
-            this.dvContainer1.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.dvContainer1.Padding = new System.Windows.Forms.Padding(10);
             this.dvContainer1.ShadowGap = 1;
-            this.dvContainer1.Size = new System.Drawing.Size(1018, 725);
+            this.dvContainer1.Size = new System.Drawing.Size(1024, 768);
             this.dvContainer1.TabIndex = 0;
             this.dvContainer1.TabStop = false;
             this.dvContainer1.Text = "dvContainer1";
@@ -414,14 +415,14 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel2.Controls.Add(this.inputPanel1, 0, 3);
             this.dvTableLayoutPanel2.Controls.Add(this.tbl, 0, 1);
             this.dvTableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvTableLayoutPanel2.Location = new System.Drawing.Point(175, 10);
+            this.dvTableLayoutPanel2.Location = new System.Drawing.Point(178, 10);
             this.dvTableLayoutPanel2.Name = "dvTableLayoutPanel2";
             this.dvTableLayoutPanel2.RowCount = 4;
             this.dvTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.dvTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dvTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.dvTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.dvTableLayoutPanel2.Size = new System.Drawing.Size(836, 661);
+            this.dvTableLayoutPanel2.Size = new System.Drawing.Size(836, 698);
             this.dvTableLayoutPanel2.TabIndex = 6;
             // 
             // dvLabel1
@@ -453,7 +454,7 @@ namespace LadderEditor.Forms
             // 
             this.dvContainer3.Controls.Add(this.dvLabel2);
             this.dvContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvContainer3.Location = new System.Drawing.Point(3, 333);
+            this.dvContainer3.Location = new System.Drawing.Point(3, 352);
             this.dvContainer3.Name = "dvContainer3";
             this.dvContainer3.ShadowGap = 1;
             this.dvContainer3.Size = new System.Drawing.Size(830, 30);
@@ -490,11 +491,11 @@ namespace LadderEditor.Forms
             // 
             this.inputPanel1.Controls.Add(this.txt);
             this.inputPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputPanel1.Location = new System.Drawing.Point(3, 369);
+            this.inputPanel1.Location = new System.Drawing.Point(3, 388);
             this.inputPanel1.Name = "inputPanel1";
             this.inputPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.inputPanel1.ShadowGap = 1;
-            this.inputPanel1.Size = new System.Drawing.Size(830, 289);
+            this.inputPanel1.Size = new System.Drawing.Size(830, 307);
             this.inputPanel1.TabIndex = 5;
             this.inputPanel1.TabStop = false;
             this.inputPanel1.Text = "inputPanel1";
@@ -508,7 +509,7 @@ namespace LadderEditor.Forms
             this.txt.Location = new System.Drawing.Point(10, 10);
             this.txt.Multiline = true;
             this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(810, 269);
+            this.txt.Size = new System.Drawing.Size(810, 287);
             this.txt.TabIndex = 0;
             // 
             // tbl
@@ -517,7 +518,7 @@ namespace LadderEditor.Forms
             this.tbl.Location = new System.Drawing.Point(3, 39);
             this.tbl.Name = "tbl";
             this.tbl.ShadowGap = 1;
-            this.tbl.Size = new System.Drawing.Size(830, 288);
+            this.tbl.Size = new System.Drawing.Size(830, 307);
             this.tbl.TabIndex = 6;
             this.tbl.TabStop = false;
             this.tbl.Text = "symbolTable1";
@@ -525,10 +526,10 @@ namespace LadderEditor.Forms
             // dvControl3
             // 
             this.dvControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dvControl3.Location = new System.Drawing.Point(168, 10);
+            this.dvControl3.Location = new System.Drawing.Point(171, 10);
             this.dvControl3.Name = "dvControl3";
             this.dvControl3.ShadowGap = 1;
-            this.dvControl3.Size = new System.Drawing.Size(7, 661);
+            this.dvControl3.Size = new System.Drawing.Size(7, 698);
             this.dvControl3.TabIndex = 5;
             this.dvControl3.TabStop = false;
             this.dvControl3.Text = "dvControl3";
@@ -536,25 +537,29 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvControl1.Location = new System.Drawing.Point(7, 671);
+            this.dvControl1.Location = new System.Drawing.Point(10, 708);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(1004, 7);
+            this.dvControl1.Size = new System.Drawing.Size(1004, 10);
             this.dvControl1.TabIndex = 4;
             this.dvControl1.TabStop = false;
             this.dvControl1.Text = "dvControl1";
             // 
-            // FormSymbol2
+            // FormSymbol
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BlankForm = true;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.dvContainer1);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 768);
-            this.Name = "FormSymbol2";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Name = "FormSymbol";
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "심볼";
             this.Title = "심볼";
+            this.TitleHeight = 0;
             this.TitleIconSize = 14F;
             this.TitleIconString = "fa-tags";
             this.dvTableLayoutPanel1.ResumeLayout(false);

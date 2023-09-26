@@ -29,9 +29,9 @@ namespace LadderEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetting));
             this.dvContainer1 = new Devinno.Forms.Containers.DvContainer();
             this.dvTableLayoutPanel1 = new Devinno.Forms.Containers.DvTableLayoutPanel();
-            this.lblTitleAreas = new Devinno.Forms.Controls.DvLabel();
             this.lblPath = new LadderEditor.Controls.DvValueLabelPath();
             this.inLang = new Devinno.Forms.Controls.DvValueInputBool();
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
@@ -39,6 +39,7 @@ namespace LadderEditor.Forms
             this.btnOK = new Devinno.Forms.Controls.DvButton();
             this.dvControl2 = new Devinno.Forms.Controls.DvControl();
             this.btnCancel = new Devinno.Forms.Controls.DvButton();
+            this.lblTitleAreas = new Devinno.Forms.Controls.DvLabel();
             this.dvContainer1.SuspendLayout();
             this.dvTableLayoutPanel1.SuspendLayout();
             this.dvContainer2.SuspendLayout();
@@ -50,11 +51,11 @@ namespace LadderEditor.Forms
             this.dvContainer1.Controls.Add(this.dvControl1);
             this.dvContainer1.Controls.Add(this.dvContainer2);
             this.dvContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvContainer1.Location = new System.Drawing.Point(3, 40);
+            this.dvContainer1.Location = new System.Drawing.Point(0, 0);
             this.dvContainer1.Name = "dvContainer1";
-            this.dvContainer1.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.dvContainer1.Padding = new System.Windows.Forms.Padding(10);
             this.dvContainer1.ShadowGap = 1;
-            this.dvContainer1.Size = new System.Drawing.Size(440, 192);
+            this.dvContainer1.Size = new System.Drawing.Size(446, 198);
             this.dvContainer1.TabIndex = 0;
             this.dvContainer1.TabStop = false;
             this.dvContainer1.Text = "dvContainer1";
@@ -67,7 +68,7 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel1.Controls.Add(this.lblPath, 0, 1);
             this.dvTableLayoutPanel1.Controls.Add(this.inLang, 0, 2);
             this.dvTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvTableLayoutPanel1.Location = new System.Drawing.Point(7, 10);
+            this.dvTableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
             this.dvTableLayoutPanel1.Name = "dvTableLayoutPanel1";
             this.dvTableLayoutPanel1.RowCount = 3;
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
@@ -75,31 +76,6 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dvTableLayoutPanel1.Size = new System.Drawing.Size(426, 128);
             this.dvTableLayoutPanel1.TabIndex = 7;
-            // 
-            // lblTitleAreas
-            // 
-            this.lblTitleAreas.BackgroundDraw = false;
-            this.lblTitleAreas.BorderColor = null;
-            this.lblTitleAreas.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleLeft;
-            this.lblTitleAreas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitleAreas.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
-            this.lblTitleAreas.IconGap = 3;
-            this.lblTitleAreas.IconImage = null;
-            this.lblTitleAreas.IconSize = 12F;
-            this.lblTitleAreas.IconString = "fa-list-ul";
-            this.lblTitleAreas.LabelColor = null;
-            this.lblTitleAreas.Location = new System.Drawing.Point(3, 3);
-            this.lblTitleAreas.Name = "lblTitleAreas";
-            this.lblTitleAreas.Round = null;
-            this.lblTitleAreas.ShadowGap = 1;
-            this.lblTitleAreas.Size = new System.Drawing.Size(420, 30);
-            this.lblTitleAreas.Style = Devinno.Forms.Embossing.FlatConcave;
-            this.lblTitleAreas.TabIndex = 2;
-            this.lblTitleAreas.TabStop = false;
-            this.lblTitleAreas.Text = "설정 내역";
-            this.lblTitleAreas.TextPadding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.lblTitleAreas.Unit = "";
-            this.lblTitleAreas.UnitWidth = null;
             // 
             // lblPath
             // 
@@ -172,10 +148,10 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvControl1.Location = new System.Drawing.Point(7, 138);
+            this.dvControl1.Location = new System.Drawing.Point(10, 138);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
-            this.dvControl1.Size = new System.Drawing.Size(426, 7);
+            this.dvControl1.Size = new System.Drawing.Size(426, 10);
             this.dvControl1.TabIndex = 6;
             this.dvControl1.TabStop = false;
             this.dvControl1.Text = "dvControl1";
@@ -186,7 +162,7 @@ namespace LadderEditor.Forms
             this.dvContainer2.Controls.Add(this.dvControl2);
             this.dvContainer2.Controls.Add(this.btnCancel);
             this.dvContainer2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dvContainer2.Location = new System.Drawing.Point(7, 145);
+            this.dvContainer2.Location = new System.Drawing.Point(10, 148);
             this.dvContainer2.Name = "dvContainer2";
             this.dvContainer2.Padding = new System.Windows.Forms.Padding(168, 0, 0, 0);
             this.dvContainer2.ShadowGap = 1;
@@ -252,19 +228,48 @@ namespace LadderEditor.Forms
             this.btnCancel.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnCancel.UseKey = false;
             // 
+            // lblTitleAreas
+            // 
+            this.lblTitleAreas.BackgroundDraw = false;
+            this.lblTitleAreas.BorderColor = null;
+            this.lblTitleAreas.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleLeft;
+            this.lblTitleAreas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitleAreas.IconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.lblTitleAreas.IconGap = 3;
+            this.lblTitleAreas.IconImage = null;
+            this.lblTitleAreas.IconSize = 12F;
+            this.lblTitleAreas.IconString = "fa-list-ul";
+            this.lblTitleAreas.LabelColor = null;
+            this.lblTitleAreas.Location = new System.Drawing.Point(3, 3);
+            this.lblTitleAreas.Name = "lblTitleAreas";
+            this.lblTitleAreas.Round = null;
+            this.lblTitleAreas.ShadowGap = 1;
+            this.lblTitleAreas.Size = new System.Drawing.Size(420, 30);
+            this.lblTitleAreas.Style = Devinno.Forms.Embossing.FlatConcave;
+            this.lblTitleAreas.TabIndex = 2;
+            this.lblTitleAreas.TabStop = false;
+            this.lblTitleAreas.Text = "설정 내역";
+            this.lblTitleAreas.TextPadding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.lblTitleAreas.Unit = "";
+            this.lblTitleAreas.UnitWidth = null;
+            // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 235);
+            this.BlankForm = true;
+            this.ClientSize = new System.Drawing.Size(446, 198);
             this.Controls.Add(this.dvContainer1);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormSetting";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "설정";
             this.Title = "설정";
+            this.TitleHeight = 0;
             this.TitleIconString = "fa-gear";
             this.dvContainer1.ResumeLayout(false);
             this.dvTableLayoutPanel1.ResumeLayout(false);
@@ -282,8 +287,8 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvButton btnCancel;
         private Devinno.Forms.Controls.DvControl dvControl1;
         private Devinno.Forms.Containers.DvTableLayoutPanel dvTableLayoutPanel1;
-        private Devinno.Forms.Controls.DvLabel lblTitleAreas;
         private Controls.DvValueLabelPath lblPath;
         private Devinno.Forms.Controls.DvValueInputBool inLang;
+        private Devinno.Forms.Controls.DvLabel lblTitleAreas;
     }
 }

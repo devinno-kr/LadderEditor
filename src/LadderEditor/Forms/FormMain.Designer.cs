@@ -84,18 +84,18 @@ namespace LadderEditor.Forms
             // 
             // pnlStatus
             // 
-            this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlStatus.Controls.Add(this.lblCursorPosition);
             this.pnlStatus.Controls.Add(this.dvControl1);
             this.pnlStatus.Controls.Add(this.lblDeviceState);
             this.pnlStatus.Controls.Add(this.lblState);
             this.pnlStatus.Controls.Add(this.btnSetting);
             this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlStatus.Location = new System.Drawing.Point(3, 708);
+            this.pnlStatus.Location = new System.Drawing.Point(0, 708);
             this.pnlStatus.Name = "pnlStatus";
-            this.pnlStatus.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.pnlStatus.Padding = new System.Windows.Forms.Padding(10);
             this.pnlStatus.ShadowGap = 1;
-            this.pnlStatus.Size = new System.Drawing.Size(1018, 57);
+            this.pnlStatus.Size = new System.Drawing.Size(1024, 60);
             this.pnlStatus.TabIndex = 2;
             this.pnlStatus.TabStop = false;
             this.pnlStatus.Text = "dvContainer1";
@@ -112,7 +112,7 @@ namespace LadderEditor.Forms
             this.lblCursorPosition.IconSize = 12F;
             this.lblCursorPosition.IconString = null;
             this.lblCursorPosition.LabelColor = null;
-            this.lblCursorPosition.Location = new System.Drawing.Point(51, 10);
+            this.lblCursorPosition.Location = new System.Drawing.Point(54, 10);
             this.lblCursorPosition.Name = "lblCursorPosition";
             this.lblCursorPosition.Round = null;
             this.lblCursorPosition.ShadowGap = 1;
@@ -128,7 +128,7 @@ namespace LadderEditor.Forms
             // dvControl1
             // 
             this.dvControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dvControl1.Location = new System.Drawing.Point(46, 10);
+            this.dvControl1.Location = new System.Drawing.Point(49, 10);
             this.dvControl1.Name = "dvControl1";
             this.dvControl1.ShadowGap = 1;
             this.dvControl1.Size = new System.Drawing.Size(5, 40);
@@ -148,7 +148,7 @@ namespace LadderEditor.Forms
             this.lblDeviceState.IconSize = 12F;
             this.lblDeviceState.IconString = null;
             this.lblDeviceState.LabelColor = null;
-            this.lblDeviceState.Location = new System.Drawing.Point(683, 10);
+            this.lblDeviceState.Location = new System.Drawing.Point(686, 10);
             this.lblDeviceState.Name = "lblDeviceState";
             this.lblDeviceState.Round = null;
             this.lblDeviceState.ShadowGap = 1;
@@ -173,7 +173,7 @@ namespace LadderEditor.Forms
             this.lblState.IconSize = 12F;
             this.lblState.IconString = null;
             this.lblState.LabelColor = null;
-            this.lblState.Location = new System.Drawing.Point(851, 10);
+            this.lblState.Location = new System.Drawing.Point(854, 10);
             this.lblState.Name = "lblState";
             this.lblState.Round = null;
             this.lblState.ShadowGap = 1;
@@ -199,7 +199,7 @@ namespace LadderEditor.Forms
             this.btnSetting.IconImage = null;
             this.btnSetting.IconSize = 12F;
             this.btnSetting.IconString = "fa-gear";
-            this.btnSetting.Location = new System.Drawing.Point(7, 10);
+            this.btnSetting.Location = new System.Drawing.Point(10, 10);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Round = null;
             this.btnSetting.ShadowGap = 1;
@@ -238,7 +238,7 @@ namespace LadderEditor.Forms
             this.btnNewFile.Name = "btnNewFile";
             this.btnNewFile.Round = null;
             this.btnNewFile.ShadowGap = 1;
-            this.btnNewFile.Size = new System.Drawing.Size(39, 34);
+            this.btnNewFile.Size = new System.Drawing.Size(39, 40);
             this.btnNewFile.TabIndex = 1;
             this.btnNewFile.Text = null;
             this.btnNewFile.TextPadding = new System.Windows.Forms.Padding(0);
@@ -262,7 +262,7 @@ namespace LadderEditor.Forms
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Round = null;
             this.btnOpenFile.ShadowGap = 1;
-            this.btnOpenFile.Size = new System.Drawing.Size(39, 34);
+            this.btnOpenFile.Size = new System.Drawing.Size(39, 40);
             this.btnOpenFile.TabIndex = 2;
             this.btnOpenFile.Text = null;
             this.btnOpenFile.TextPadding = new System.Windows.Forms.Padding(0);
@@ -286,7 +286,7 @@ namespace LadderEditor.Forms
             this.btnSaveFile.Name = "btnSaveFile";
             this.btnSaveFile.Round = null;
             this.btnSaveFile.ShadowGap = 1;
-            this.btnSaveFile.Size = new System.Drawing.Size(39, 34);
+            this.btnSaveFile.Size = new System.Drawing.Size(39, 40);
             this.btnSaveFile.TabIndex = 3;
             this.btnSaveFile.Text = null;
             this.btnSaveFile.TextPadding = new System.Windows.Forms.Padding(0);
@@ -310,7 +310,7 @@ namespace LadderEditor.Forms
             this.btnSaveAsFile.Name = "btnSaveAsFile";
             this.btnSaveAsFile.Round = null;
             this.btnSaveAsFile.ShadowGap = 1;
-            this.btnSaveAsFile.Size = new System.Drawing.Size(39, 34);
+            this.btnSaveAsFile.Size = new System.Drawing.Size(39, 40);
             this.btnSaveAsFile.TabIndex = 4;
             this.btnSaveAsFile.Text = null;
             this.btnSaveAsFile.TextPadding = new System.Windows.Forms.Padding(0);
@@ -334,7 +334,7 @@ namespace LadderEditor.Forms
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Round = null;
             this.btnCheck.ShadowGap = 1;
-            this.btnCheck.Size = new System.Drawing.Size(39, 34);
+            this.btnCheck.Size = new System.Drawing.Size(39, 40);
             this.btnCheck.TabIndex = 5;
             this.btnCheck.Text = null;
             this.btnCheck.TextPadding = new System.Windows.Forms.Padding(0);
@@ -358,7 +358,7 @@ namespace LadderEditor.Forms
             this.btnDescription.Name = "btnDescription";
             this.btnDescription.Round = null;
             this.btnDescription.ShadowGap = 1;
-            this.btnDescription.Size = new System.Drawing.Size(39, 34);
+            this.btnDescription.Size = new System.Drawing.Size(39, 40);
             this.btnDescription.TabIndex = 8;
             this.btnDescription.Text = null;
             this.btnDescription.TextPadding = new System.Windows.Forms.Padding(0);
@@ -382,7 +382,7 @@ namespace LadderEditor.Forms
             this.btnSymbol.Name = "btnSymbol";
             this.btnSymbol.Round = null;
             this.btnSymbol.ShadowGap = 1;
-            this.btnSymbol.Size = new System.Drawing.Size(39, 34);
+            this.btnSymbol.Size = new System.Drawing.Size(39, 40);
             this.btnSymbol.TabIndex = 9;
             this.btnSymbol.Text = null;
             this.btnSymbol.TextPadding = new System.Windows.Forms.Padding(0);
@@ -406,7 +406,7 @@ namespace LadderEditor.Forms
             this.btnCommunication.Name = "btnCommunication";
             this.btnCommunication.Round = null;
             this.btnCommunication.ShadowGap = 1;
-            this.btnCommunication.Size = new System.Drawing.Size(39, 34);
+            this.btnCommunication.Size = new System.Drawing.Size(39, 40);
             this.btnCommunication.TabIndex = 10;
             this.btnCommunication.Text = null;
             this.btnCommunication.TextPadding = new System.Windows.Forms.Padding(0);
@@ -430,7 +430,7 @@ namespace LadderEditor.Forms
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Round = null;
             this.btnDownload.ShadowGap = 1;
-            this.btnDownload.Size = new System.Drawing.Size(39, 34);
+            this.btnDownload.Size = new System.Drawing.Size(39, 40);
             this.btnDownload.TabIndex = 12;
             this.btnDownload.Text = null;
             this.btnDownload.TextPadding = new System.Windows.Forms.Padding(0);
@@ -454,7 +454,7 @@ namespace LadderEditor.Forms
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Round = null;
             this.btnUpload.ShadowGap = 1;
-            this.btnUpload.Size = new System.Drawing.Size(39, 34);
+            this.btnUpload.Size = new System.Drawing.Size(39, 40);
             this.btnUpload.TabIndex = 13;
             this.btnUpload.Text = null;
             this.btnUpload.TextPadding = new System.Windows.Forms.Padding(0);
@@ -478,7 +478,7 @@ namespace LadderEditor.Forms
             this.btnMonitoring.Name = "btnMonitoring";
             this.btnMonitoring.Round = null;
             this.btnMonitoring.ShadowGap = 1;
-            this.btnMonitoring.Size = new System.Drawing.Size(39, 34);
+            this.btnMonitoring.Size = new System.Drawing.Size(39, 40);
             this.btnMonitoring.TabIndex = 14;
             this.btnMonitoring.Text = null;
             this.btnMonitoring.TextPadding = new System.Windows.Forms.Padding(0);
@@ -502,7 +502,7 @@ namespace LadderEditor.Forms
             this.btnReference.Name = "btnReference";
             this.btnReference.Round = null;
             this.btnReference.ShadowGap = 1;
-            this.btnReference.Size = new System.Drawing.Size(39, 34);
+            this.btnReference.Size = new System.Drawing.Size(39, 40);
             this.btnReference.TabIndex = 15;
             this.btnReference.Text = null;
             this.btnReference.TextPadding = new System.Windows.Forms.Padding(0);
@@ -518,26 +518,26 @@ namespace LadderEditor.Forms
             this.splitter.Controls.Add(this.pnlContent, 0, 0);
             this.splitter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitter.DrawSplitter = false;
-            this.splitter.Location = new System.Drawing.Point(3, 155);
+            this.splitter.Location = new System.Drawing.Point(0, 127);
             this.splitter.Name = "splitter";
             this.splitter.RowCount = 2;
             this.splitter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.splitter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.splitter.Size = new System.Drawing.Size(1018, 553);
+            this.splitter.Size = new System.Drawing.Size(1024, 581);
             this.splitter.SplitterColor = null;
             this.splitter.TabIndex = 3;
             // 
             // pnlMessage
             // 
-            this.pnlMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pnlMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlMessage.Controls.Add(this.gridMessage);
             this.pnlMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMessage.Location = new System.Drawing.Point(0, 388);
+            this.pnlMessage.Location = new System.Drawing.Point(0, 407);
             this.pnlMessage.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.pnlMessage.Name = "pnlMessage";
-            this.pnlMessage.Padding = new System.Windows.Forms.Padding(7, 10, 7, 0);
+            this.pnlMessage.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.pnlMessage.ShadowGap = 1;
-            this.pnlMessage.Size = new System.Drawing.Size(1018, 165);
+            this.pnlMessage.Size = new System.Drawing.Size(1024, 174);
             this.pnlMessage.TabIndex = 0;
             this.pnlMessage.TabStop = false;
             this.pnlMessage.Text = "dvContainer1";
@@ -551,7 +551,7 @@ namespace LadderEditor.Forms
             this.gridMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridMessage.HScrollPosition = 0D;
             this.gridMessage.InputColor = null;
-            this.gridMessage.Location = new System.Drawing.Point(7, 10);
+            this.gridMessage.Location = new System.Drawing.Point(10, 10);
             this.gridMessage.Name = "gridMessage";
             this.gridMessage.RowColor = null;
             this.gridMessage.RowHeight = 30;
@@ -559,7 +559,7 @@ namespace LadderEditor.Forms
             this.gridMessage.SelectedRowColor = null;
             this.gridMessage.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.gridMessage.ShadowGap = 1;
-            this.gridMessage.Size = new System.Drawing.Size(1004, 155);
+            this.gridMessage.Size = new System.Drawing.Size(1004, 164);
             this.gridMessage.SummaryRowColor = null;
             this.gridMessage.TabIndex = 0;
             this.gridMessage.Text = "dvDataGrid1";
@@ -573,9 +573,9 @@ namespace LadderEditor.Forms
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Padding = new System.Windows.Forms.Padding(7, 10, 7, 8);
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(10);
             this.pnlContent.ShadowGap = 1;
-            this.pnlContent.Size = new System.Drawing.Size(1018, 386);
+            this.pnlContent.Size = new System.Drawing.Size(1024, 405);
             this.pnlContent.TabIndex = 1;
             this.pnlContent.TabStop = false;
             this.pnlContent.Text = "dvContainer2";
@@ -592,7 +592,7 @@ namespace LadderEditor.Forms
             this.ladder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ladder.Font = new System.Drawing.Font("나눔고딕", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ladder.LadderDisplayType = LadderEditor.Controls.LadderDisplayKinds.DEC;
-            this.ladder.Location = new System.Drawing.Point(7, 10);
+            this.ladder.Location = new System.Drawing.Point(10, 10);
             this.ladder.Name = "ladder";
             this.ladder.NumberBoxColor = null;
             this.ladder.NumberBoxWidth = 100;
@@ -600,7 +600,7 @@ namespace LadderEditor.Forms
             this.ladder.RowHeight = 60;
             this.ladder.ScrollPosition = 0D;
             this.ladder.ShadowGap = 1;
-            this.ladder.Size = new System.Drawing.Size(1004, 368);
+            this.ladder.Size = new System.Drawing.Size(1004, 385);
             this.ladder.TabIndex = 0;
             this.ladder.Text = "ladderEditorControl1";
             // 
@@ -635,21 +635,22 @@ namespace LadderEditor.Forms
             // 
             // pnlTop
             // 
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlTop.Controls.Add(this.pnlLD);
             this.pnlTop.Controls.Add(this.pnlToolBar);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(3, 40);
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Padding = new System.Windows.Forms.Padding(7, 10, 7, 7);
+            this.pnlTop.Padding = new System.Windows.Forms.Padding(10);
             this.pnlTop.ShadowGap = 1;
-            this.pnlTop.Size = new System.Drawing.Size(1018, 115);
+            this.pnlTop.Size = new System.Drawing.Size(1024, 127);
             this.pnlTop.TabIndex = 4;
             this.pnlTop.TabStop = false;
             this.pnlTop.Text = "dvContainer1";
             // 
             // pnlLD
             // 
-            this.pnlLD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pnlLD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlLD.ColumnCount = 10;
             this.pnlLD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.pnlLD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -672,12 +673,12 @@ namespace LadderEditor.Forms
             this.pnlLD.Controls.Add(this.btnF3, 1, 0);
             this.pnlLD.Controls.Add(this.btnSPC, 0, 0);
             this.pnlLD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLD.Location = new System.Drawing.Point(7, 50);
+            this.pnlLD.Location = new System.Drawing.Point(10, 56);
             this.pnlLD.Name = "pnlLD";
             this.pnlLD.RowCount = 1;
             this.pnlLD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlLD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlLD.Size = new System.Drawing.Size(1004, 58);
+            this.pnlLD.Size = new System.Drawing.Size(1004, 61);
             this.pnlLD.TabIndex = 3;
             // 
             // btnF12
@@ -697,7 +698,7 @@ namespace LadderEditor.Forms
             this.btnF12.Name = "btnF12";
             this.btnF12.Round = null;
             this.btnF12.ShadowGap = 1;
-            this.btnF12.Size = new System.Drawing.Size(98, 52);
+            this.btnF12.Size = new System.Drawing.Size(98, 55);
             this.btnF12.TabIndex = 9;
             this.btnF12.Text = "F12";
             this.btnF12.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -720,7 +721,7 @@ namespace LadderEditor.Forms
             this.btnF11.Name = "btnF11";
             this.btnF11.Round = null;
             this.btnF11.ShadowGap = 1;
-            this.btnF11.Size = new System.Drawing.Size(94, 52);
+            this.btnF11.Size = new System.Drawing.Size(94, 55);
             this.btnF11.TabIndex = 8;
             this.btnF11.Text = "F11";
             this.btnF11.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -743,7 +744,7 @@ namespace LadderEditor.Forms
             this.btnF9.Name = "btnF9";
             this.btnF9.Round = null;
             this.btnF9.ShadowGap = 1;
-            this.btnF9.Size = new System.Drawing.Size(94, 52);
+            this.btnF9.Size = new System.Drawing.Size(94, 55);
             this.btnF9.TabIndex = 7;
             this.btnF9.Text = "F9";
             this.btnF9.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -766,7 +767,7 @@ namespace LadderEditor.Forms
             this.btnF8.Name = "btnF8";
             this.btnF8.Round = null;
             this.btnF8.ShadowGap = 1;
-            this.btnF8.Size = new System.Drawing.Size(94, 52);
+            this.btnF8.Size = new System.Drawing.Size(94, 55);
             this.btnF8.TabIndex = 6;
             this.btnF8.Text = "F8";
             this.btnF8.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -789,7 +790,7 @@ namespace LadderEditor.Forms
             this.btnF7.Name = "btnF7";
             this.btnF7.Round = null;
             this.btnF7.ShadowGap = 1;
-            this.btnF7.Size = new System.Drawing.Size(94, 52);
+            this.btnF7.Size = new System.Drawing.Size(94, 55);
             this.btnF7.TabIndex = 5;
             this.btnF7.Text = "F7";
             this.btnF7.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -812,7 +813,7 @@ namespace LadderEditor.Forms
             this.btnF6.Name = "btnF6";
             this.btnF6.Round = null;
             this.btnF6.ShadowGap = 1;
-            this.btnF6.Size = new System.Drawing.Size(94, 52);
+            this.btnF6.Size = new System.Drawing.Size(94, 55);
             this.btnF6.TabIndex = 4;
             this.btnF6.Text = "F6";
             this.btnF6.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -835,7 +836,7 @@ namespace LadderEditor.Forms
             this.btnF5.Name = "btnF5";
             this.btnF5.Round = null;
             this.btnF5.ShadowGap = 1;
-            this.btnF5.Size = new System.Drawing.Size(94, 52);
+            this.btnF5.Size = new System.Drawing.Size(94, 55);
             this.btnF5.TabIndex = 3;
             this.btnF5.Text = "F5";
             this.btnF5.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -858,7 +859,7 @@ namespace LadderEditor.Forms
             this.btnF4.Name = "btnF4";
             this.btnF4.Round = null;
             this.btnF4.ShadowGap = 1;
-            this.btnF4.Size = new System.Drawing.Size(94, 52);
+            this.btnF4.Size = new System.Drawing.Size(94, 55);
             this.btnF4.TabIndex = 2;
             this.btnF4.Text = "F4";
             this.btnF4.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -881,7 +882,7 @@ namespace LadderEditor.Forms
             this.btnF3.Name = "btnF3";
             this.btnF3.Round = null;
             this.btnF3.ShadowGap = 1;
-            this.btnF3.Size = new System.Drawing.Size(94, 52);
+            this.btnF3.Size = new System.Drawing.Size(94, 55);
             this.btnF3.TabIndex = 1;
             this.btnF3.Text = "F3";
             this.btnF3.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -904,7 +905,7 @@ namespace LadderEditor.Forms
             this.btnSPC.Name = "btnSPC";
             this.btnSPC.Round = null;
             this.btnSPC.ShadowGap = 1;
-            this.btnSPC.Size = new System.Drawing.Size(94, 52);
+            this.btnSPC.Size = new System.Drawing.Size(94, 55);
             this.btnSPC.TabIndex = 0;
             this.btnSPC.Text = "SPACE";
             this.btnSPC.TextPadding = new System.Windows.Forms.Padding(0, 1, 0, 0);
@@ -912,7 +913,7 @@ namespace LadderEditor.Forms
             // 
             // pnlToolBar
             // 
-            this.pnlToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pnlToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.pnlToolBar.ColumnCount = 18;
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnlToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -946,11 +947,11 @@ namespace LadderEditor.Forms
             this.pnlToolBar.Controls.Add(this.btnMonitoring, 17, 0);
             this.pnlToolBar.Controls.Add(this.btnReference, 10, 0);
             this.pnlToolBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlToolBar.Location = new System.Drawing.Point(7, 10);
+            this.pnlToolBar.Location = new System.Drawing.Point(10, 10);
             this.pnlToolBar.Name = "pnlToolBar";
             this.pnlToolBar.RowCount = 1;
             this.pnlToolBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlToolBar.Size = new System.Drawing.Size(1004, 40);
+            this.pnlToolBar.Size = new System.Drawing.Size(1004, 46);
             this.pnlToolBar.TabIndex = 2;
             // 
             // lblConnection
@@ -969,7 +970,7 @@ namespace LadderEditor.Forms
             this.lblConnection.Name = "lblConnection";
             this.lblConnection.Round = null;
             this.lblConnection.ShadowGap = 1;
-            this.lblConnection.Size = new System.Drawing.Size(294, 34);
+            this.lblConnection.Size = new System.Drawing.Size(294, 40);
             this.lblConnection.TabIndex = 11;
             this.lblConnection.Text = "장비";
             this.lblConnection.Title = "장비";
@@ -989,18 +990,21 @@ namespace LadderEditor.Forms
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BlankForm = true;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.splitter);
             this.Controls.Add(this.pnlStatus);
             this.Controls.Add(this.pnlTop);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "FormMain";
-            this.Padding = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "레더 에디터";
             this.Title = "레더 에디터";
-            this.TitleIconSize = 14F;
+            this.TitleHeight = 0;
+            this.TitleIconSize = 18F;
             this.TitleIconString = "fa-share-nodes";
             this.pnlStatus.ResumeLayout(false);
             this.splitter.ResumeLayout(false);

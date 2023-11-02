@@ -483,6 +483,28 @@ namespace LadderEditor.Tools
             }
         }
         #endregion
+        #region Interval
+        public static string Interval
+        {
+            get
+            {
+                if (lang == Lang.KO) return "인터벌";
+                else if (lang == Lang.EN) return "Interval";
+                else return "";
+            }
+        }
+        #endregion
+        #region Timeout
+        public static string Timeout
+        {
+            get
+            {
+                if (lang == Lang.KO) return "타임아웃";
+                else if (lang == Lang.EN) return "Timeout";
+                else return "";
+            }
+        }
+        #endregion
         #region Property
         public static string Property
         {
@@ -1015,6 +1037,28 @@ namespace LadderEditor.Tools
             {
                 if (lang == Lang.KO) return "· 통신 속도를 입력하세요.";
                 else if (lang == Lang.EN) return"· Please enter the baudrate.";
+                else return "";
+            }
+        }
+        #endregion
+        #region CommErrorInterval
+        public static string CommErrorInterval
+        {
+            get
+            {
+                if (lang == Lang.KO) return "· 인터벌은 0 이상의 값을 입력하세요.";
+                else if (lang == Lang.EN) return "· Please enter a value greater than or equal to 0 for the interval.";
+                else return "";
+            }
+        }
+        #endregion
+        #region CommErrorTimeout
+        public static string CommErrorTimeout
+        {
+            get
+            {
+                if (lang == Lang.KO) return "· 타임아웃은 0 이상의 값을 입력하세요.";
+                else if (lang == Lang.EN) return "· Please enter a value greater than or equal to 0 for the timeout.";
                 else return "";
             }
         }

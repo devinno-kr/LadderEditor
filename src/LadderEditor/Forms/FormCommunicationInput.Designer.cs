@@ -123,6 +123,10 @@ namespace LadderEditor.Forms
             this.btnOK = new Devinno.Forms.Controls.DvButton();
             this.dvControl1 = new Devinno.Forms.Controls.DvControl();
             this.btnCancel = new Devinno.Forms.Controls.DvButton();
+            this.MDRM_inInterval = new Devinno.Forms.Controls.DvValueInputInt();
+            this.MDRM_inTimeout = new Devinno.Forms.Controls.DvValueInputInt();
+            this.MDTM_inTimeout = new Devinno.Forms.Controls.DvValueInputInt();
+            this.MDTM_inInterval = new Devinno.Forms.Controls.DvValueInputInt();
             this.pnl.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.tab.SuspendLayout();
@@ -173,6 +177,7 @@ namespace LadderEditor.Forms
             // pnlContent
             // 
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pnlContent.ButtonsWidth = null;
             this.pnlContent.Controls.Add(this.tab);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.DrawTitle = true;
@@ -356,6 +361,7 @@ namespace LadderEditor.Forms
             this.MDRS_inPort.Text = "통신 포트";
             this.MDRS_inPort.Title = "통신 포트";
             this.MDRS_inPort.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.MDRS_inPort.TitleGradient = false;
             this.MDRS_inPort.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_inPort.TitleIconGap = 0;
             this.MDRS_inPort.TitleIconImage = null;
@@ -393,6 +399,7 @@ namespace LadderEditor.Forms
             this.MDRS_inBaudrate.Text = "통신 속도";
             this.MDRS_inBaudrate.Title = "통신 속도";
             this.MDRS_inBaudrate.TitleColor = null;
+            this.MDRS_inBaudrate.TitleGradient = false;
             this.MDRS_inBaudrate.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_inBaudrate.TitleIconGap = 0;
             this.MDRS_inBaudrate.TitleIconImage = null;
@@ -429,6 +436,7 @@ namespace LadderEditor.Forms
             this.MDRS_inSlave.Text = "국번";
             this.MDRS_inSlave.Title = "국번";
             this.MDRS_inSlave.TitleColor = null;
+            this.MDRS_inSlave.TitleGradient = false;
             this.MDRS_inSlave.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_inSlave.TitleIconGap = 0;
             this.MDRS_inSlave.TitleIconImage = null;
@@ -463,6 +471,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaP.Text = "P 영역 시작주소";
             this.MDRS_lblAreaP.Title = "P 영역 시작주소";
             this.MDRS_lblAreaP.TitleColor = null;
+            this.MDRS_lblAreaP.TitleGradient = false;
             this.MDRS_lblAreaP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaP.TitleIconGap = 0;
             this.MDRS_lblAreaP.TitleIconImage = null;
@@ -497,6 +506,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaM.Text = "M 영역 시작주소";
             this.MDRS_lblAreaM.Title = "M 영역 시작주소";
             this.MDRS_lblAreaM.TitleColor = null;
+            this.MDRS_lblAreaM.TitleGradient = false;
             this.MDRS_lblAreaM.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaM.TitleIconGap = 0;
             this.MDRS_lblAreaM.TitleIconImage = null;
@@ -531,6 +541,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaT.Text = "T 영역 시작주소";
             this.MDRS_lblAreaT.Title = "T 영역 시작주소";
             this.MDRS_lblAreaT.TitleColor = null;
+            this.MDRS_lblAreaT.TitleGradient = false;
             this.MDRS_lblAreaT.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaT.TitleIconGap = 0;
             this.MDRS_lblAreaT.TitleIconImage = null;
@@ -565,6 +576,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaC.Text = "C 영역 시작주소";
             this.MDRS_lblAreaC.Title = "C 영역 시작주소";
             this.MDRS_lblAreaC.TitleColor = null;
+            this.MDRS_lblAreaC.TitleGradient = false;
             this.MDRS_lblAreaC.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaC.TitleIconGap = 0;
             this.MDRS_lblAreaC.TitleIconImage = null;
@@ -599,6 +611,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaD.Text = "D 영역 시작주소";
             this.MDRS_lblAreaD.Title = "D 영역 시작주소";
             this.MDRS_lblAreaD.TitleColor = null;
+            this.MDRS_lblAreaD.TitleGradient = false;
             this.MDRS_lblAreaD.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaD.TitleIconGap = 0;
             this.MDRS_lblAreaD.TitleIconImage = null;
@@ -633,6 +646,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaWP.Text = "WP 영역 시작주소";
             this.MDRS_lblAreaWP.Title = "WP 영역 시작주소";
             this.MDRS_lblAreaWP.TitleColor = null;
+            this.MDRS_lblAreaWP.TitleGradient = false;
             this.MDRS_lblAreaWP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaWP.TitleIconGap = 0;
             this.MDRS_lblAreaWP.TitleIconImage = null;
@@ -667,6 +681,7 @@ namespace LadderEditor.Forms
             this.MDRS_lblAreaWM.Text = "WM 영역 시작주소";
             this.MDRS_lblAreaWM.Title = "WM 영역 시작주소";
             this.MDRS_lblAreaWM.TitleColor = null;
+            this.MDRS_lblAreaWM.TitleGradient = false;
             this.MDRS_lblAreaWM.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRS_lblAreaWM.TitleIconGap = 0;
             this.MDRS_lblAreaWM.TitleIconImage = null;
@@ -686,7 +701,7 @@ namespace LadderEditor.Forms
             this.tpMDRM.Location = new System.Drawing.Point(4, 5);
             this.tpMDRM.Name = "tpMDRM";
             this.tpMDRM.Padding = new System.Windows.Forms.Padding(7);
-            this.tpMDRM.Size = new System.Drawing.Size(990, 503);
+            this.tpMDRM.Size = new System.Drawing.Size(990, 533);
             this.tpMDRM.TabIndex = 1;
             this.tpMDRM.Text = "tabPage2";
             // 
@@ -695,6 +710,7 @@ namespace LadderEditor.Forms
             this.MDRM_tbl.ColumnCount = 2;
             this.MDRM_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MDRM_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.MDRM_tbl.Controls.Add(this.MDRM_inTimeout, 1, 2);
             this.MDRM_tbl.Controls.Add(this.MDRM_dgBind, 1, 5);
             this.MDRM_tbl.Controls.Add(this.dvContainer5, 1, 4);
             this.MDRM_tbl.Controls.Add(this.dvContainer3, 0, 4);
@@ -702,6 +718,7 @@ namespace LadderEditor.Forms
             this.MDRM_tbl.Controls.Add(this.MDRM_dgMonitor, 0, 5);
             this.MDRM_tbl.Controls.Add(this.MDRM_inPort, 0, 1);
             this.MDRM_tbl.Controls.Add(this.MDRM_inBaudrate, 0, 2);
+            this.MDRM_tbl.Controls.Add(this.MDRM_inInterval, 1, 1);
             this.MDRM_tbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MDRM_tbl.Location = new System.Drawing.Point(7, 7);
             this.MDRM_tbl.Name = "MDRM_tbl";
@@ -712,7 +729,7 @@ namespace LadderEditor.Forms
             this.MDRM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDRM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDRM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MDRM_tbl.Size = new System.Drawing.Size(976, 489);
+            this.MDRM_tbl.Size = new System.Drawing.Size(976, 519);
             this.MDRM_tbl.TabIndex = 1;
             // 
             // MDRM_dgBind
@@ -732,7 +749,7 @@ namespace LadderEditor.Forms
             this.MDRM_dgBind.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MDRM_dgBind.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MDRM_dgBind.ShadowGap = 1;
-            this.MDRM_dgBind.Size = new System.Drawing.Size(482, 303);
+            this.MDRM_dgBind.Size = new System.Drawing.Size(482, 333);
             this.MDRM_dgBind.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MDRM_dgBind.TabIndex = 7;
             this.MDRM_dgBind.Text = "dvDataGrid1";
@@ -907,7 +924,7 @@ namespace LadderEditor.Forms
             this.MDRM_dgMonitor.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MDRM_dgMonitor.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MDRM_dgMonitor.ShadowGap = 1;
-            this.MDRM_dgMonitor.Size = new System.Drawing.Size(482, 303);
+            this.MDRM_dgMonitor.Size = new System.Drawing.Size(482, 333);
             this.MDRM_dgMonitor.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MDRM_dgMonitor.TabIndex = 5;
             this.MDRM_dgMonitor.Text = "dvDataGrid2";
@@ -935,6 +952,7 @@ namespace LadderEditor.Forms
             this.MDRM_inPort.Text = "통신 포트";
             this.MDRM_inPort.Title = "통신 포트";
             this.MDRM_inPort.TitleColor = null;
+            this.MDRM_inPort.TitleGradient = false;
             this.MDRM_inPort.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRM_inPort.TitleIconGap = 0;
             this.MDRM_inPort.TitleIconImage = null;
@@ -972,6 +990,7 @@ namespace LadderEditor.Forms
             this.MDRM_inBaudrate.Text = "통신 속도";
             this.MDRM_inBaudrate.Title = "통신 속도";
             this.MDRM_inBaudrate.TitleColor = null;
+            this.MDRM_inBaudrate.TitleGradient = false;
             this.MDRM_inBaudrate.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDRM_inBaudrate.TitleIconGap = 0;
             this.MDRM_inBaudrate.TitleIconImage = null;
@@ -990,7 +1009,7 @@ namespace LadderEditor.Forms
             this.tpMDTS.Location = new System.Drawing.Point(4, 5);
             this.tpMDTS.Name = "tpMDTS";
             this.tpMDTS.Padding = new System.Windows.Forms.Padding(7);
-            this.tpMDTS.Size = new System.Drawing.Size(990, 503);
+            this.tpMDTS.Size = new System.Drawing.Size(990, 533);
             this.tpMDTS.TabIndex = 2;
             this.tpMDTS.Text = "tabPage1";
             // 
@@ -1025,7 +1044,7 @@ namespace LadderEditor.Forms
             this.MDTS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDTS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDTS_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MDTS_tbl.Size = new System.Drawing.Size(976, 489);
+            this.MDTS_tbl.Size = new System.Drawing.Size(976, 519);
             this.MDTS_tbl.TabIndex = 1;
             // 
             // dvContainer6
@@ -1129,6 +1148,7 @@ namespace LadderEditor.Forms
             this.MDTS_inSlave.Text = "국번";
             this.MDTS_inSlave.Title = "국번";
             this.MDTS_inSlave.TitleColor = null;
+            this.MDTS_inSlave.TitleGradient = false;
             this.MDTS_inSlave.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_inSlave.TitleIconGap = 0;
             this.MDTS_inSlave.TitleIconImage = null;
@@ -1163,6 +1183,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaP.Text = "P 영역 시작주소";
             this.MDTS_lblAreaP.Title = "P 영역 시작주소";
             this.MDTS_lblAreaP.TitleColor = null;
+            this.MDTS_lblAreaP.TitleGradient = false;
             this.MDTS_lblAreaP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaP.TitleIconGap = 0;
             this.MDTS_lblAreaP.TitleIconImage = null;
@@ -1197,6 +1218,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaM.Text = "M 영역 시작주소";
             this.MDTS_lblAreaM.Title = "M 영역 시작주소";
             this.MDTS_lblAreaM.TitleColor = null;
+            this.MDTS_lblAreaM.TitleGradient = false;
             this.MDTS_lblAreaM.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaM.TitleIconGap = 0;
             this.MDTS_lblAreaM.TitleIconImage = null;
@@ -1231,6 +1253,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaT.Text = "T 영역 시작주소";
             this.MDTS_lblAreaT.Title = "T 영역 시작주소";
             this.MDTS_lblAreaT.TitleColor = null;
+            this.MDTS_lblAreaT.TitleGradient = false;
             this.MDTS_lblAreaT.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaT.TitleIconGap = 0;
             this.MDTS_lblAreaT.TitleIconImage = null;
@@ -1265,6 +1288,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaC.Text = "C 영역 시작주소";
             this.MDTS_lblAreaC.Title = "C 영역 시작주소";
             this.MDTS_lblAreaC.TitleColor = null;
+            this.MDTS_lblAreaC.TitleGradient = false;
             this.MDTS_lblAreaC.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaC.TitleIconGap = 0;
             this.MDTS_lblAreaC.TitleIconImage = null;
@@ -1299,6 +1323,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaD.Text = "D 영역 시작주소";
             this.MDTS_lblAreaD.Title = "D 영역 시작주소";
             this.MDTS_lblAreaD.TitleColor = null;
+            this.MDTS_lblAreaD.TitleGradient = false;
             this.MDTS_lblAreaD.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaD.TitleIconGap = 0;
             this.MDTS_lblAreaD.TitleIconImage = null;
@@ -1333,6 +1358,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaWP.Text = "WP 영역 시작주소";
             this.MDTS_lblAreaWP.Title = "WP 영역 시작주소";
             this.MDTS_lblAreaWP.TitleColor = null;
+            this.MDTS_lblAreaWP.TitleGradient = false;
             this.MDTS_lblAreaWP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaWP.TitleIconGap = 0;
             this.MDTS_lblAreaWP.TitleIconImage = null;
@@ -1367,6 +1393,7 @@ namespace LadderEditor.Forms
             this.MDTS_lblAreaWM.Text = "WM 영역 시작주소";
             this.MDTS_lblAreaWM.Title = "WM 영역 시작주소";
             this.MDTS_lblAreaWM.TitleColor = null;
+            this.MDTS_lblAreaWM.TitleGradient = false;
             this.MDTS_lblAreaWM.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTS_lblAreaWM.TitleIconGap = 0;
             this.MDTS_lblAreaWM.TitleIconImage = null;
@@ -1386,7 +1413,7 @@ namespace LadderEditor.Forms
             this.tpMDTM.Location = new System.Drawing.Point(4, 5);
             this.tpMDTM.Name = "tpMDTM";
             this.tpMDTM.Padding = new System.Windows.Forms.Padding(7);
-            this.tpMDTM.Size = new System.Drawing.Size(990, 503);
+            this.tpMDTM.Size = new System.Drawing.Size(990, 533);
             this.tpMDTM.TabIndex = 3;
             this.tpMDTM.Text = "tabPage2";
             // 
@@ -1395,7 +1422,9 @@ namespace LadderEditor.Forms
             this.MDTM_tbl.ColumnCount = 2;
             this.MDTM_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MDTM_tbl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.MDTM_tbl.Controls.Add(this.MDTM_inTimeout, 1, 2);
             this.MDTM_tbl.Controls.Add(this.MDTM_inRemoteIP, 0, 1);
+            this.MDTM_tbl.Controls.Add(this.MDTM_inInterval, 1, 1);
             this.MDTM_tbl.Controls.Add(this.MDTM_dgBind, 1, 5);
             this.MDTM_tbl.Controls.Add(this.dvContainer10, 0, 0);
             this.MDTM_tbl.Controls.Add(this.MDTM_dgMonitor, 0, 5);
@@ -1412,7 +1441,8 @@ namespace LadderEditor.Forms
             this.MDTM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDTM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.MDTM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MDTM_tbl.Size = new System.Drawing.Size(976, 489);
+            this.MDTM_tbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MDTM_tbl.Size = new System.Drawing.Size(976, 519);
             this.MDTM_tbl.TabIndex = 2;
             // 
             // MDTM_inRemoteIP
@@ -1437,6 +1467,7 @@ namespace LadderEditor.Forms
             this.MDTM_inRemoteIP.Text = "원격 주소";
             this.MDTM_inRemoteIP.Title = "원격 주소";
             this.MDTM_inRemoteIP.TitleColor = null;
+            this.MDTM_inRemoteIP.TitleGradient = false;
             this.MDTM_inRemoteIP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MDTM_inRemoteIP.TitleIconGap = 0;
             this.MDTM_inRemoteIP.TitleIconImage = null;
@@ -1466,7 +1497,7 @@ namespace LadderEditor.Forms
             this.MDTM_dgBind.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MDTM_dgBind.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MDTM_dgBind.ShadowGap = 1;
-            this.MDTM_dgBind.Size = new System.Drawing.Size(482, 303);
+            this.MDTM_dgBind.Size = new System.Drawing.Size(482, 333);
             this.MDTM_dgBind.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MDTM_dgBind.TabIndex = 7;
             this.MDTM_dgBind.Text = "dvDataGrid1";
@@ -1527,7 +1558,7 @@ namespace LadderEditor.Forms
             this.MDTM_dgMonitor.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MDTM_dgMonitor.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MDTM_dgMonitor.ShadowGap = 1;
-            this.MDTM_dgMonitor.Size = new System.Drawing.Size(482, 303);
+            this.MDTM_dgMonitor.Size = new System.Drawing.Size(482, 333);
             this.MDTM_dgMonitor.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MDTM_dgMonitor.TabIndex = 5;
             this.MDTM_dgMonitor.Text = "dvDataGrid2";
@@ -1663,7 +1694,7 @@ namespace LadderEditor.Forms
             this.tpMQTT.Location = new System.Drawing.Point(4, 5);
             this.tpMQTT.Name = "tpMQTT";
             this.tpMQTT.Padding = new System.Windows.Forms.Padding(7);
-            this.tpMQTT.Size = new System.Drawing.Size(990, 503);
+            this.tpMQTT.Size = new System.Drawing.Size(990, 533);
             this.tpMQTT.TabIndex = 4;
             this.tpMQTT.Text = "tabPage3";
             // 
@@ -1689,7 +1720,7 @@ namespace LadderEditor.Forms
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dvTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dvTableLayoutPanel1.Size = new System.Drawing.Size(976, 489);
+            this.dvTableLayoutPanel1.Size = new System.Drawing.Size(976, 519);
             this.dvTableLayoutPanel1.TabIndex = 3;
             // 
             // MQTT_dgPub
@@ -1709,7 +1740,7 @@ namespace LadderEditor.Forms
             this.MQTT_dgPub.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MQTT_dgPub.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MQTT_dgPub.ShadowGap = 1;
-            this.MQTT_dgPub.Size = new System.Drawing.Size(482, 303);
+            this.MQTT_dgPub.Size = new System.Drawing.Size(482, 333);
             this.MQTT_dgPub.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MQTT_dgPub.TabIndex = 7;
             this.MQTT_dgPub.Text = "dvDataGrid1";
@@ -1886,7 +1917,7 @@ namespace LadderEditor.Forms
             this.MQTT_dgSub.SelectedRowColor = System.Drawing.Color.DarkRed;
             this.MQTT_dgSub.SelectionMode = Devinno.Forms.Controls.DvDataGridSelectionMode.Single;
             this.MQTT_dgSub.ShadowGap = 1;
-            this.MQTT_dgSub.Size = new System.Drawing.Size(482, 303);
+            this.MQTT_dgSub.Size = new System.Drawing.Size(482, 333);
             this.MQTT_dgSub.SummaryRowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.MQTT_dgSub.TabIndex = 5;
             this.MQTT_dgSub.Text = "dvDataGrid2";
@@ -1914,6 +1945,7 @@ namespace LadderEditor.Forms
             this.MQTT_inRemoteIP.Text = "원격 주소";
             this.MQTT_inRemoteIP.Title = "원격 주소";
             this.MQTT_inRemoteIP.TitleColor = null;
+            this.MQTT_inRemoteIP.TitleGradient = false;
             this.MQTT_inRemoteIP.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
             this.MQTT_inRemoteIP.TitleIconGap = 0;
             this.MQTT_inRemoteIP.TitleIconImage = null;
@@ -1940,6 +1972,7 @@ namespace LadderEditor.Forms
             // dvPanel2
             // 
             this.dvPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.dvPanel2.ButtonsWidth = null;
             this.dvPanel2.Controls.Add(this.btnComms);
             this.dvPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.dvPanel2.DrawTitle = true;
@@ -2279,6 +2312,154 @@ namespace LadderEditor.Forms
             this.btnCancel.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnCancel.UseKey = false;
             // 
+            // MDRM_inInterval
+            // 
+            this.MDRM_inInterval.Button = null;
+            this.MDRM_inInterval.ButtonColor = null;
+            this.MDRM_inInterval.ButtonIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDRM_inInterval.ButtonIconGap = 0;
+            this.MDRM_inInterval.ButtonIconImage = null;
+            this.MDRM_inInterval.ButtonIconSize = 12F;
+            this.MDRM_inInterval.ButtonIconString = null;
+            this.MDRM_inInterval.ButtonTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDRM_inInterval.ButtonWidth = null;
+            this.MDRM_inInterval.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MDRM_inInterval.ErrorColor = null;
+            this.MDRM_inInterval.Location = new System.Drawing.Point(491, 39);
+            this.MDRM_inInterval.Maximum = null;
+            this.MDRM_inInterval.Minimum = null;
+            this.MDRM_inInterval.Name = "MDRM_inInterval";
+            this.MDRM_inInterval.Round = null;
+            this.MDRM_inInterval.ShadowGap = 1;
+            this.MDRM_inInterval.Size = new System.Drawing.Size(340, 30);
+            this.MDRM_inInterval.TabIndex = 8;
+            this.MDRM_inInterval.Text = "인터벌";
+            this.MDRM_inInterval.Title = "인터벌";
+            this.MDRM_inInterval.TitleColor = null;
+            this.MDRM_inInterval.TitleGradient = false;
+            this.MDRM_inInterval.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDRM_inInterval.TitleIconGap = 0;
+            this.MDRM_inInterval.TitleIconImage = null;
+            this.MDRM_inInterval.TitleIconSize = 12F;
+            this.MDRM_inInterval.TitleIconString = "";
+            this.MDRM_inInterval.TitleTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDRM_inInterval.TitleWidth = 120;
+            this.MDRM_inInterval.Unit = "";
+            this.MDRM_inInterval.UnitWidth = null;
+            this.MDRM_inInterval.Value = 0;
+            this.MDRM_inInterval.ValueColor = null;
+            // 
+            // MDRM_inTimeout
+            // 
+            this.MDRM_inTimeout.Button = null;
+            this.MDRM_inTimeout.ButtonColor = null;
+            this.MDRM_inTimeout.ButtonIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDRM_inTimeout.ButtonIconGap = 0;
+            this.MDRM_inTimeout.ButtonIconImage = null;
+            this.MDRM_inTimeout.ButtonIconSize = 12F;
+            this.MDRM_inTimeout.ButtonIconString = null;
+            this.MDRM_inTimeout.ButtonTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDRM_inTimeout.ButtonWidth = null;
+            this.MDRM_inTimeout.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MDRM_inTimeout.ErrorColor = null;
+            this.MDRM_inTimeout.Location = new System.Drawing.Point(491, 75);
+            this.MDRM_inTimeout.Maximum = null;
+            this.MDRM_inTimeout.Minimum = null;
+            this.MDRM_inTimeout.Name = "MDRM_inTimeout";
+            this.MDRM_inTimeout.Round = null;
+            this.MDRM_inTimeout.ShadowGap = 1;
+            this.MDRM_inTimeout.Size = new System.Drawing.Size(340, 30);
+            this.MDRM_inTimeout.TabIndex = 9;
+            this.MDRM_inTimeout.Text = "타임아웃";
+            this.MDRM_inTimeout.Title = "타임아웃";
+            this.MDRM_inTimeout.TitleColor = null;
+            this.MDRM_inTimeout.TitleGradient = false;
+            this.MDRM_inTimeout.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDRM_inTimeout.TitleIconGap = 0;
+            this.MDRM_inTimeout.TitleIconImage = null;
+            this.MDRM_inTimeout.TitleIconSize = 12F;
+            this.MDRM_inTimeout.TitleIconString = "";
+            this.MDRM_inTimeout.TitleTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDRM_inTimeout.TitleWidth = 120;
+            this.MDRM_inTimeout.Unit = "";
+            this.MDRM_inTimeout.UnitWidth = null;
+            this.MDRM_inTimeout.Value = 0;
+            this.MDRM_inTimeout.ValueColor = null;
+            // 
+            // MDTM_inTimeout
+            // 
+            this.MDTM_inTimeout.Button = null;
+            this.MDTM_inTimeout.ButtonColor = null;
+            this.MDTM_inTimeout.ButtonIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDTM_inTimeout.ButtonIconGap = 0;
+            this.MDTM_inTimeout.ButtonIconImage = null;
+            this.MDTM_inTimeout.ButtonIconSize = 12F;
+            this.MDTM_inTimeout.ButtonIconString = null;
+            this.MDTM_inTimeout.ButtonTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDTM_inTimeout.ButtonWidth = null;
+            this.MDTM_inTimeout.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MDTM_inTimeout.ErrorColor = null;
+            this.MDTM_inTimeout.Location = new System.Drawing.Point(491, 75);
+            this.MDTM_inTimeout.Maximum = null;
+            this.MDTM_inTimeout.Minimum = null;
+            this.MDTM_inTimeout.Name = "MDTM_inTimeout";
+            this.MDTM_inTimeout.Round = null;
+            this.MDTM_inTimeout.ShadowGap = 1;
+            this.MDTM_inTimeout.Size = new System.Drawing.Size(340, 30);
+            this.MDTM_inTimeout.TabIndex = 11;
+            this.MDTM_inTimeout.Text = "타임아웃";
+            this.MDTM_inTimeout.Title = "타임아웃";
+            this.MDTM_inTimeout.TitleColor = null;
+            this.MDTM_inTimeout.TitleGradient = false;
+            this.MDTM_inTimeout.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDTM_inTimeout.TitleIconGap = 0;
+            this.MDTM_inTimeout.TitleIconImage = null;
+            this.MDTM_inTimeout.TitleIconSize = 12F;
+            this.MDTM_inTimeout.TitleIconString = "";
+            this.MDTM_inTimeout.TitleTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDTM_inTimeout.TitleWidth = 120;
+            this.MDTM_inTimeout.Unit = "";
+            this.MDTM_inTimeout.UnitWidth = null;
+            this.MDTM_inTimeout.Value = 0;
+            this.MDTM_inTimeout.ValueColor = null;
+            // 
+            // MDTM_inInterval
+            // 
+            this.MDTM_inInterval.Button = null;
+            this.MDTM_inInterval.ButtonColor = null;
+            this.MDTM_inInterval.ButtonIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDTM_inInterval.ButtonIconGap = 0;
+            this.MDTM_inInterval.ButtonIconImage = null;
+            this.MDTM_inInterval.ButtonIconSize = 12F;
+            this.MDTM_inInterval.ButtonIconString = null;
+            this.MDTM_inInterval.ButtonTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDTM_inInterval.ButtonWidth = null;
+            this.MDTM_inInterval.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MDTM_inInterval.ErrorColor = null;
+            this.MDTM_inInterval.Location = new System.Drawing.Point(491, 39);
+            this.MDTM_inInterval.Maximum = null;
+            this.MDTM_inInterval.Minimum = null;
+            this.MDTM_inInterval.Name = "MDTM_inInterval";
+            this.MDTM_inInterval.Round = null;
+            this.MDTM_inInterval.ShadowGap = 1;
+            this.MDTM_inInterval.Size = new System.Drawing.Size(340, 30);
+            this.MDTM_inInterval.TabIndex = 10;
+            this.MDTM_inInterval.Text = "인터벌";
+            this.MDTM_inInterval.Title = "인터벌";
+            this.MDTM_inInterval.TitleColor = null;
+            this.MDTM_inInterval.TitleGradient = false;
+            this.MDTM_inInterval.TitleIconAlignment = Devinno.Forms.DvTextIconAlignment.LeftRight;
+            this.MDTM_inInterval.TitleIconGap = 0;
+            this.MDTM_inInterval.TitleIconImage = null;
+            this.MDTM_inInterval.TitleIconSize = 12F;
+            this.MDTM_inInterval.TitleIconString = "";
+            this.MDTM_inInterval.TitleTextPadding = new System.Windows.Forms.Padding(0);
+            this.MDTM_inInterval.TitleWidth = 120;
+            this.MDTM_inInterval.Unit = "";
+            this.MDTM_inInterval.UnitWidth = null;
+            this.MDTM_inInterval.Value = 0;
+            this.MDTM_inInterval.ValueColor = null;
+            // 
             // FormCommunicationInput
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2427,5 +2608,9 @@ namespace LadderEditor.Forms
         private Devinno.Forms.Controls.DvValueInputText MQTT_inRemoteIP;
         private Devinno.Forms.Containers.DvPanel dvPanel2;
         private Devinno.Forms.Controls.DvButtons btnComms;
+        private Devinno.Forms.Controls.DvValueInputInt MDRM_inTimeout;
+        private Devinno.Forms.Controls.DvValueInputInt MDRM_inInterval;
+        private Devinno.Forms.Controls.DvValueInputInt MDTM_inTimeout;
+        private Devinno.Forms.Controls.DvValueInputInt MDTM_inInterval;
     }
 }

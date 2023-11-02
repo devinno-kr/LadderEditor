@@ -373,6 +373,7 @@ namespace LadderEditor.Forms
             #region Icon
             Icon = IconTool.GetIcon(new DvIcon(TitleIconString, Convert.ToInt32(TitleIconSize)), Program.ICO_WH, Program.ICO_WH, Color.White);
             #endregion
+
         }
         #endregion
 
@@ -437,6 +438,8 @@ namespace LadderEditor.Forms
 
                 MDRM_inPort.Value = v.Port;
                 MDRM_inBaudrate.SelectedIndex = MDRM_inBaudrate.Items.Select(x => (int)x.Tag).ToList().IndexOf(v.Baudrate);
+                MDRM_inInterval.Value = v.Interval;
+                MDRM_inTimeout.Value = v.Timeout;
 
                 var vpos1 = MDRM_dgMonitor.VScrollPosition;
                 MDRM_dgMonitor.SetDataSource<ModbusMonitor>(v.Monitors);
@@ -468,6 +471,8 @@ namespace LadderEditor.Forms
                 var v = MDTM;
 
                 MDTM_inRemoteIP.Value = v.RemoteIP;
+                MDTM_inInterval.Value = v.Interval;
+                MDTM_inTimeout.Value = v.Timeout;
 
                 var vpos1 = MDTM_dgMonitor.VScrollPosition;
                 MDTM_dgMonitor.SetDataSource<ModbusMonitor>(v.Monitors);
@@ -524,6 +529,8 @@ namespace LadderEditor.Forms
             {
                 MDRM.Port = MDRM_inPort.Value;
                 MDRM.Baudrate = (int)MDRM_inBaudrate.Items[MDRM_inBaudrate.SelectedIndex].Tag;
+                MDRM.Interval = MDRM_inInterval.Value ?? 0;
+                MDRM.Timeout = MDRM_inTimeout.Value ?? 0;
             }
             #endregion
             #region MDTS
@@ -544,6 +551,8 @@ namespace LadderEditor.Forms
             if (tab.SelectedTab == tpMDTM)
             {
                 MDTM.RemoteIP = MDTM_inRemoteIP.Value;
+                MDTM.Interval = MDTM_inInterval.Value ?? 0;
+                MDTM.Timeout = MDTM_inTimeout.Value ?? 0;
             }
             #endregion
             #region MQTT
@@ -611,9 +620,13 @@ namespace LadderEditor.Forms
             {
                 var c1 = !string.IsNullOrWhiteSpace(MDRM_inPort.Value);
                 var c2 = MDRM_inBaudrate.SelectedIndex >= 0;
+                var c3 = MDRM_inInterval.Value.HasValue && MDRM_inInterval.Value >= 0;
+                var c4 = MDRM_inTimeout.Value.HasValue && MDRM_inTimeout.Value >= 0;
 
                 if (!c1) ret.Add(LM.CommErrorPort);
                 if (!c2) ret.Add(LM.CommErrorBaudrate);
+                if (!c3) ret.Add(LM.CommErrorInterval);
+                if (!c4) ret.Add(LM.CommErrorTimeout);
             }
             else if (tab.SelectedTab == tpMDTS)
             {
@@ -639,8 +652,12 @@ namespace LadderEditor.Forms
             else if (tab.SelectedTab == tpMDTM)
             {
                 var c1 = NetworkTool.ValidIPv4(MDTM_inRemoteIP.Value);
+                var c2 = MDTM_inInterval.Value.HasValue && MDTM_inInterval.Value >= 0;
+                var c3 = MDTM_inTimeout.Value.HasValue && MDTM_inTimeout.Value >= 0;
 
                 if (!c1) ret.Add(LM.CommErrorRemoteIP);
+                if (!c2) ret.Add(LM.CommErrorInterval);
+                if (!c3) ret.Add(LM.CommErrorTimeout);
             }
             else if (tab.SelectedTab == tpMQTT)
             {
@@ -682,6 +699,8 @@ namespace LadderEditor.Forms
             dvLabel4.Text = LM.Property;
             MDRM_inPort.Title = LM.Port;
             MDRM_inBaudrate.Title = LM.Baudrate;
+            MDRM_inInterval.Title = LM.Interval;
+            MDRM_inTimeout.Title = LM.Timeout;
             dvLabel3.Text = LM.Monitoring;
             MDRM_dgMonitor.Columns[0].HeaderText = LM.Slave;
             MDRM_dgMonitor.Columns[1].HeaderText = LM.FuncCode;
@@ -706,6 +725,8 @@ namespace LadderEditor.Forms
 
             dvLabel10.Text = LM.Property;
             MDTM_inRemoteIP.Title = LM.RemoteIP;
+            MDTM_inInterval.Title = LM.Interval;
+            MDTM_inTimeout.Title = LM.Timeout;
             dvLabel9.Text = LM.Monitoring;
             MDTM_dgMonitor.Columns[0].HeaderText = LM.Slave;
             MDTM_dgMonitor.Columns[1].HeaderText = LM.FuncCode;

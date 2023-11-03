@@ -22,6 +22,10 @@ namespace LadderEditor.Forms
 {
     public partial class FormMultiDownload : DvForm
     {
+        #region Const
+        const string PATH_DEVS = "multi.json";
+        #endregion
+
         #region Member Variable
         DvKeypad Keypad = new DvKeypad() { BlankForm = true, FormBorderStyle = FormBorderStyle.FixedSingle };
         FormMDDev DevInputBox = new FormMDDev();
@@ -62,11 +66,8 @@ namespace LadderEditor.Forms
             };
             #endregion
             #region Load
-            if (File.Exists("multi.json"))
-            {
-                devs = Serialize.JsonDeserializeFromFile<List<DownData>>("multi.json");
-                dg.SetDataSource<DownData>(devs);
-            }
+            LoadMulti();
+            dg.SetDataSource<DownData>(devs);
             #endregion
             #region Timer
             tmr.Interval = 10;
@@ -91,7 +92,7 @@ namespace LadderEditor.Forms
                         devs.Clear();
                         devs.AddRange(ls.Select(d => new DownData { IP = $"{a}.{b}.{c}.{d}" }));
                         dg.SetDataSource<DownData>(devs);
-                        Serialize.JsonSerializeToFile("multi.json", devs);
+                        SaveMulti(devs);
                     }
                 }
             };
@@ -145,10 +146,27 @@ namespace LadderEditor.Forms
         #endregion
 
         #region Method
+        #region ShowMultiDownload
         internal void ShowMultiDownload()
         {
             this.ShowDialog();
         }
+        #endregion
+        #region SaveMulti
+        void SaveMulti(List<DownData> devs)
+        {
+            Serialize.JsonSerializeToFile(PATH_DEVS, devs);
+        }
+        #endregion
+        #region LoadMulti
+        void LoadMulti()
+        {
+            if (File.Exists(PATH_DEVS))
+            {
+                devs = Serialize.JsonDeserializeFromFile<List<DownData>>(PATH_DEVS);
+            }
+        }
+        #endregion
         #endregion
     }
 

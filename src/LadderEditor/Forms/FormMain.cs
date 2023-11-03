@@ -39,7 +39,7 @@ namespace LadderEditor.Forms
         FormCommunication frmComm;
         FormLibrary frmLibrary;
         FormSetting frmSetting;
-        //FormMultiDownload frmMultiDown;
+        FormMultiDownload frmMultiDown;
 
         Timer tmr;
         bool bSaveFileDown = false;
@@ -58,7 +58,7 @@ namespace LadderEditor.Forms
             frmComm = new FormCommunication();
             frmLibrary = new FormLibrary();
             frmSetting = new FormSetting();
-            //frmMultiDown = new FormMultiDownload();
+            frmMultiDown = new FormMultiDownload();
             #endregion
 
             #region Grid
@@ -402,7 +402,6 @@ namespace LadderEditor.Forms
         }
         #endregion
         #region OnKeyUp
-        /*
         protected override void OnKeyUp(KeyEventArgs e)
         {
             if(e.Control && e.KeyCode == Keys.F10)
@@ -415,7 +414,6 @@ namespace LadderEditor.Forms
             }
             base.OnKeyUp(e);
         }
-        */
         #endregion
         #endregion
 

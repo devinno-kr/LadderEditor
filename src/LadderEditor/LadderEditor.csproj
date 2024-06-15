@@ -17,7 +17,7 @@
     <Version>0.0.0.4</Version>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyVersion>0.0.0.3</AssemblyVersion>
+    <AssemblyVersion></AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

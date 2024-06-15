@@ -276,6 +276,7 @@ namespace LadderEditor.Forms
                 {
                     Program.DataMgr.ProjectFolder = ret.ProjectFolder;
                     Program.DataMgr.Language = ret.Language;
+                    Program.DataMgr.DescriptionViewAll = ret.DescriptionViewAll;
                     Program.DataMgr.SaveSetting();
                 }
                 Block = false;

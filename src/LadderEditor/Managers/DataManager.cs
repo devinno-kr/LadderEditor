@@ -47,6 +47,8 @@ namespace LadderEditor.Managers
             }
         }
         #endregion
+
+        public bool DescriptionViewAll { get; set; }
         #endregion
 
         #region Event
@@ -68,6 +70,7 @@ namespace LadderEditor.Managers
             {
                 ProjectFolder = this.ProjectFolder,
                 Language = this.Language,
+                DescriptionViewAll = this.DescriptionViewAll,
             });
         }
         #endregion
@@ -79,11 +82,13 @@ namespace LadderEditor.Managers
                 var set = Serialize.JsonDeserializeFromFile<Set>(PATH_SETTING);
                 this.ProjectFolder = set.ProjectFolder;
                 this.Language = set.Language;
+                this.DescriptionViewAll = set.DescriptionViewAll;
             }
             else
             {
                 this.ProjectFolder = Path.Combine(Application.StartupPath, "devinno_ld");
                 this.Language = Lang.KO;
+                this.DescriptionViewAll = false;
             }
         }
         #endregion
@@ -98,6 +103,7 @@ namespace LadderEditor.Managers
     {
         public string ProjectFolder { get; set; }
         public Lang Language { get; set; } = Lang.NONE;
+        public bool DescriptionViewAll { get; set; } = false;
     }
     #endregion
 }

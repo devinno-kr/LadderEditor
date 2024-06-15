@@ -58,6 +58,9 @@ namespace LadderEditor.Forms
                 inLang.Title = LM.LanguageK;
                 btnOK.Text = LM.OkK;
                 btnCancel.Text = LM.CancelK;
+                inDescView.Title = LM.SyntaxDisplayK;
+                inDescView.Off = LM.SyntaxShortenedK;
+                inDescView.On = LM.SyntaxAllK;
             }
             else if (lang == Managers.Lang.EN)
             {
@@ -67,6 +70,9 @@ namespace LadderEditor.Forms
                 inLang.Title = LM.LanguageE;
                 btnOK.Text = LM.OkE;
                 btnCancel.Text = LM.CancelE;
+                inDescView.Title = LM.SyntaxDisplayE;
+                inDescView.Off = LM.SyntaxShortenedE;
+                inDescView.On = LM.SyntaxAllE;
             }
         }
         #endregion
@@ -77,6 +83,7 @@ namespace LadderEditor.Forms
 
             lblPath.Value = Program.DataMgr.ProjectFolder;
             inLang.Value = Program.DataMgr.Language == Lang.KO;
+            inDescView.Value = Program.DataMgr.DescriptionViewAll;
 
             LangSet(Program.DataMgr.Language);
 
@@ -86,6 +93,7 @@ namespace LadderEditor.Forms
                 {
                     ProjectFolder = lblPath.Value,
                     Language = inLang.Value ? Lang.KO : Lang.EN,
+                    DescriptionViewAll = inDescView.Value,
                 };
             }
 

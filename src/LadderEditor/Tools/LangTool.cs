@@ -1,4 +1,5 @@
-﻿using LadderEditor.Managers;
+﻿using Devinno.PLC.Ladder;
+using LadderEditor.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -943,6 +944,46 @@ namespace LadderEditor.Tools
         }
         #endregion
 
+        #region SyntaxDisplay
+        public const string SyntaxDisplayK = "구문 표시";
+        public const string SyntaxDisplayE = "Syntax Display";
+        public static string SyntaxDisplay
+        {
+            get
+            {
+                if (lang == Lang.KO) return SyntaxDisplayK;
+                else if (lang == Lang.EN) return SyntaxDisplayE;
+                else return "";
+            }
+        }
+        #endregion
+        #region SyntaxAll
+        public const string SyntaxAllK = "전체";
+        public const string SyntaxAllE = "All";
+        public static string SyntaxAll
+        {
+            get
+            {
+                if (lang == Lang.KO) return SyntaxAllK;
+                else if (lang == Lang.EN) return SyntaxAllE;
+                else return "";
+            }
+        }
+        #endregion
+        #region SyntaxShortened
+        public const string SyntaxShortenedK = "축약";
+        public const string SyntaxShortenedE = "Shortened";
+        public static string SyntaxShortened
+        {
+            get
+            {
+                if (lang == Lang.KO) return SyntaxShortenedK;
+                else if (lang == Lang.EN) return SyntaxShortenedE;
+                else return "";
+            }
+        }
+        #endregion
+
         #region Ok
         public const string OkK = "확인";
         public const string OkE = "Ok";
@@ -1297,118 +1338,100 @@ namespace LadderEditor.Tools
         #endregion
 
         #region LadderErrorIncomplete
-        public const string LadderErrorIncompleteK = "완성되지 않은 연결입니다.";
-        public const string LadderErrorIncompleteE = "This is an incomplete connection.";
         public static string LadderErrorIncomplete
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorIncompleteK;
-                else if (lang == Lang.EN) return LadderErrorIncompleteE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorIncompleteK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorIncompleteE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorSyntax
-        public const string LadderErrorSyntaxK = "잘못된 구문입니다.";
-        public const string LadderErrorSyntaxE = "This is an invalid syntax.";
         public static string LadderErrorSyntax
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorSyntaxK;
-                else if (lang == Lang.EN) return LadderErrorSyntaxE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorSyntaxK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorSyntaxE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorAbnormal
-        public const string LadderErrorAbnormalK = "비정상적인 연결입니다.";
-        public const string LadderErrorAbnormalE = "This is an abnormal connection.";
         public static string LadderErrorAbnormal
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorAbnormalK;
-                else if (lang == Lang.EN) return LadderErrorAbnormalE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorAbnormalK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorAbnormalE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorParenthesis
-        public const string LadderErrorParenthesisK = "괄호가 닫히지 않았습니다.";
-        public const string LadderErrorParenthesisE = "The parenthesis is not closed.";
         public static string LadderErrorParenthesis
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorParenthesisK;
-                else if (lang == Lang.EN) return LadderErrorParenthesisE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorParenthesisK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorParenthesisE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorFunction
-        public const string LadderErrorFunctionK = "함수 입력 형식이 잘못되었습니다.";
-        public const string LadderErrorFunctionE = "The function input format is incorrect.";
         public static string LadderErrorFunction
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorFunctionK;
-                else if (lang == Lang.EN) return LadderErrorFunctionE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorFunctionK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorFunctionE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorEmptyItem
-        public const string LadderErrorEmptyItemK = "입력 항목의 내용이 비어있습니다.";
-        public const string LadderErrorEmptyItemE = "The content of the input item is empty.";
         public static string LadderErrorEmptyItem
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorEmptyItemK;
-                else if (lang == Lang.EN) return LadderErrorEmptyItemE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorEmptyItemK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorEmptyItemE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorWrongAddress
-        public const string LadderErrorWrongAddressK = "잘못된 주소나 심볼이 존재합니다.";
-        public const string LadderErrorWrongAddressE = "There is an invalid address or symbol.";
         public static string LadderErrorWrongAddress
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorWrongAddressK;
-                else if (lang == Lang.EN) return LadderErrorWrongAddressE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorWrongAddressK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorWrongAddressE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorWrongFormula
-        public const string LadderErrorWrongFormulaK = "잘못된 수식이나 코드입니다.";
-        public const string LadderErrorWrongFormulaE = "This is an invalid formula or code.";
         public static string LadderErrorWrongFormula
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorWrongFormulaK;
-                else if (lang == Lang.EN) return LadderErrorWrongFormulaE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorWrongFormulaK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorWrongFormulaE;
                 else return "";
             }
         }
         #endregion
         #region LadderErrorUnknown
-        public const string LadderErrorUnknownK = "알수없는 오류";
-        public const string LadderErrorUnknownE = "Unknown error";
         public static string LadderErrorUnknown
         {
             get
             {
-                if (lang == Lang.KO) return LadderErrorUnknownK;
-                else if (lang == Lang.EN) return LadderErrorUnknownE;
+                if (lang == Lang.KO) return LadderTool.LadderErrorUnknownK;
+                else if (lang == Lang.EN) return LadderTool.LadderErrorUnknownE;
                 else return "";
             }
         }
@@ -1419,15 +1442,15 @@ namespace LadderEditor.Tools
         {
             if (lang == Lang.EN)
             {
-                if (error == LadderErrorIncompleteK) return LadderErrorIncompleteE;
-                else if (error == LadderErrorSyntaxK) return LadderErrorSyntaxE;
-                else if (error == LadderErrorAbnormalK) return LadderErrorAbnormalE;
-                else if (error == LadderErrorParenthesisK) return LadderErrorParenthesisE;
-                else if (error == LadderErrorFunctionK) return LadderErrorFunctionE;
-                else if (error == LadderErrorEmptyItemK) return LadderErrorEmptyItemE;
-                else if (error == LadderErrorWrongAddressK) return LadderErrorWrongAddressE;
-                else if (error == LadderErrorWrongFormulaK) return LadderErrorWrongFormulaE;
-                else if (error == LadderErrorUnknownK) return LadderErrorUnknownE;
+                if (error == LadderTool.LadderErrorIncompleteK) return LadderTool.LadderErrorIncompleteE;
+                else if (error == LadderTool.LadderErrorSyntaxK) return LadderTool.LadderErrorSyntaxE;
+                else if (error == LadderTool.LadderErrorAbnormalK) return LadderTool.LadderErrorAbnormalE;
+                else if (error == LadderTool.LadderErrorParenthesisK) return LadderTool.LadderErrorParenthesisE;
+                else if (error == LadderTool.LadderErrorFunctionK) return LadderTool.LadderErrorFunctionE;
+                else if (error == LadderTool.LadderErrorEmptyItemK) return LadderTool.LadderErrorEmptyItemE;
+                else if (error == LadderTool.LadderErrorWrongAddressK) return LadderTool.LadderErrorWrongAddressE;
+                else if (error == LadderTool.LadderErrorWrongFormulaK) return LadderTool.LadderErrorWrongFormulaE;
+                else if (error == LadderTool.LadderErrorUnknownK) return LadderTool.LadderErrorUnknownE;
                 else return error;
             }
             else return error;

@@ -1597,41 +1597,67 @@ namespace LadderEditor.Controls
 
             if (itm.Code != null && itm.Code != "")
             {
+                #region var
                 var str = itm.ItemType == LadderItemType.OUT_FUNC && itm.Code.StartsWith("{") ? "{ ... }" : itm.Code;
                 var sz = g.MeasureString(str, Font);
                 var bMSG = false;
-
+                #endregion
+                #region Color
                 br.Color = ItemColor;
                 if (str.Length > 0 && str.StartsWith("'") && ItemColor != Color.Magenta) { br.Color = Color.Lime; bMSG = true; }
                 if (str.Length > 0 && str.StartsWith("#") && itm.Col == 0 && ItemColor != Color.Magenta) { br.Color = Color.Orange; bMSG = true; }
+                #endregion
 
                 if (bMSG)
                 {
+                    #region Msg
                     var rtm = new RectangleF(rtMSG.Left + 10, rtMSG.Top, sz.Width + 10, rtMSG.Height);
                     strfrm.Alignment = StringAlignment.Near;
                     g.DrawString(str, Font, br, rtm, strfrm);
+                    #endregion
                 }
                 else
-                { 
-                    if (sz.Width > rt.Width && CollisionTool.Check(rtCell, MousePosition))
+                {
+                    if (Program.DataMgr?.DescriptionViewAll ?? false)
                     {
-                        var old = br.Color;
-
-                        var rtb = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height + 4), DvContentAlignment.MiddleCenter); rtb.Offset(1, 0);
-                        var rtm = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height), DvContentAlignment.MiddleCenter); rtm.Offset(0, 0);
-                        if (rtb.Right > this.Width) rtb.X = this.Width - rtb.Width - 1;
-
-                        p.Width = 1;
-                        br.Color = Color.FromArgb(30, 30, 30); g.FillRoundRectangle(br, Util.INT(rtb), 5);
-                        p.Color = Color.FromArgb(90, 90, 90); g.DrawRoundRectangle(p, Util.INT(rtb), 5);
-
-                        br.Color = old;
-                        g.DrawString(itm.Code, Font, br, rtm, strfrm);
+                        #region Message
+                        if (sz.Width > rt.Width)
+                        {
+                            var rtm = new RectangleF(rtMSG.Left, rtMSG.Top, sz.Width + 10, rtMSG.Height);
+                            strfrm.Alignment = StringAlignment.Near;
+                            g.DrawString(str, Font, br, rtm, strfrm);
+                        }
+                        else
+                        {
+                            var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
+                            g.DrawString(str, Font, br, rtm, strfrm2);
+                        }
+                        #endregion
                     }
                     else
                     {
-                        var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
-                        g.DrawString(str, Font, br, rtm, strfrm2);
+                        #region Message
+                        if (sz.Width > rt.Width && CollisionTool.Check(rtCell, MousePosition))
+                        {
+                            var old = br.Color;
+
+                            var rtb = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height + 4), DvContentAlignment.MiddleCenter); rtb.Offset(1, 0);
+                            var rtm = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height), DvContentAlignment.MiddleCenter); rtm.Offset(0, 0);
+                            if (rtb.Right > this.Width) rtb.X = this.Width - rtb.Width - 1;
+
+                            p.Width = 1;
+                            br.Color = Color.FromArgb(30, 30, 30); g.FillRoundRectangle(br, Util.INT(rtb), 5);
+                            p.Color = Color.FromArgb(90, 90, 90); g.DrawRoundRectangle(p, Util.INT(rtb), 5);
+
+                            br.Color = old;
+                            g.DrawString(itm.Code, Font, br, rtm, strfrm);
+                        }
+                        else
+                        {
+                            var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
+                            g.DrawString(str, Font, br, rtm, strfrm2);
+                        }
+                        #endregion
                     }
                 }
             }
@@ -1946,41 +1972,67 @@ namespace LadderEditor.Controls
 
             if (itm.Code != null && itm.Code != "")
             {
+                #region var
                 var str = itm.ItemType == LadderItemType.OUT_FUNC && itm.Code.StartsWith("{") ? "{ ... }" : itm.Code;
                 var sz = g.MeasureString(str, Font);
                 var bMSG = false;
-
+                #endregion
+                #region Color
                 br.Color = Color.White;
                 if (str.Length > 0 && str.StartsWith("'")) { br.Color = Color.Lime; bMSG = true; }
                 if (str.Length > 0 && str.StartsWith("#") && itm.Col == 0) { br.Color = Color.Orange; bMSG = true; }
+                #endregion
 
                 if (bMSG)
                 {
+                    #region Msg
                     var rtm = new RectangleF(rtMSG.Left + 10, rtMSG.Top, sz.Width + 10, rtMSG.Height);
                     strfrm.Alignment = StringAlignment.Near;
                     g.DrawString(str, Font, br, rtm, strfrm);
+                    #endregion
                 }
                 else
                 {
-                    if (sz.Width > rt.Width && CollisionTool.Check(rtCell, MousePosition))
+                    if (Program.DataMgr?.DescriptionViewAll ?? false)
                     {
-                        var old = br.Color;
-
-                        var rtb = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height + 4), DvContentAlignment.MiddleCenter); rtb.Offset(1, 0);
-                        var rtm = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height), DvContentAlignment.MiddleCenter); rtm.Offset(0, 0);
-                        if (rtb.Right > this.Width) rtb.X = this.Width - rtb.Width - 1;
-
-                        p.Width = 1;
-                        br.Color = Color.FromArgb(30, 30, 30); g.FillRoundRectangle(br, rtb, 5);
-                        p.Color = Color.FromArgb(90, 90, 90); g.DrawRoundRectangle(p, rtb, 5);
-
-                        br.Color = old;
-                        g.DrawString(itm.Code, Font, br, rtm, strfrm);
+                        #region Message
+                        if (sz.Width > rt.Width)
+                        {
+                            var rtm = new RectangleF(rtMSG.Left, rtMSG.Top, sz.Width + 10, rtMSG.Height);
+                            strfrm.Alignment = StringAlignment.Near;
+                            g.DrawString(str, Font, br, rtm, strfrm);
+                        }
+                        else
+                        {
+                            var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
+                            g.DrawString(str, Font, br, rtm, strfrm2);
+                        }
+                        #endregion
                     }
                     else
                     {
-                        var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
-                        g.DrawString(str, Font, br, rtm, strfrm2);
+                        #region Message
+                        if (sz.Width > rt.Width && CollisionTool.Check(rtCell, MousePosition))
+                        {
+                            var old = br.Color;
+
+                            var rtb = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height + 4), DvContentAlignment.MiddleCenter); rtb.Offset(1, 0);
+                            var rtm = Util.MakeRectangleAlign(rtMSG, new SizeF(sz.Width + 10, rtMSG.Height), DvContentAlignment.MiddleCenter); rtm.Offset(0, 0);
+                            if (rtb.Right > this.Width) rtb.X = this.Width - rtb.Width - 1;
+
+                            p.Width = 1;
+                            br.Color = Color.FromArgb(30, 30, 30); g.FillRoundRectangle(br, rtb, 5);
+                            p.Color = Color.FromArgb(90, 90, 90); g.DrawRoundRectangle(p, rtb, 5);
+
+                            br.Color = old;
+                            g.DrawString(itm.Code, Font, br, rtm, strfrm);
+                        }
+                        else
+                        {
+                            var rtm = MathTool.MakeRectangle(rtMSG, new SizeF(rt.Width, sz.Height + 0)); rtm.Offset(0, 0);
+                            g.DrawString(str, Font, br, rtm, strfrm2);
+                        }
+                        #endregion
                     }
                 }
             }

@@ -292,6 +292,7 @@ namespace LadderEditor.Controls
         Dictionary<string, MonitorValue> MonitorValues = new Dictionary<string, MonitorValue>();
         #endregion
 
+        bool bSearchMode = false;
         Point mp;
         #endregion
 
@@ -1021,7 +1022,9 @@ namespace LadderEditor.Controls
                     if (e.Control && !e.Shift && !e.Alt && e.KeyCode == Keys.F)
                     {
                         FormSearch frm = new FormSearch() { StartPosition = FormStartPosition.CenterScreen };
+                        frm.FormClosed += (o, x) => { bSearchMode = false; Invalidate(); };
                         frm.ShowSearch(this);
+                        bSearchMode = true;
                     }
                     #endregion
                     #region Enter
@@ -2146,8 +2149,8 @@ namespace LadderEditor.Controls
 
                     using (var p = new Pen(Color.Black))
                     {
-                        p.Color = Focused ? Color.Cyan : Color.FromArgb(60, Color.Cyan);
-                        p.Width = 1;
+                        p.Color = bSearchMode ? Color.Red : (Focused ? Color.Cyan : Color.FromArgb(60, Color.Cyan));
+                        p.Width = bSearchMode ? 2 : 1;
                         p.DashStyle = DashStyle.Solid;
                         g.DrawRectangle(p, rtCur);
                     }
@@ -2190,8 +2193,8 @@ namespace LadderEditor.Controls
 
                     using (var p = new Pen(Color.Black))
                     {
-                        p.Color = Focused ? Color.Cyan : Color.FromArgb(60, Color.Cyan);
-                        p.Width = 1;
+                        p.Color = bSearchMode ? Color.Red : (Focused ? Color.Cyan : Color.FromArgb(60, Color.Cyan));
+                        p.Width = bSearchMode ? 2 : 1;
                         p.DashStyle = DashStyle.Solid;
                         g.DrawRectangle(p, rtCur);
                     }
@@ -2599,6 +2602,8 @@ namespace LadderEditor.Controls
                 {
                     foreach (var v in Ladders.Where(x => x.Row >= CurRow)) EditLadderAction(v, new LadderItem() { Row = v.Row + 1, Col = v.Col, Code = v.Code, ItemType = v.ItemType, VerticalLine = v.VerticalLine });
                 }
+
+                RowCount++;
                 Invalidate();
             }
         }

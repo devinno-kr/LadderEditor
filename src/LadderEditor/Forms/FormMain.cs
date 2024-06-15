@@ -71,7 +71,7 @@ namespace LadderEditor.Forms
 
             #region Ladder Properties
             ladder.RowHeight = 36;
-            ladder.ColumnCount = 14;
+            ladder.ColumnCount = 16;
             #endregion
 
             #region Timer
@@ -178,6 +178,8 @@ namespace LadderEditor.Forms
                             if (CurrentDocument.Edit) CurrentDocument.Save();
 
                             Program.DevMgr.Download(CurrentDocument);
+
+                            CurrentDocument.Deploy = false;
                         }
                         else
                             Message(LM.ValidationCheck, LM.ValidationFail);
@@ -207,7 +209,7 @@ namespace LadderEditor.Forms
                         CurrentDocument.Title = ret.Title;
                         CurrentDocument.Description = ret.Description;
                         CurrentDocument.Version = ret.Version;
-                        CurrentDocument.Edit = true;
+                        CurrentDocument.Deploy = CurrentDocument.Edit = true;
                     }
                     Block = false;
                 }
@@ -228,7 +230,7 @@ namespace LadderEditor.Forms
                     CurrentDocument.Symbols.Clear();
                     CurrentDocument.Symbols.AddRange(ret.Symbols);
 
-                    CurrentDocument.Edit = true;
+                    CurrentDocument.Deploy = CurrentDocument.Edit = true;
                 }
                 Block = false;
             };
@@ -241,7 +243,7 @@ namespace LadderEditor.Forms
                 if (ret != null)
                 {
                     CurrentDocument.Communications = CryptoTool.EncodeBase64String(Serialize.JsonSerializeWithType(ret));
-                    CurrentDocument.Edit = true;
+                    CurrentDocument.Deploy = CurrentDocument.Edit = true;
                 }
                 Block = false;
             };
@@ -258,7 +260,7 @@ namespace LadderEditor.Forms
                     {
                         CurrentDocument.Libraries.Clear();
                         CurrentDocument.Libraries.AddRange(ret);
-                        CurrentDocument.Edit = true;
+                        CurrentDocument.Deploy = CurrentDocument.Edit = true;
                     }
 
                     Block = false;
@@ -281,7 +283,7 @@ namespace LadderEditor.Forms
             #endregion
 
             #region ladder.LadderChanged            : 레더 변경
-            ladder.LadderChanged += (o, s) => { if (CurrentDocument != null) CurrentDocument.Edit = true; };
+            ladder.LadderChanged += (o, s) => { if (CurrentDocument != null) CurrentDocument.Deploy = CurrentDocument.Edit = true; };
             #endregion
             #region gridMessage.CellMouseClick      : 에러 클릭
             gridMessage.CellMouseClick += (o, s) =>
@@ -681,6 +683,7 @@ namespace LadderEditor.Forms
             btnUpload.Enabled = b1 && IsConnected && !IsDebugging;
             btnDownload.Enabled = (b1 || b2) && (IsConnected && CurrentDocument != null) && !IsDebugging;
             btnMonitoring.Enabled = b1 && IsConnected && CurrentDocument != null;
+            btnDownload.ButtonColor = CurrentDocument?.Deploy ?? false ? Color.Green : Theme.ButtonColor;
 
             #region SizeChanged
             if (szold != this.Size)

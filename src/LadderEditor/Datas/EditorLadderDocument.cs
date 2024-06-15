@@ -15,14 +15,18 @@ namespace LadderEditor.Datas
         #region Properties
         [Newtonsoft.Json.JsonIgnore]
         public string FileName { get; set; }
+       
         [Newtonsoft.Json.JsonIgnore]
         public bool Edit { get; set; }
+       
+        [Newtonsoft.Json.JsonIgnore]
+        public bool Deploy { get; set; }
+       
         [Newtonsoft.Json.JsonIgnore]
         public string DisplayTitle => (string.IsNullOrWhiteSpace(Title) ? "NONAME" : Title) + (MustSave ? "*" : "");
+      
         [Newtonsoft.Json.JsonIgnore]
         public bool MustSave => Edit || string.IsNullOrWhiteSpace(FileName);
-
-
         #endregion
 
         #region Method

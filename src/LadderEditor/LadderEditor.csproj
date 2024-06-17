@@ -39,7 +39,7 @@
   <ItemGroup>
     <PackageReference Include="Devinno" Version="1.1.0.16" />
     <PackageReference Include="Devinno.Forms" Version="1.1.0.47" />
-    <PackageReference Include="Devinno.PLC" Version="1.0.0.14" />
+    <PackageReference Include="Devinno.PLC" Version="1.0.0.15" />
     <PackageReference Include="Devinno.PLC.Interface" Version="1.0.0.1" />
     <PackageReference Include="GuiLabs.Undo" Version="1.0.2" />
   </ItemGroup>

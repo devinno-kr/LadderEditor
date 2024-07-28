@@ -473,6 +473,18 @@ namespace LadderEditor.Tools
             }
         }
         #endregion
+        #region PortNo
+        public static string PortNo
+        {
+            get
+            {
+                if (lang == Lang.KO) return "포트 번호";
+                else if (lang == Lang.EN) return "Port Number";
+                else return "";
+            }
+        }
+        #endregion
+
         #region Baudrate
         public static string Baudrate
         {

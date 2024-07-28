@@ -220,7 +220,6 @@ namespace LadderEditor.Forms
             this.txtVersion.BorderColor = null;
             this.txtVersion.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
             this.txtVersion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtVersion.FullMode = false;
             this.txtVersion.InputType = Devinno.Forms.DvTextBoxType.Text;
             this.txtVersion.Location = new System.Drawing.Point(10, 112);
             this.txtVersion.MaxLength = 32767;
@@ -279,7 +278,6 @@ namespace LadderEditor.Forms
             this.txtTitle.BorderColor = null;
             this.txtTitle.ContentAlignment = Devinno.Forms.DvContentAlignment.MiddleCenter;
             this.txtTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtTitle.FullMode = false;
             this.txtTitle.InputType = Devinno.Forms.DvTextBoxType.Text;
             this.txtTitle.Location = new System.Drawing.Point(10, 36);
             this.txtTitle.MaxLength = 32767;

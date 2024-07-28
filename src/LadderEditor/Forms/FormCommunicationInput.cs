@@ -422,7 +422,7 @@ namespace LadderEditor.Forms
 
                 MDRS_inPort.Value = v.Port;
                 MDRS_inBaudrate.SelectedIndex = MDRS_inBaudrate.Items.Select(x => (int)x.Tag).ToList().IndexOf(v.Baudrate);
-                MDRS_inSlave.Value = Convert.ToByte(v.Slave & 0xFF);
+                //MDRS_inSlave.Value = Convert.ToByte(v.Slave & 0xFF);
                 MDRS_lblAreaP.Value = ValueTool.GetHexString(v.P_BaseAddress);
                 MDRS_lblAreaM.Value = ValueTool.GetHexString(v.M_BaseAddress);
                 MDRS_lblAreaT.Value = ValueTool.GetHexString(v.T_BaseAddress);
@@ -456,7 +456,7 @@ namespace LadderEditor.Forms
             {
                 var v = MDTS;
 
-                MDTS_inSlave.Value = Convert.ToByte(v.Slave & 0xFF);
+                //MDTS_inSlave.Value = Convert.ToByte(v.Slave & 0xFF);
                 MDTS_lblAreaP.Value = ValueTool.GetHexString(v.P_BaseAddress);
                 MDTS_lblAreaM.Value = ValueTool.GetHexString(v.M_BaseAddress);
                 MDTS_lblAreaT.Value = ValueTool.GetHexString(v.T_BaseAddress);
@@ -513,7 +513,7 @@ namespace LadderEditor.Forms
             {
                 MDRS.Port = MDRS_inPort.Value;
                 MDRS.Baudrate = (int)MDRS_inBaudrate.Items[MDRS_inBaudrate.SelectedIndex].Tag;
-                MDRS.Slave = Convert.ToInt32(MDRS_inSlave.Value);
+
 
                 if (MDRS_lblAreaP.ButtonWidth.HasValue) MDRS.P_BaseAddress = ValueTool.GetHexValue(MDRS_lblAreaP.Value) ?? 0;
                 if (MDRS_lblAreaM.ButtonWidth.HasValue) MDRS.M_BaseAddress = ValueTool.GetHexValue(MDRS_lblAreaM.Value) ?? 0;
@@ -536,7 +536,7 @@ namespace LadderEditor.Forms
             #region MDTS
             else if (tab.SelectedTab == tpMDTS)
             {
-                MDTS.Slave = Convert.ToInt32(MDTS_inSlave.Value);
+                MDTS.LocalPort = MDTS_inLocalPort.Value ?? 502;
 
                 if (MDTS_lblAreaP.ButtonWidth.HasValue) MDTS.P_BaseAddress = ValueTool.GetHexValue(MDTS_lblAreaP.Value) ?? 0;
                 if (MDTS_lblAreaM.ButtonWidth.HasValue) MDTS.M_BaseAddress = ValueTool.GetHexValue(MDTS_lblAreaM.Value) ?? 0;
@@ -596,7 +596,6 @@ namespace LadderEditor.Forms
                 var n = 0;
                 var c1 = !string.IsNullOrWhiteSpace(MDRS_inPort.Value);
                 var c2 = MDRS_inBaudrate.SelectedIndex >= 0;
-                var c3 = MDRS_inSlave.Value.HasValue && MDRS_inSlave.Value.Value >= 0 && MDRS_inSlave.Value.Value <= 255;
                 var c4 = ValueTool.GetHexValue(MDRS_lblAreaP.Value).HasValue;
                 var c5 = ValueTool.GetHexValue(MDRS_lblAreaM.Value).HasValue;
                 var c6 = ValueTool.GetHexValue(MDRS_lblAreaT.Value).HasValue;
@@ -607,7 +606,6 @@ namespace LadderEditor.Forms
 
                 if (!c1) ret.Add(LM.CommErrorPort);
                 if (!c2) ret.Add(LM.CommErrorBaudrate);
-                if (!c3) ret.Add(LM.CommErrorSlave);
                 if (!c4) ret.Add(LM.CommErrorAreaP);
                 if (!c5) ret.Add(LM.CommErrorAreaM);
                 if (!c6) ret.Add(LM.CommErrorAreaT);
@@ -631,7 +629,6 @@ namespace LadderEditor.Forms
             else if (tab.SelectedTab == tpMDTS)
             {
                 var n = 0;
-                var c1 = MDTS_inSlave.Value.HasValue && MDTS_inSlave.Value.Value >= 0 && MDTS_inSlave.Value.Value <= 255;
                 var c2 = ValueTool.GetHexValue(MDTS_lblAreaP.Value).HasValue;
                 var c3 = ValueTool.GetHexValue(MDTS_lblAreaM.Value).HasValue;
                 var c4 = ValueTool.GetHexValue(MDTS_lblAreaT.Value).HasValue;
@@ -640,7 +637,6 @@ namespace LadderEditor.Forms
                 var c7 = ValueTool.GetHexValue(MDTS_lblAreaWP.Value).HasValue;
                 var c8 = ValueTool.GetHexValue(MDTS_lblAreaWM.Value).HasValue;
 
-                if (!c1) ret.Add(LM.CommErrorSlave);
                 if (!c2) ret.Add(LM.CommErrorAreaP);
                 if (!c3) ret.Add(LM.CommErrorAreaM);
                 if (!c4) ret.Add(LM.CommErrorAreaT);
@@ -686,7 +682,6 @@ namespace LadderEditor.Forms
             dvLabel1.Text = LM.Property;
             MDRS_inPort.Title = LM.Port;
             MDRS_inBaudrate.Title = LM.Baudrate;
-            MDRS_inSlave.Title = LM.Slave;
             dvLabel2.Text = LM.MemoryMap;
             MDRS_lblAreaP.Title = "P " + LM.AreaStartAddress;
             MDRS_lblAreaM.Title = "M " + LM.AreaStartAddress;
@@ -713,8 +708,8 @@ namespace LadderEditor.Forms
             MDRM_dgBind.Columns[3].HeaderText = LM.Bind;
 
             dvLabel7.Text = LM.Property;
-            MDTS_inSlave.Title = LM.Slave;
             dvLabel6.Text = LM.MemoryMap;
+            MDTS_inLocalPort.Title = LM.PortNo;
             MDTS_lblAreaP.Title = "P " + LM.AreaStartAddress;
             MDTS_lblAreaM.Title = "M " + LM.AreaStartAddress;
             MDTS_lblAreaT.Title = "T " + LM.AreaStartAddress;
@@ -794,7 +789,7 @@ namespace LadderEditor.Forms
 
                 tm.Port = vm.Port;
                 tm.Baudrate = vm.Baudrate;
-                tm.Slave = vm.Slave;
+
                 tm.P_BaseAddress = vm.P_BaseAddress;
                 tm.M_BaseAddress = vm.M_BaseAddress;
                 tm.T_BaseAddress = vm.T_BaseAddress;
@@ -839,7 +834,8 @@ namespace LadderEditor.Forms
                 var vm = v as LcModbusTcpSlave;
                 var tm = MDTS;
 
-                tm.Slave = vm.Slave;
+                tm.LocalPort = vm.LocalPort;
+
                 tm.P_BaseAddress = vm.P_BaseAddress;
                 tm.M_BaseAddress = vm.M_BaseAddress;
                 tm.T_BaseAddress = vm.T_BaseAddress;
